@@ -46,6 +46,13 @@ https://www.bioself.com.ar/
 https://www.https://www.zelucash.com
 https://www.naldo.com.ar
 https://tienda.movistar.com.ar/
+https://tecbox.com.ar/servicios/
+
+### Figma (wireframes)📋
+HOME - CREAR CUENTA - CARRITO DE COMPRAS: https://www.figma.com/file/EdMVUv4Ff9ZWcyz0BWlAxL/Team-Celular?node-id=0%3A1 
+DETALLE DE PRODUCTO : https://www.figma.com/file/1y5RKULbuookNA2HVF6w5m/Team-Celular-part-2?node-id=0%3A1
+
+
 ### Trello 📋
 https://trello.com/b/nzCz8gFM/tp-digital-house
 
