@@ -10,6 +10,9 @@ body{
     margin: 0;
     margin-left: -4px;
 }
+.header-desktop{
+    display: none;
+}
 
 a{
     color: black;
@@ -129,8 +132,36 @@ footer{
 .pipe{
     display: none;
 }
+
 /* fin btn what */
 
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.p-home{
+    padding: 10%;
+}
+section img{
+    width: 100%;
+}
+.title-products{
+    font-weight: bold;
+    font-size: 18px;
+}
+.box-products{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box-products img{
+    width: 25%;
+}
+.text-center{
+    text-align: center;
+}
 @media(min-width: 481px){ 
     /*tablets*/
    
@@ -139,6 +170,7 @@ footer{
     }
     .nav-bar-major{
         display: flex;
+        justify-content: center;
     }
     .pipe{
         display: inline-block;
@@ -146,11 +178,41 @@ footer{
     footer{
         border-top: 1px solid #e9ecef;
         padding-top: 2%;
-        justify-content: space-evenly;
+        justify-content: space-around;
         flex-direction: row;
     }
     .padding-0-no-mobile{
         padding: 0;
+    }
+
+    .home-desktop{
+        flex-direction: row;
+    }
+    .hedaer-mobile{
+        display: none;
+    }
+    .header-desktop{
+        display: block;
+    }
+
+    .nav-bar-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .form-nav {
+        display: inline!important;
+        margin-left: 5%;
+        margin-bottom: 0;
+    }
+
+    .ul-count li {
+        padding: 15px;
+        margin-right: 0;
+    }
+    .search {
+        border: 5px solid#1259c3;
     }
 }
 
@@ -161,15 +223,42 @@ footer{
     }
     .nav-bar-major{
         display: flex;
+        justify-content: center;
     }
     .pipe{
         display: inline-block;
+    }
+    .nav-bar-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
     footer{
         justify-content: space-evenly;
         flex-direction: row;
     }
+
+    .ul-count li {
+        padding: 15px;
+    }
     .padding-0-no-mobile{
         padding: 0;
+    }
+    .header-mobile{
+        display: none;
+    }
+    .header-desktop{
+        display: block;
+        flex-direction: row;
+    }
+    .form-nav {
+        display: inline!important;
+        margin-left: 5%;
+        margin-bottom: 0;
+    }
+
+    .search {
+        border: 5px solid#1259c3;
     }
 }
