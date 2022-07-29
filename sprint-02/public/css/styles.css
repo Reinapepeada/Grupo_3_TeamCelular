@@ -35,9 +35,12 @@ a{
     display: flex;
     width: 10%;
     margin-left: 8%;
-
+    color: white;
 }
-
+.fa-solid{
+   
+    margin: auto;
+}
 .cont-burger{
     text-align: center;
     padding: 20px;
@@ -214,12 +217,20 @@ section img{
     .search {
         border: 5px solid#1259c3;
     }
+    .p-4{
+        padding: 4px;
+    }
+    .li-mobile-nav-bar{
+        margin-bottom: 2%;
+    }
+  
 }
 
 @media(min-width: 769px){ 
     
     .cont-burger{
         display: none;
+        
     }
     .nav-bar-major{
         display: flex;
