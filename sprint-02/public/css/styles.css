@@ -114,6 +114,10 @@ footer{
     margin: 0 3% ;  
 }
 
+.text-center ul{
+    display: none;
+}
+
 /*boton de what sapp*/
 .float{
 	position:fixed;
@@ -169,9 +173,8 @@ section img{
 
 .box-products h2{
     position: absolute;
-    background-color: rgba(0,0,0,0.5);
-    background-color: black;
-    opacity: 0.7;
+    background-color: rgb(184, 206, 243);
+    opacity: 0.6;
     color: white;
     height: 62%;
     padding: 1%;
@@ -276,6 +279,16 @@ section img{
     .li-mobile-nav-bar{
         margin-bottom: 2%;
     }
+    .text-center ul{
+        display: block;
+        margin-top: 30%;
+        margin: auto;
+        padding: 0 10%;
+      }
+      .text-center ul li{
+          top: 40px;
+          list-style: none;
+      }
   
 }
 
@@ -328,4 +341,11 @@ section img{
     .search {
         border: 5px solid#1259c3;
     }
+    .text-center ul{
+        margin-top: 30%;
+      }
+      .text-center ul li{
+          top: 40px;
+          list-style: none;
+      }
 }
