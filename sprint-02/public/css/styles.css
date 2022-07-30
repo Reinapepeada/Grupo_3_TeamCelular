@@ -72,6 +72,9 @@ nav ul li a{
     text-align: center;
 }
 
+.title-products-hover{
+    display:none;
+}
 footer{
     display: flex;
    flex-direction: column;
@@ -142,6 +145,7 @@ footer{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 17%;
 }
 .p-home{
     padding: 10%;
@@ -152,21 +156,67 @@ section img{
 .title-products{
     font-weight: bold;
     font-size: 18px;
+    text-align: center;
 }
 .box-products{
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    margin: 1%;
+    
 }
+
+.box-products h2{
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    background-color: black;
+    opacity: 0.7;
+    color: white;
+    height: 62%;
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    transition: opacity 800ms;
+    -webkit-transition: opacity 800ms;
+    -moz-transition: opacity 800ms;
+    -ms-transition: opacity 800ms;
+    -o-transition: opacity 800ms;
+    margin: 0;
+    height: -webkit-fill-available;
+    box-sizing: border-box;
+    padding: 8%;
+}
+.box-products:hover{
+    border: 1px solid rgb(166, 162, 162);
+    box-sizing: border-box;
+}
+.box-products:hover h2{
+    box-sizing: border-box;
+    opacity: 0;
+} 
+.box-products:hover .title-products-hover{
+   display: block;
+   background-color: rgb(164, 194, 246);
+   padding: 0;
+   box-sizing: border-box;
+   position: absolute;
+   width: 100%;
+   padding: 2%;
+} 
 
 .box-products img{
     width: 25%;
-}
+}   
 .text-center{
     text-align: center;
 }
-@media(min-width: 481px){ 
-    /*tablets*/
+
+
+  /*tablets*/
+  
+@media(min-width: 780px){ 
+  
    
     .cont-burger{
         display: none;
@@ -198,6 +248,9 @@ section img{
         display: block;
     }
 
+    .home{
+        margin: 0;
+    }
     .nav-bar-container{
         display: flex;
         flex-direction: row;
@@ -226,7 +279,7 @@ section img{
   
 }
 
-@media(min-width: 769px){ 
+@media(min-width: 788px){ 
     
     .cont-burger{
         display: none;
@@ -244,6 +297,9 @@ section img{
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+    }
+    .home{
+        margin: 0;
     }
     footer{
         justify-content: space-evenly;
