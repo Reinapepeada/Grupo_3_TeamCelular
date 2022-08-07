@@ -1,28 +1,77 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
+/* paleta de colores */
+
+:root{
+    --midnight-blue: hsla(239, 94%, 19%, 1);
+    --dark-cornflower-blue: hsla(214, 97%, 27%, 1);
+    --star-command-blue: hsla(201, 100%, 36%, 1);
+    --blue-green: hsla(195, 100%, 39%, 1);
+    --pacific-blue: hsla(190, 100%, 42%, 1);
+    --sky-blue-crayola: hsla(190, 74%, 59%, 1);
+    --middle-blue: hsla(189, 75%, 75%, 1);
+    --blizzard-blue: hsla(190, 76%, 82%, 1);
+    --light-cyan: hsla(190, 77%, 88%, 1);
+    --cultured: #f8f9faff;
+    --cultured-2: #e9ecefff;
+    --gainsboro: #dee2e6ff;
+}
+
 body{
     font-family: 'Ubuntu', sans-serif;
 }
+
+.logoImg{
+    width: 3rem;
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-right: 2rem;
+}
+/* organizando el formulario del nav */
 .search{
-    background-color:#1259c3;
-    display: inline;
-    border: 4px solid#1259c3;
-    margin: 0;
-    margin-left: -4px;
+    background-color:white;
+    padding: 0.3rem;
+    border: 0;
+}
+.searchIcon{
+    color: black;
+    background-color:white;
+    padding: 0.29rem;
+
+}
+.form-nav{
+    display: flex;
+    align-items:flex-start;
+    
+}
+/* organizando la primera seccion del nav */
+.section-nav{
+    display: flex;
+    justify-content: space-between;
+    background-color:rgb(35, 35, 35);
+    width: 100%;
+    padding-left: 0;
+    align-items: center;
+}
+.itemsNav{
+    margin: 0.5rem;
 }
 .header-desktop{
     display: none;
 }
 .nav-bar-major{
     display: none;
+    margin: 0;
+    padding: 0;
 }
 
-nav{
+nav ul{
     display: flex;
     justify-content: center;
 }
 a{
-    color: black;
+    color: white;
+    text-decoration: none;   
 }
 .d-flex{
     display: flex;
@@ -32,10 +81,7 @@ a{
     width: 81%;
     justify-content: end;
 }
-.ul-count li{
-    margin-right: 2%;
-    margin-top: 5%;
-}
+
 .burger-menu {
     background-color: black;
     border-radius: 3px;
@@ -45,38 +91,42 @@ a{
     -o-border-radius: 3px;
     padding: 8px;
     display: flex;
-    width: 10%;
+    width: 1.5rem;
+    height: 1rem;
     margin-left: 8%;
     color: white;
 }
 .fa-solid{
-   
     margin: auto;
 }
 .cont-burger{
-    text-align: center;
+    background-color: var(--cultured-2);
+    align-items: center;
     padding: 20px;
+    margin: 0.2rem;
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     border-top: 1px solid rgb(120, 120, 120);
     border-bottom: 1px solid rgb(120, 120, 120);
 }
+.cont-burger div a{
+color: black;
+margin-right: 1rem;
+}
 
 nav ul li {
    list-style: none;
-   padding: 1%;
+   
 }
 
 nav ul li a{
     text-transform:uppercase;
+    font-size: 1rem;
+    margin: 1rem;
  }
 
-.form-nav{
-    display: flex!important;
-    margin-left: 10%;
-    margin-bottom: 15px;
-}
+
 
 .title-pay{
   /*  padding-left:15px;*/
@@ -296,7 +346,7 @@ section img{
     position: absolute;
     background: white;
     color: black;
-    opacity: .8;
+    opacity: 0.8;
     padding: 2%;
     opacity: .8;
 }
@@ -311,6 +361,10 @@ section img{
    nav{
     flex-wrap: wrap;
    }
+   nav ul li a{
+    text-transform:uppercase;
+    font-size: 1rem;
+   }
     .cont-burger{
         display: none;
     }
@@ -323,9 +377,9 @@ section img{
     }
     .ul-count{
         display: inline-flex;
-        width: 44%;
-       
+        width:30%;
     }
+   
     footer{
         border-top: 1px solid #e9ecef;
         padding-top: 2%;
@@ -353,24 +407,11 @@ section img{
         justify-content: space-between;
         align-items: center;
     }
-    .form-nav {
-        display: inline!important;
-        margin-left: 5%;
-        margin-bottom: 0;
-    }
+    
 
-    .ul-count li {
-        padding: 15px;
+    .ul-count li a {
+        padding: 0;
         margin-right: 0; 
-    }
-    .search {
-        border: 5px solid#1259c3;
-    }
-    .p-4{
-        padding: 4px;
-    }
-    .li-mobile-nav-bar{
-        margin-bottom: 2%;
     }
     .text-center ul{
         display: block;
@@ -391,9 +432,15 @@ section img{
         display: none;
         
     }
+    nav ul li a{
+        text-transform:uppercase;
+        font-size: 1rem;
+        margin: 0%;
+     }
     .nav-bar-major{
         display: flex;
         justify-content: center;
+        align-items: baseline;
     }
     .pipe{
         display: inline-block;
@@ -417,25 +464,19 @@ section img{
     }
 
     .ul-count{
-        margin-left: 26%;
-        width: 44%;
-    }
-    .ul-count li {
-        padding: 15px;
+       justify-content: end;
+
     }
     .padding-0-no-mobile{
         padding: 0;
     }
 
     .form-nav {
-        display: inline!important;
         margin-left: 5%;
         margin-bottom: 0;
+        
     }
 
-    .search {
-        border: 5px solid#1259c3;
-    }
     .text-center ul{
         margin-top: 30%;
       }
