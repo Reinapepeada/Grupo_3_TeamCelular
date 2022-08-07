@@ -20,15 +20,19 @@ app.listen(3000,()=>{
 })
 
 app.get('/', (req, res)=>{ 
-    let htmlPath  = path.join(__dirname,'views/home.html');
+    let htmlPath  = path.join(__dirname,'./views/index.html');
     res.sendFile(htmlPath);
  })
 app.get('/productos', (req, res)=>{ 
-    let htmlPath  = path.join(__dirname,'views/productos.html');
+    let htmlPath  = path.join(__dirname,'./views/productos.html');
     res.sendFile(htmlPath);
  })
 app.get('/crear-cuenta', (req, res)=>{ 
-    let htmlPath  = path.join(__dirname,'views/crearCuenta.html');
+    let htmlPath  = path.join(__dirname,'./views/crearCuenta.html');
+    res.sendFile(htmlPath);
+ })
+ app.get('/carrito', (req, res)=>{ 
+    let htmlPath  = path.join(__dirname,'./views/carrito.html');
     res.sendFile(htmlPath);
  })
 /*
