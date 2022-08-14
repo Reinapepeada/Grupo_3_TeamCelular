@@ -375,11 +375,10 @@ section img{
 
 .box-products h2{
     position: absolute;
-    background-color: rgb(161, 164, 168);
-    opacity: 0.7;
-    color: white;
+    background-color: rgb(210, 213, 217);
+    opacity: 0.1;
+    color: black;
     height: 62%;
-    padding: 1%;
     display: flex;
     align-items: start;
     padding: 2%;
