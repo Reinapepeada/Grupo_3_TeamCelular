@@ -1,48 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/8f1f294b9c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/styles.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/8f1f294b9c.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/styles.css">
 
-    <title>Sprint 2 - Equipo 3</title>
-</head>
-<body>
- 
-</a>
-    <header class="header-mobile">
-        <nav>    
-            <div><img src="../img/logo.jpg"></div>
-            <ul class="ul-count">
-                <li><a href="crear-cuenta">Crear Cuenta  |</a></li>
-                <li><a href="login"> Iniciar Sesión </a></li>
-            </ul> 
-           
-            <ul class="nav-bar-major">
-                <li class="li-mobile-nav-bar"><a class="d-flex" href="#">inicio  <span class="pipe">|</span></a></li>
-                <li class="li-mobile-nav-bar"><a class="d-flex" href="#"> productos <span class="pipe">|</span></a></li>
-                <li class="li-mobile-nav-bar"><a class="d-flex" href="#"> servicios <span class="pipe">|</span> </a></li>
-                <li class="li-mobile-nav-bar"><a class="d-flex" href="#">contacto <span class="pipe">|</span></a></li>
-                <li class="li-mobile-nav-bar"><a class="d-flex" href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
-           </ul>
-          
-        </nav>
-        <div class="cont-burger">
-            <div class="burger-menu">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-            <div><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></div>
-        </div>
-        <form action="" method="get" class="form-nav">
-            <input type="text" name="search" placeholder="Buscar ..." class="p-4">
-            <div class="search">
-                <a href="#"><i class="text-light fa-solid fa-magnifying-glass p-4"></i></a></i>
-            </div>
-       </form>   
-    </header>
+        <title>Sprint 2 - Equipo 3</title>
+    </head>
+    <body>
 
+    <!-- comienzo del nav -->
+
+        <header class="header-mobile">
+            <nav>    
+                <div class="section-nav">
+                <img class="logoImg" src="../img/teamCelularPNG.png">
+                
+                <ul class="nav-bar-major">
+                    <li class="li-mobile-nav-bar"><a class="d-flex itemsNav" href="#"> Home <span class="pipe">|</span> </a></li>
+                   
+                    <li class="li-mobile-nav-bar nav-products"><a href="#">Productos <span class="pipe">|</span></a> 
+                        <ul>
+                            <li><a href="">Ver todos los productos</a></li>
+                            <li><a href="">Smartwatch</a></li>
+                            <li><a href="">Celulares</a></li> 
+                            <li><a href="">Auriculares</a></li>   
+                            <li><a href="">Accesorios</a></li>
+                            </ul>
+                    </li>
+                    <li class="li-mobile-nav-bar"><a class="d-flex itemsNav" href="#"> servicios  </a></li>
+                    <li class="li-mobile-nav-bar"><a class="d-flex itemsNav" href="#">contacto </a></li>
+                    <li class="li-mobile-nav-bar"><a class="d-flex itemsNav" href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                </ul>
+                <div>
+                    <form method="GET" action="/search"class=""> 
+                        <div class="uk-grid-collapse uk-flex-center uk-grid busquedaNav" uk-grid="">
+                            <div class="uk-width-1-2@s uk-width-3-5 uk-first-column">
+                                <div class="field field--search">
+                                    <input type="text" name="q" min-length="2" id="search" class="field__input border-radius header-search__input field__input--right-button" autocomplete="off" placeholder="Buscar..." required="">
+                                </div>
+                            </div>
+                            <div class="uk-width-auto@s uk-width-auto">
+                                <button type="submit" id="search-btn" class="button uk-button-input--no-radius button--full background--primary background--primary-hover contrast_text--primary contrast_text--primary-hover uk-button uk-button-input border-radius" data-label="<i class=&quot;fas fa-search&quot;></i>" data-spinner-ratio="0.75">
+            
+                                    <i class="fas fa-search" aria-hidden="true"></i>
+                                </button>                    
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <ul class="ul-count d-flex itemLog">
+                    <li><a href="crear-cuenta">Registrarse </a></li>
+                    <li><a href="login">Iniciar Sesión</a></li>
+                </ul>        
+            </nav>
+            <div class="cont-burger">
+                <div class="burger-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div><a href="/sprint-02/views/carrito.html"><i class="fa-solid fa-cart-shopping"></i></a></div>
+            </div>
+        </header>
+        
+        <!-- término del nav -->
     <main>
         <form action="/servicios" method="post" class="form-services">
             <div>
