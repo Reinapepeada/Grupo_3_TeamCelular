@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+/* hola prueba de 15/08/2022*/
 /* paleta de colores */
 
 :root{
@@ -96,7 +98,7 @@ a{
     color: white;
 }
 .fa-solid{
-    margin: auto;
+    margin-right: 8px;
 }
 .cont-burger{
     background-color: var(--cultured-2);
@@ -121,8 +123,8 @@ nav ul li {
 
 nav ul li a{
     text-transform:uppercase;
-    font-size: 0.8rem;
-    margin: 0.3rem;
+    font-size: 1rem;
+    margin: 1rem;
  }
 
 
@@ -141,13 +143,13 @@ footer{
 
 .container-nets{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin: 2%;
 }
 .net ul li{
     list-style: none;
-    margin-right: 42%;
-    font-size: 18px;
+    margin-right: -7%;
+    font-size: 15px;
 }
 
 .nets{
@@ -155,8 +157,16 @@ footer{
     margin: 0;
     padding: 2%;
 }
+.nets a{
+    color: black;
+    margin-right: 15px;
+}
+
 .contact{
     padding:2%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 .contact li{
@@ -166,7 +176,7 @@ footer{
 
 .ul-pay{
     display:flex;
-   
+   justify-content: center;
 }
 .list-pay{
     list-style: none;
@@ -223,17 +233,20 @@ section img{
 }
 .title-products{
     font-weight: bold;
-    font-size: 18px;
     text-align: center; 
     position: absolute;
     margin: 2%;
     color: black;
     opacity: .8;
-    padding: 2%;
     background-color: white;
     opacity: .6;
-    padding: 3%;
     align-items: start;
+    z-index: 1;
+    font-size: 0.8rem;
+    padding: 8%!important;
+}
+.box-products p{
+    z-index: 1;
 }
 
 .box-products{
@@ -242,15 +255,14 @@ section img{
     flex-direction: column;
     align-items: center;
     position: relative;
-    margin:1%
-    
+    margin:2%;
+    width:40%;
 }
 
 .box-products h2{
     position: absolute;
-    background-color: rgb(184, 206, 243);
-    opacity: 0.7;
-    color: white;
+    background-color: rgba(230, 233, 237,1);
+    color: black;
     height: 62%;
     padding: 1%;
     display: flex;
@@ -270,7 +282,7 @@ section img{
     box-sizing: border-box;
     background-color: white;
     opacity: 0.3;
-    color: black;
+    color: rgb(22, 11, 66);
     border: 1px solid black;
     transition: all 450ms;
     -webkit-transition: all 450ms;
@@ -353,10 +365,40 @@ section img{
 .nuestrosh2{
     text-align: center;
 }
+/* page products*/
+.filter-search{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.filter-search select{
+    height: 38px;
+}
+
+.ul-list-categorys{
+    display: none;
+}
+.ul-list-categorys li{
+    list-style: none;
+    margin: 6px 0;
+}
+
+.main-products{
+    display: flex;
+    margin-top: 2%;
+    justify-content: center;
+}
+.page-products-products-detail{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* fin page products*/
+
+
   /*tablets*/
-  
 @media(min-width: 780px){ 
-  
    nav{
     flex-wrap: wrap;
    }
@@ -422,8 +464,19 @@ section img{
           top: 40px;
           list-style: none;
       }
+
+      .ul-list-categorys{
+        display: block;
+    }
+    /*page products*/
+    .page-products-products-detail {
+        
+    }
+
+    /* end page products*/
   
 }
+
 
 @media(min-width: 788px){ 
     
@@ -483,4 +536,10 @@ section img{
           top: 40px;
           list-style: none;
       }
+
+      /*page products categorys */
+      .ul-list-categorys{
+        display: block;
+    }
+
 }
