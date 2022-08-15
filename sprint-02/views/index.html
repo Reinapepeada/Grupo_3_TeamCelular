@@ -10,50 +10,25 @@
         <title>Sprint 2 - Equipo 3</title>
     </head>
     <body>
-
     <!-- comienzo del nav -->
 
         <header class="header-mobile">
             <nav>    
                 <div class="section-nav">
-                <img class="logoImg" src="../img/teamCelularPNG.png">
-                
+                <img class="logoImg" src="../img/teamCelularPNG2.png">
                 <ul class="nav-bar-major">
-                    <li class="li-mobile-nav-bar"><a class="d-flex itemsNav" href="#"> Home <span class="pipe">|</span> </a></li>
-                   
-                    <li class="li-mobile-nav-bar nav-products"><a href="#">Productos <span class="pipe">|</span></a> 
-                        <ul>
-                            <li><a href="">Ver todos los productos</a></li>
-                            <li><a href="">Smartwatch</a></li>
-                            <li><a href="">Celulares</a></li> 
-                            <li><a href="">Auriculares</a></li>   
-                            <li><a href="">Accesorios</a></li>
-                            </ul>
-                    </li>
+                    <li class="li-mobile-nav-bar"><a class="d-flex itemsNav" href="#">inicio  </a></li>
+                    <li class="li-mobile-nav-bar"><a class="d-flex itemsNav" href="#"> productos </a></li>
                     <li class="li-mobile-nav-bar"><a class="d-flex itemsNav" href="#"> servicios  </a></li>
                     <li class="li-mobile-nav-bar"><a class="d-flex itemsNav" href="#">contacto </a></li>
                     <li class="li-mobile-nav-bar"><a class="d-flex itemsNav" href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <form action="" method="get" class="form-nav">
+                    <input type="text" name="busqueda" placeholder="Buscar ..." class="search">
+                    <a href="#"><i class="text-light fa-solid fa-magnifying-glass p-4 searchIcon"></i></a></i>       
+                    </form> 
                 </ul>
-                <div>
-                    <form method="GET" action="/search"class=""> 
-                        <div class="uk-grid-collapse uk-flex-center uk-grid busquedaNav" uk-grid="">
-                            <div class="uk-width-1-2@s uk-width-3-5 uk-first-column">
-                                <div class="field field--search">
-                                    <input type="text" name="q" min-length="2" id="search" class="field__input border-radius header-search__input field__input--right-button" autocomplete="off" placeholder="Buscar..." required="">
-                                </div>
-                            </div>
-                            <div class="uk-width-auto@s uk-width-auto">
-                                <button type="submit" id="search-btn" class="button uk-button-input--no-radius button--full background--primary background--primary-hover contrast_text--primary contrast_text--primary-hover uk-button uk-button-input border-radius" data-label="<i class=&quot;fas fa-search&quot;></i>" data-spinner-ratio="0.75">
-            
-                                    <i class="fas fa-search" aria-hidden="true"></i>
-                                </button>                    
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <ul class="ul-count d-flex itemLog">
-                    <li><a href="crear-cuenta">Registrarse </a></li>
+                <ul class="ul-count d-flex">
+                    <li><a href="crear-cuenta">Crear Cuenta </a></li>
                     <li><a href="login">Iniciar Sesión</a></li>
                 </ul>        
             </nav>
@@ -68,47 +43,41 @@
         <!-- término del nav -->
 
         <main>
-            <section class="sections">
+            <section class="categorys">
                 <div class="categorys-article">
-                    <article class="category">
-                        <div class="background-img">
-                            <img src="../img/smartwatch.jpg"  alt="imagen categoria smartwatch" class="article-img-0">
+                    <article>
+                        <div>
                             <h2>Smartwatch</h2>
+                            <img src="../img/smartwatch.jpg" width="600px" alt="imagen categoria smartwatch">
                         </div>
                     </article>
-                    <article class="category">
-                        <div class="background-img">
-                            <img src="../img/celulares.jpg" alt="imagen categoria celulares" class="article-img-0">
+                    <article>
+                        <div>
                             <h2>Celulares</h2>
+                            <img src="../img/celulares.jpg" alt="imagen categoria celulares">
                         </div>               
                     </article>
                 </div>
                 
-                    <div class="categorys-article1">
-                        <article class="categorys-row">
-                            <div class="backgroundBlack">
-                                <div class="categorys-row-div">
-                                    <img src="../img/auriculares.jpg" alt="imagen categoria auriculares" class="article-img-1">
-                                    <h2>Auriculares</h2>
-                                </div>
-                            </div>   
-                            <div class="container">  
-                                <div class="backgroundBlack">
-                                    <div class="categorys-row-div">
-                                        <img src="../img/accesorios.jpg" class="w-85 article-img-1" alt="imagen categoria accesorios">
-                                        <h2>Accesorios</h2>
-                                    </div>  
-                                </div>
-                            </div>       
-                        </article>
-                    </div>
+                    <div class="categorys-article"></div>
+                    <article class="categorys-row">
+                        <div class="categorys-row-div">
+                            <h2>Auriculares</h2>
+                            <img src="../img/auriculares.jpg" alt="imagen categoria auriculares">
+                        </div>     
+        
+                        <div class="categorys-row-div">
+                            <h2>Accesorios</h2>
+                            <img src="../img/accesorios.jpg" class="w-85" alt="imagen categoria accesorios">
+                        </div>         
+                    </article>
             </section>
             <h2 class="nuestrosh2">Nuestros Productos</h2>
             <section class="home home-desktop">
             
                 <div class="box-products">
                     <div class="text-center">
-                        <!-- <p> class="title-products-hover">Samsung Galaxy A32 128 GB</p> -->
+                        <!-- <p class="title-products-hover">Samsung Galaxy A32 128 GB</p> -->
                 
                         <a href="#">
                             <img src="../img/01-cel.jpg" alt="Imagen de Celular A32">
@@ -119,13 +88,13 @@
                         <!-- <p>Pantalla super AMOLED de 6.4". Con 4 cámaras traseras y 1 cámara delantera. Batería de 500mAh. Memoria interna de 128gb'</p> -->
                 </div>
                 <div class="box-products">
-                    <h2 class="title-products">Samsung Galaxy A45 156 GB</h2>
                     <div class="text-center">    
                     
                         <a href="#">
                             <img src="../img/02-cel.jpg" alt="Imagen de Celular A32">
                         </a>
                     </div>
+                    <h2 class="title-products">Samsung Galaxy A45 156 GB</h2>
                     <p>$89.999</p>
                         <!-- <p>Pantalla super AMOLED de 6.4". Con 4 cámaras traseras y 1 cámara delantera. Batería de 500mAh. Memoria interna de 128gb'</p> -->
                 </div>
@@ -170,29 +139,6 @@
                         </a>
                     </div>
                     <h2 class="title-products">Samsung Galaxy A45 156 GB</h2>
-                    <p>$89.999</p>
-                        <!-- <p>Pantalla super AMOLED de 6.4". Con 4 cámaras traseras y 1 cámara delantera. Batería de 500mAh. Memoria interna de 128gb'</p> -->
-                </div>
-                <div class="box-products">
-                    <div class="text-center">
-                        <!-- <p> class="title-products-hover">Samsung Galaxy A32 128 GB</p> -->
-                
-                        <a href="#">
-                            <img src="../img/01-cel.jpg" alt="Imagen de Celular A32">
-                        </a>
-                    </div>
-                    <h2 class="title-products">Samsung Galaxy A32 128 GB</h2>
-                    <p>$69.999</p>
-                        <!-- <p>Pantalla super AMOLED de 6.4". Con 4 cámaras traseras y 1 cámara delantera. Batería de 500mAh. Memoria interna de 128gb'</p> -->
-                </div>
-                <div class="box-products">
-                    <h2 class="title-products">Samsung Galaxy A45 156 GB</h2>
-                    <div class="text-center">    
-                    
-                        <a href="#">
-                            <img src="../img/02-cel.jpg" alt="Imagen de Celular A32">
-                        </a>
-                    </div>
                     <p>$89.999</p>
                         <!-- <p>Pantalla super AMOLED de 6.4". Con 4 cámaras traseras y 1 cámara delantera. Batería de 500mAh. Memoria interna de 128gb'</p> -->
                 </div>
