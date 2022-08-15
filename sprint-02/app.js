@@ -35,6 +35,10 @@ app.get('/crear-cuenta', (req, res)=>{
     let htmlPath  = path.join(__dirname,'./views/carrito.html');
     res.sendFile(htmlPath);
  })
+ app.get('/services', (req, res)=>{ 
+    let htmlPath  = path.join(__dirname,'./views/services.html');
+    res.sendFile(htmlPath);
+ })
 <<<<<<< Updated upstream
  app.get('/detalles', (req, res)=>{ 
     let htmlPath  = path.join(__dirname,'./views/detalles.html');
