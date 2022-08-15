@@ -35,10 +35,18 @@ app.get('/crear-cuenta', (req, res)=>{
     let htmlPath  = path.join(__dirname,'./views/carrito.html');
     res.sendFile(htmlPath);
  })
+<<<<<<< Updated upstream
  app.get('/detalles', (req, res)=>{ 
     let htmlPath  = path.join(__dirname,'./views/detalles.html');
     res.sendFile(htmlPath);
  })
+=======
+
+app.get('/detalles', (req, res)=>{ 
+    let htmlPath  = path.join(__dirname,'./views/productDetail.html');
+    res.sendFile(htmlPath);
+})
+>>>>>>> Stashed changes
 /*
 let productos = require('./productos')
 
