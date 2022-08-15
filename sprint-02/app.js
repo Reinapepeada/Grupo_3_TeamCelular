@@ -23,7 +23,7 @@ app.get('/', (req, res)=>{
     let htmlPath  = path.join(__dirname,'./views/index.html');
     res.sendFile(htmlPath);
  })
-app.get('/productos', (req, res)=>{ 
+app.get('/products', (req, res)=>{ 
     let htmlPath  = path.join(__dirname,'./views/productos.html');
     res.sendFile(htmlPath);
  })
