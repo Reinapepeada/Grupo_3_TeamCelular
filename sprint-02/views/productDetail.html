@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/8f1f294b9c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/detail.css">
     <link rel="stylesheet" href="css/styles.css">
 
     <title>Sprint 2 - Equipo 3</title>
@@ -42,18 +43,38 @@
             </div>
        </form>   
     </header>
-
-<hr>
     <main>
-        <section class="productos-grid">
-            <div class="container">
-                <div class="imagenchica"></div>
-                <div class="imagenproducto"></div>
-                <div class="detallesproducto"></div>
+<div class="productos-grid">
+                <div class="imagenchica">
+                    <a href="#">
+                        <img src="https://images.samsung.com/is/image/samsung/p6pim/levant/2202/gallery/levant-galaxy-s22-ultra-s908-413037-sm-s908edrgmea-thumb-530970207" width="100px" height="100px" alt="Imagen de Celular A32">
+                    </a>
+                </div>
+                <div class="imagenproducto">
+                    <a href="#">
+                        <img src="https://images.samsung.com/is/image/samsung/p6pim/levant/2202/gallery/levant-galaxy-s22-ultra-s908-413037-sm-s908edrgmea-thumb-530970207" width="300px" height="350px" alt="Imagen de Celular A32">
+                    </a>
+                </div>
+                <div class="detallesproducto">
+                    <h2 class="title-products-details">Samsung Galaxy A45 156 GB</h2>
+                    <span class="price-value">$1.320,00</span>
+                    <br>
+                    <span class="promo-transfer-value"><strong>10%</strong> de descuento pagando por transferencia bancaria ó efectivo</span>
+                    <br>
+                    <label class="field__label field__label--quantity" for="quantity">Cantidad</label>
+                    <input type="number" name="quantity" id="quantity" class="field__input border-radius" value="1" data-regex="/^[1-9]{1}([0-9]?)*$/" data-message="Ingrese una cantidad válida" data-required="1">
+                    <br>
+                    <button type="submit" id="add_to_cart-btn" class="add_to_cart-btn" data-label="Agregar al carrito" data-spinner-ratio="0.75">Agregar al carrito</button>
+                </div>
               </div>
-        </section>
+            </div>
+            <div>
+                <p class="description-product-details">Producto</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!</p>
+<p>Ad dolore dignissimos asperiores dicta facere optio quod commodi nam tempore recusandae. Rerum sed nulla eum vero expedita ex delectus voluptates rem at neque quos facere sequi unde optio aliquam!</p>
+<p>Tenetur quod quidem in voluptatem corporis dolorum dicta sit pariatur porro quaerat autem ipsam odit quam beatae tempora quibusdam illum! Modi velit odio nam nulla unde amet odit pariatur at!</p>
+<p>Consequatur rerum amet fuga expedita sunt et tempora saepe? Iusto nihil explicabo perferendis quos provident delectus ducimus necessitatibus reiciendis optio tempora unde earum doloremque commodi laudantium ad nulla vel odio?</p>
     </main>
-
     <footer>
         <div>
             <p class="title-pay">Medios de Pago</p>
