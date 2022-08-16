@@ -27,6 +27,10 @@ app.get('/', (req, res)=>{
     let htmlPath  = path.join(__dirname,'./views/register.html');
     res.sendFile(htmlPath);
  })
+ app.get('/login', (req, res)=>{ 
+    let htmlPath  = path.join(__dirname,'./views/login.html');
+    res.sendFile(htmlPath);
+ })
 app.get('/productos', (req, res)=>{ 
     let htmlPath  = path.join(__dirname,'./views/productos.html');
     res.sendFile(htmlPath);
