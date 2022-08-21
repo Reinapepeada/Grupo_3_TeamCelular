@@ -1,0 +1,42 @@
+<%- include('../partials/head.ejs') %>
+<body>
+
+<%- include('../partials/header.ejs') %>
+   
+    <main>
+
+        <form class="form-create-produc" action="" method="POST">
+
+            <h1>Editar Producto</h1>
+                <div class="container-create-product">
+            
+                <div class="form-control">
+                    <label for="title">Nombre</label>
+                    <input type="text" name="title" class="input-product" value="<%= product.title %>">
+                </div>
+            
+                 <div class="form-control">
+                    <label for="price">Precio</label>
+                    <input type="text" name="price"class="input-product" value="<%= product.price %>">
+                </div>
+ 
+                    <label for="description">Descripción</label>
+                    <textarea type="text" name="description" class="input-product"><%= product.description %>
+                    </textarea>
+
+                 <div class="form-control">
+                    <label for="img">Seleccione la imagen</label>
+                    <input type="file" name="img" value="<%= product.img %>" >
+                </div>
+
+                <div class="box-btn-form-create-produc">
+                    <input type="submit" value="Guardar" class="btn-guardar">
+                    <input type="reset" value="Borrar" class="btn-reset">
+                </div>
+             </div>
+        </form>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>

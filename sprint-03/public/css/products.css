@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+* {
+    box-sizing: border-box;
+}
+ .container{
+    width: 100%;
+    padding: 15px;
+    
+ }  
+ .form-create-products{
+    background:#fff;
+    margin-top: 150px;
+    padding: 3px;
+ }
+ h1{
+    text-align: center;
+    color: #1a2537;
+    font-size: 40px;
+ }
+
+.form-create-produc{
+    width: 50%;
+    margin: auto;
+}
+
+.box-btn-form-create-produc{
+    display: flex;
+    flex-direction: column;
+}
+.btn-reset{
+    background-color: rgb(188, 183, 183);
+    margin: 2% 0;
+    padding: 2%;
+}
+
+textarea{
+    width: 100%;
+    background: #f7f7f7;
+}
+.input-product{
+    border: 1px solid black!important;
+    padding: 10px 1px!important;
+    margin: 2% 0!important;
+}
+
+.btn-guardar{
+    padding: 2%;
+    background-color: black;
+    color: white;
+}
+ .button:hover{
+    background: cadetblue;
+ }
+ p{
+    text-align: center;
+ }
+ @media(min-width:768px)
+ {
+.formulario {
+    width: 50vw;
+    margin: auto;
+ }
+ }
+ 

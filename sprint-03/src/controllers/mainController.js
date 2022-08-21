@@ -6,14 +6,19 @@ const path = require('path');
 let mainController = {
     products: products,
     list: function(req, res){
-        console.log('hfksdjfsalkjfskljflsfjlskdafjsl')
+        
         res.render('index',{
             products: products,
         });
     },
 
     login: (req , res)=> {
-        return res.sendFile(path.resolve(__dirname , '../views/login.html'))
+        res.render('login');
+        next();
+    },
+
+    register: (req , res)=> {
+       
     },
     
     services: (req , res)=> {
