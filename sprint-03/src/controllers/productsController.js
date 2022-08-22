@@ -34,7 +34,7 @@ let productsController = {
     
    
     detail: function(req,res){ 
-      
+        res.render('products/productDetail');
     },
 
 }
