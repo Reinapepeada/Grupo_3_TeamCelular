@@ -18,7 +18,8 @@ let mainController = {
     },
 
     register: (req , res)=> {
-       
+        res.render('register');
+        next();
     },
     
     services: (req , res)=> {
