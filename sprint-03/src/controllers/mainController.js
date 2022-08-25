@@ -24,6 +24,7 @@ let mainController = {
     
     services: (req , res)=> {
         res.render('services')
+        next();
     },
 }
 module.exports = mainController;
