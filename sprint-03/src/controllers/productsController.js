@@ -33,8 +33,9 @@ let productsController = {
     },
     
    
-    detail: function(req,res){ 
-        res.render('products/productDetail');
+    detail: (req, res)=>{
+        const product = products.find(oneProduct => oneProduct.id == req.params.id)
+        res.render('products/productDetail', {product: product});
     },
 
 }

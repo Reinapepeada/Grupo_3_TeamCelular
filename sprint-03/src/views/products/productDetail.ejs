@@ -6,17 +6,17 @@
 <div class="productos-grid">
                 <div class="imagenchica">
                     <a href="#">
-                        <img src="https://images.samsung.com/is/image/samsung/p6pim/levant/2202/gallery/levant-galaxy-s22-ultra-s908-413037-sm-s908edrgmea-thumb-530970207" width="100px" height="100px" alt="Imagen de Celular A32">
+                        <img src="/<%=product.img%>" width="100px" height="100px" alt="<%=product.alt%>">
                     </a>
                 </div>
                 <div class="imagenproducto">
                     <a href="#">
-                        <img src="https://images.samsung.com/is/image/samsung/p6pim/levant/2202/gallery/levant-galaxy-s22-ultra-s908-413037-sm-s908edrgmea-thumb-530970207" width="300px" height="350px" alt="Imagen de Celular A32">
+                        <img src="/<%=product.img%>" width="300px" height="350px" alt="<%=product.alt%>">
                     </a>
                 </div>
                 <div class="detallesproducto">
-                    <h2 class="title-products-details">Samsung Galaxy A45 156 GB</h2>
-                    <span class="price-value">$1.320,00</span>
+                    <h2 class="title-products-details"><%= product.name %></h2>
+                    <span class="price-value"><%= product.price %></span>
                     <br>
                     <span class="promo-transfer-value"><strong>10%</strong> de descuento pagando por transferencia bancaria ó efectivo</span>
                     <br>
@@ -28,11 +28,8 @@
               </div>
             </div>
             <div>
-                <p class="description-product-details">Producto</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!</p>
-<p>Ad dolore dignissimos asperiores dicta facere optio quod commodi nam tempore recusandae. Rerum sed nulla eum vero expedita ex delectus voluptates rem at neque quos facere sequi unde optio aliquam!</p>
-<p>Tenetur quod quidem in voluptatem corporis dolorum dicta sit pariatur porro quaerat autem ipsam odit quam beatae tempora quibusdam illum! Modi velit odio nam nulla unde amet odit pariatur at!</p>
-<p>Consequatur rerum amet fuga expedita sunt et tempora saepe? Iusto nihil explicabo perferendis quos provident delectus ducimus necessitatibus reiciendis optio tempora unde earum doloremque commodi laudantium ad nulla vel odio?</p>
+                <p class="description-product-details"><%= product.name %></p>
+                <p><%= product.description %></p>
     </main>
     <%- include('../partials/footer.ejs') %>
 </body>
