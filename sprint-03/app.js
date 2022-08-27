@@ -24,8 +24,10 @@ app.listen(3000,()=>{
     console.log('Se levanto en el puerto 3000 🎈.')
 })
 
-const productsRouter = require("./src/routes/products")
-const mainRouter = require("./src/routes/main")
+const productsRouter = require("./src/routes/products");
+const mainRouter = require("./src/routes/main");
+const cartRouter = require("./src/routes/cart");
+
 // rutas
 
 
@@ -38,6 +40,7 @@ app.use('/products', productsRouter);
 app.use('/', mainRouter);
 app.use('/login', mainRouter);
 app.use('/services', mainRouter);
+app.use('/cart', cartRouter);
 
 
 
