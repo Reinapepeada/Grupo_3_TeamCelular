@@ -48,6 +48,8 @@
                         </div>
                         <h2 class=""><%= product.name %></h2>
                         <p><%= product.price %></p>
+                       
+                        <a href="/products/details/<%= product.id %>" target="_parent"><button class="details">Ver Detalles</button></a>
                     </div>
                 <% } %>
             </section>

@@ -57,6 +57,10 @@ textarea{
  p{
     text-align: center;
  }
+ /*boton details*/
+ .details{
+    margin-bottom: 15%;
+ }
  @media(min-width:768px)
  {
 .formulario {
