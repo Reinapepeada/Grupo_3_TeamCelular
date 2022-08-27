@@ -1,5 +1,24 @@
 {
   "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
     "nodemon": "^2.0.19"
-  }
+  },
+  "name": "grupo_3_teamcelular",
+  "description": "_A definir",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Reinapepeada/Grupo_3_TeamCelular.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Reinapepeada/Grupo_3_TeamCelular/issues"
+  },
+  "homepage": "https://github.com/Reinapepeada/Grupo_3_TeamCelular#readme"
 }
