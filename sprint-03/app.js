@@ -39,6 +39,7 @@ app.set('view engine', 'ejs');
 app.use('/products', productsRouter);
 app.use('/', mainRouter);
 app.use('/login', mainRouter);
+app.use('/register', mainRouter);
 app.use('/services', mainRouter);
 app.use('/cart', cartRouter);
 
