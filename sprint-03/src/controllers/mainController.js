@@ -5,6 +5,7 @@ const path = require('path');
 
 let mainController = {
     products: products,
+    
     list: function(req, res){
         
         res.render('index',{
