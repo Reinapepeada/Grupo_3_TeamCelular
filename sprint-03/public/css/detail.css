@@ -27,22 +27,37 @@
     padding: 0;
     list-style: none; 
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: flex-start;
 
   }
   
   .imagenchica { 
     width: 20%;
     margin: 0;
+    border: 0;
+    text-align: center;
+}
+.imagenchica img { 
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    max-height: 100px;
 }
   
   .imagenproducto { 
-    width: 50%;
+    width: 40%;
     margin: 0; 
+}
+
+.imagenproducto img { 
+    width: 100%;
+    max-width: 400px;
+    height: auto;
 }
   
   .detallesproducto { 
-    width: 30%;
+    width: 40%;
     margin: 0;
 }
 .description-product-details {
