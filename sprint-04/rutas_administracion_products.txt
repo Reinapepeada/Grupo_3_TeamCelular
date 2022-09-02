@@ -1,0 +1,2 @@
+http://localhost:3000/products/create
+http://localhost:3000/products/list_products

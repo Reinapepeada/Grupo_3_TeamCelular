@@ -23,7 +23,8 @@ var router = express.Router();
 
 const validationProducts =[
     body('name').notEmpty().withMessage('debes completar el nombre'),
-    body('price').notEmpty().withMessage('debes completar el precio'),
+    body('price').notEmpty().withMessage('debes completar el precio').bail()
+    .isNumeric().withMessage('Debes ingresar un valor numerico'),
     body('description').notEmpty().withMessage('debes completar una descripcion'), 
     
 ]
