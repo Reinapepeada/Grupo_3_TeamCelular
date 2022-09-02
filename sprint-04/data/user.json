@@ -1,0 +1,10 @@
+[
+    {
+        "id": 1,
+        "nombre": "pedro",
+        "apellido": "Perez",
+        "correo": "pedroperez.12@gmail.com",
+        "contraseña": "pepito123455",
+        "edad":"35"
+    }
+]

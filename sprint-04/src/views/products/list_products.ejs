@@ -1,0 +1,67 @@
+<%- include('../partials/head.ejs') %>
+<body>
+<%- include('../partials/headerAdmin.ejs') %>
+
+    <main>
+        <section class="filter-search">
+            <article class="select-featured-products">
+                <select>
+                    <option>Destacados</option>
+                    <option>Lo más viejo</option>
+                    <option>Lo más nuevo</option>
+                    <option>Precio menor a mayor</option>
+                    <option>Precio mayor a menor</option>
+                </select>
+            </article>
+
+            <article class="select-categorys">
+                <select>
+                    <option>Filtrar por categoría</option>
+                    <option>Celulares</option>
+                    <option>Smartwatch</option>
+                    <option>Auriculares</option>
+                    <option>Accesorios</option>
+                </select>
+            </article>
+        </section>
+
+        <section class="main-products">
+            <ul class="ul-list-categorys">
+                <h2>Categorías</h2>
+                <li>Celulares</li>
+                <li>Smartwatch</li>
+                <li>Auriculares</li>
+                <li>Accesorios</li>
+            </ul>
+
+            <section class="page-products-products-detail">
+
+        <% for(let product of products) { %>
+            <div class="box-products">
+                <div class="img-products">
+                    <a href="/products/detail/<%= product.id %>">
+                    </a>
+                </div>
+                <img src="../<%= product.img %>" alt="<%= product.name %>">
+                <p class="">Id: <%= product.id %></p>
+                <p class="">Nombre <%= product.name %></p>
+                <p class="">Descripción <%= product.description %></p>
+                <p class="">Precio<%= product.price %>.-</p>   
+                                 
+               <div class="container-btn">
+                    <a class="btn-standard" href="/products/edit/<%= product.id %>">Editar</a>
+                    <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST">
+                        <button class="" type="submit">Borrar</button>
+                    </form>       
+                </div>
+            </div>
+                    <% } %>
+           
+            </div>
+        </section>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+
+
+</body>

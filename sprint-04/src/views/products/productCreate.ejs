@@ -1,0 +1,73 @@
+<%- include('../partials/head.ejs') %>
+<body>
+
+<%- include('../partials/header.ejs') %>
+   
+    <main>
+        <form class="form-create-produc" action="/products/create" method="POST"
+        enctype="multipart/form-data">
+        <h2>Crear Producto</h2>
+        <div class="form-group-create-produc">
+            <label><b>Nombre:</b></label>
+            <input 
+                type="text" 
+                name="name" 
+                class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.name : null %>"
+            >
+            <% if (locals.errors && errors.name) { %>
+                <div class="text-danger">
+                    <%= errors.name.msg %> 
+                </div>
+            <% } %>
+        </div>
+    </div>
+    <div class="col-md-6 my-1">
+        <div class="form-group-create-produc">
+            <label><b>Precio:</b></label>
+            <input 
+                type="text" 
+                name="price" 
+                class="form-control <%= locals.errors && errors.price ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.price : null %>"
+            >
+            <% if (locals.errors && errors.price) { %>
+                <div class="text-danger">
+                    <%= errors.price.msg %>
+                </div>
+            <% } %>
+        </div>
+    </div>
+    <div class="col-md-6 my-1">
+        <div class="form-group-create-produc">
+            <label><b>Descripcion:</b></label>
+            <input 
+                type="text" 
+                name="description" 
+                class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>"
+            >
+            <% if (locals.errors && errors.description) { %>
+                <div class="text-danger">
+                    <%= errors.description.msg %>
+                </div>
+            <% } %>
+        </div>
+    </div>
+    
+    <div class="col-md-6 my-1">
+        <div class="form-group-create-produc">
+            <label><b>Imagen del producto:</b></label>
+            <input 
+                type="file" 
+                name="img"
+              >
+        </div>
+    </div>
+         </div>
+            <button type="submit" class="btn-create-count">Confirmar</button>
+        </form>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>

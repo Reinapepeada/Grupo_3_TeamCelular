@@ -1,0 +1,40 @@
+<header class="header-mobile">
+    <header class="header-mobile">
+        <nav>    
+            <div class="section-nav">
+            <img class="logoImg" src="/../img/teamCelularPNG.png">
+            <div>
+                <form method="GET" action="/search"class=""> 
+                    <div class="uk-grid-collapse uk-flex-center uk-grid busquedaNav" uk-grid="">
+                        <div class="uk-width-1-2@s uk-width-3-5 uk-first-column">
+                            <div class="field field--search">
+                                <input type="text" name="q" min-length="2" id="search" class="field__input border-radius header-search__input field__input--right-button" autocomplete="off" placeholder="Buscar..." required="">
+                            </div>
+                        </div>
+                        <div class="uk-width-auto@s uk-width-auto">
+                            <button type="submit" id="search-btn" class="button uk-button-input--no-radius button--full background--primary background--primary-hover contrast_text--primary contrast_text--primary-hover uk-button uk-button-input border-radius" data-label="<i class=&quot;fas fa-search&quot;></i>" data-spinner-ratio="0.75">
+        
+                                <i class="fas fa-search" aria-hidden="true"></i>
+                            </button>                    
+                        </div>
+                    </div>
+                </form>
+            </div>
+    
+            <ul class="ul-count d-flex itemLog">
+                <li><a href="/register">Registrarse </a></li>
+                <li><a href="/login">Iniciar Sesión</a></li>
+            </ul>     
+            
+            <ul class="nav-bar-major">
+                <li class="li-mobile-nav-bar new-product"><a class="d-flex" href="/products/create"><i class="fa-solid fa-circle-plus"></i>Nuevo Producto</span></a></li>
+                <li class="li-mobile-nav-bar new-product"><a href="/products/list_products">Productos </span></a> 
+             </ul>
+        </nav>
+        <div class="cont-burger">
+            <div class="burger-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div><a href="/sprint-02/views/carrito.html"><i class="fa-solid fa-cart-shopping"></i></a></div>
+        </div>
+    </header>
