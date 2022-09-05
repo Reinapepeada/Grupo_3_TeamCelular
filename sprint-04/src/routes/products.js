@@ -23,8 +23,7 @@ var router = express.Router();
 
 const validationProducts =[
     body('name').notEmpty().withMessage('debes completar el nombre'),
-    body('price').notEmpty().withMessage('debes completar el precio').bail()
-    .isNumeric().withMessage('Debes ingresar un valor numerico'),
+    body('price').notEmpty().withMessage('debes completar el precio'),
     body('description').notEmpty().withMessage('debes completar una descripcion'), 
     
 ]
@@ -33,7 +32,6 @@ router.get('/create', productsController.viewFormCreate);
 
 //ejecuto multer
  
-router.get('/edit/:id', productsController.edit);
 router.get('/list_products', productsController.list_products);
 
 router.get('/:id', productsController.detail);
@@ -41,5 +39,8 @@ router.get('/', productsController.list);
 router.get('/details', productsController.detail);
 router.get('/details/:id', productsController.detail);
 
+/*** EDIT ONE PRODUCT ***/ 
+router.get('/edit/:id', productsController.edit); 
+router.put('/edit/:id',upload.single('product-image'), productsController.update); 
 
 module.exports = router;

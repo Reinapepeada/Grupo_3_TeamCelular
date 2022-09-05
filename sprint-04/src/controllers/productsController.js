@@ -72,18 +72,10 @@ let productsController = {
       },
 
 
-    edit: function(req,res){
-        const idUrl = req.params.id;
-
-        for(let product of products){
-         
-            if(parseInt(product.id) == parseInt(idUrl)){
-              console.log('encontrado')
-            
-              res.render('products/productEdit',{product: product});
-              next();
-           }
-       }
+// Update - Form to edit
+edit: (req, res) => {
+  const product = products.find(item=>item.id==req.params.id);
+  res.render('form-create-produc',{productToEdit: product});
     },
     viewFormCreate: function(req, res){
         res.render('products/productCreate');
@@ -99,6 +91,25 @@ let productsController = {
        const product = products.find(oneProduct => oneProduct.id == req.params.id)
        res.render('products/productDetail', {product: product});
     },
+    	// Update - Method to update
+	update: (req, res) => {
+		products.find(product=>{
+			if(product.id==req.params.id){
+				product.name=req.body.name,
+				product.price=req.body.price,
+				product.discount=req.body.discount,
+				product.description=req.body.description,
+        product.category=req.body.category,
+				product.img=req.file.filename;
+			}
+		
+		})	
+		fs.writeFileSync(productsFilePath, JSON.stringify(products,null,'\t'));
+		res.redirect('/products/detail/'+req.params.id);
+	
+
+	},
+
 
 }
 module.exports = productsController;
