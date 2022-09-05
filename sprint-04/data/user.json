@@ -1,10 +1,12 @@
 [
     {
         "id": 1,
-        "nombre": "pedro",
-        "apellido": "Perez",
-        "correo": "pedroperez.12@gmail.com",
-        "contraseña": "pepito123455",
-        "edad":"35"
+        "firstName": "pedro",
+        "lastName": "Perez",
+        "email": "pedroperez.12@gmail.com",
+        "password": "pepito123455",
+        "category":"Admin",
+        "image":"../img/01-cel.png"
+
     }
 ]
