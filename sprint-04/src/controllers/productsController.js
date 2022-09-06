@@ -75,7 +75,7 @@ let productsController = {
 // Update - Form to edit
 edit: (req, res) => {
   const product = products.find(item=>item.id==req.params.id);
-  res.render('form-create-produc',{productToEdit: product});
+  res.render('products/productEdit',{productToEdit: product});
     },
     viewFormCreate: function(req, res){
         res.render('products/productCreate');
