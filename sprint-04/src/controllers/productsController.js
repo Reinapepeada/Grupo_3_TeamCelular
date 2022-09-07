@@ -37,7 +37,8 @@ let productsController = {
         if(req.file !== undefined){
            product ={   
               //id: jsonData[products.length - 1].id + 1,              
-              id: 5,              
+             
+              id:Math.random(),              
               name: req.body.name,
               description: req.body.description,
               price: req.body.price,
@@ -46,8 +47,7 @@ let productsController = {
     
         }else{
            product ={
-            id: 5,  
-           // id: jsonData[products.length - 1].id + 1,  
+            id:Math.random(),
             name: req.body.name,
             description: req.body.description,
             price: req.body.price, 
@@ -107,14 +107,38 @@ edit: (req, res) => {
 		})	
 		fs.writeFileSync(productsFilePath, JSON.stringify(products,null,'\t'));
 		res.redirect('/products/detail/'+req.params.id);
-	
 
 	},
 
 	destroy : (req, res) => {
 	
 		// 
-	}
+	},
+  search: function(req, res){
+    let nuevoArray=[];
+    let valueIn;
+      valueIn = req.query.search.toLowerCase()
+
+     
+     for(let i = 0; i< products.length; i++){
+      console.log(products[i].name.toLowerCase().search(valueIn) != -1)
+        if(products[i].name.toLowerCase().search(valueIn) != -1){
+          
+            nuevoArray.push(products[i])
+            
+            console.log('valor para array')
+            console.log(products[i].name)
+        }
+     }
+
+     console.log(nuevoArray)
+     
+     if(nuevoArray.length >0){
+        res.render('products/filter_products',{products: nuevoArray, msg: 'Resultados de la búsqueda'});
+     }else{
+      res.render('products/list_products',{products: jsonData, msg: 'No hubo resultados para la búsqueda indicada'})
+     }
+  }
 	
 };
 
