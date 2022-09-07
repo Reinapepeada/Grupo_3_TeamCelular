@@ -1,8 +1,12 @@
-
-let products = require('../../public/js/products')
 const fs = require('fs');
 const multer = require('multer');
 const { json } = require('body-parser');
+const path = require('path');
+//////////
+let productsFilePath = path.join(__dirname, '../../data/products.json');
+let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+//let products = require('../../public/js/products')
+
 
 const { validationResult } = require('express-validator');
 
@@ -10,8 +14,6 @@ const { validationResult } = require('express-validator');
 //abro el products.json y lo convierto a javascript con parse
 const jsonData = JSON.parse(fs.readFileSync('./data/products.json', 'utf-8'))
 
-
-const path = require('path');
 
 let productsController = { 
     list_products: function(req, res){
@@ -75,7 +77,7 @@ let productsController = {
 // Update - Form to edit
 edit: (req, res) => {
   const product = products.find(item=>item.id==req.params.id);
-  res.render('products/productEdit',{productToEdit: product});
+  res.render('products/productEdit',{product: product});
     },
     viewFormCreate: function(req, res){
         res.render('products/productCreate');
@@ -95,11 +97,10 @@ edit: (req, res) => {
 	update: (req, res) => {
 		products.find(product=>{
 			if(product.id==req.params.id){
-				product.name=req.body.name,
-				product.price=req.body.price,
-				product.discount=req.body.discount,
 				product.description=req.body.description,
-        product.category=req.body.category,
+				product.alt=req.body.alt,
+				product.name=req.body.name,
+        product.price=req.body.price,
 				product.img=req.file.filename;
 			}
 		
@@ -110,6 +111,11 @@ edit: (req, res) => {
 
 	},
 
+	destroy : (req, res) => {
+	
+		// 
+	}
+	
+};
 
-}
 module.exports = productsController;
