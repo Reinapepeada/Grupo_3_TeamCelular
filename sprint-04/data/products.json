@@ -12,8 +12,8 @@
   "id": 2,
   "name": "Samsung A32",
   "price": "$90.600",
-  "description": "producto diseñado para la mejor utilizacion ok\r\n                    \r\n                    \r\n                    \r\n                    \r\n                    ",
-  "img": "A3222.jpg"
+  "description": "producto diseñado para la mejor utilizacion test ok\r\n                    \r\n                    \r\n                    \r\n                    \r\n                    \r\n                    ",
+  "img": "../img/A3222.jpg"
  },
  {
   "id": 3,
