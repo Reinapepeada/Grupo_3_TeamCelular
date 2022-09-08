@@ -41,7 +41,7 @@ router.get('/details', productsController.detail);
 router.get('/details/:id', productsController.detail);
 
 /*** EDIT ONE PRODUCT ***/ 
-router.get('/edit/:id', productsController.edit); 
-router.put('/edit/:id',upload.single('product-image'), productsController.update); 
+router.get('/edit/:id', productsController.edit);
+router.put('/:id', productsController.update);
 
 module.exports = router;
