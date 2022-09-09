@@ -39,6 +39,7 @@ router.get('/:id', productsController.detail);
 router.get('/', productsController.list);
 router.get('/details', productsController.detail);
 router.get('/details/:id', productsController.detail);
+router.get('/delete',productsController.destroy);
 
 /*** EDIT ONE PRODUCT ***/ 
 router.get('/edit/:id', productsController.edit);
