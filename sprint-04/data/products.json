@@ -11,9 +11,9 @@
  {
   "id": 2,
   "name": "Samsung A32",
-  "price": "$90.600",
-  "description": "producto diseñado para la mejor utilizacion test ok\r\n                    \r\n                    \r\n                    \r\n                    \r\n                    \r\n                    ",
-  "img": "../img/A3222.jpg"
+  "price": "$88.600",
+  "description": "producto diseñado para la mejor utilizacion test ok\r\n                    \r\n                    \r\n                    \r\n                    \r\n                    \r\n                    \r\n                    ",
+  "img": "../img/../img/A3222.jpg"
  },
  {
   "id": 3,
@@ -151,8 +151,8 @@
  {
   "id": 0.8096110859836516,
   "name": "nuevo prueba",
-  "description": "Descripcion",
   "price": "125",
-  "img": "../img/sin-imagen.png"
+  "description": "Descripcion OK\r\n                    ",
+  "img": "../img/../img/sin-imagen.png"
  }
 ]
