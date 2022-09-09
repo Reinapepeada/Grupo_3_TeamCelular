@@ -112,7 +112,9 @@ edit: (req, res) => {
         })
         fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
         products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        res.redirect('/products/');
+        //res.redirect('/products/list_products/');
+          
+        res.render('products/list_products',{ products: products });
 
 	},
 
