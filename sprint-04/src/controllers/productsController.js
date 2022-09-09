@@ -122,7 +122,7 @@ edit: (req, res) => {
     let id = req.params.id
     let finalProducts = products.filter(product=> product.id != id);
     fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
-    res.redirect('/');
+    res.redirect('/products/list_products');
   },
   search: function(req, res){
     let nuevoArray=[];
