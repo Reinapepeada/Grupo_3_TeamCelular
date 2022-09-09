@@ -118,10 +118,12 @@ edit: (req, res) => {
 
 	},
 
-	destroy : (req, res) => {
-	
-		// 
-	},
+	destroy :(req, res) => {
+    let id = req.params.id
+    let finalProducts = products.filter(product=> product.id != id);
+    fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
+    res.redirect('/');
+  },
   search: function(req, res){
     let nuevoArray=[];
     let valueIn;
