@@ -38,9 +38,10 @@ router.get('/:id', productsController.detail);
 router.get('/', productsController.list);
 router.get('/details', productsController.detail);
 router.get('/details/:id', productsController.detail);
+router.delete('/delete/:id', productsController.destroy)
 
 /*** EDIT ONE PRODUCT ***/ 
-router.get('/edit/:id', productsController.edit); 
-router.put('/edit/:id',upload.single('product-image'), productsController.update); 
+router.get('/edit/:id', productsController.edit);
+router.put('/:id', productsController.update);
 
 module.exports = router;
