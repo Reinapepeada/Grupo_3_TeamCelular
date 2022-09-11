@@ -20,24 +20,19 @@ body {
     color: #1a2537;
     font-size: 40px;
  }
- h2{
-    text-align: center;
- }
+
 .form-create-produc{
-    width: 90%;
+    width: 50%;
     margin: auto;
 }
 .form-group-create-produc{
     font-size: 20px!important;
     width: 100%!important;
 }
-.form-group-create-produc h3 {
-    margin: 0.6rem 0 1rem 0;
-    font-size: 1.4rem;
-}
-
 .form-group-create-produc .form-control{
-    margin:0.4rem;
+    background-color: #f8f8f8;
+    margin-bottom: 4%;
+    margin-top: 2%;
 }
 
 .box-btn-form-create-produc{
@@ -59,17 +54,13 @@ textarea{
     padding: 10px 1px!important;
     margin: 2% 0!important;
 }
+
 .btn-guardar{
     padding: 2%;
     background-color: black;
     color: white;
 }
-.buttonConfirm{
-    margin-top:2rem ;
-    margin-bottom: 3rem;
-}
-
-.button:hover{
+ .button:hover{
     background: cadetblue;
  }
  p{

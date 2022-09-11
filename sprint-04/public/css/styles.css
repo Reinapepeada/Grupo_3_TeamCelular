@@ -102,48 +102,23 @@ nav ul li a{
     display: flex;
 }
 
-.form-nav-mobile{
-    display: flex;
-    justify-content: center;
-    margin: 1rem;
-}
-
-
-.iconBurger{
-    margin: 4rem;
-}
-
 .burger-menu {
-    background-color: #000000;
+    background-color: black;
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
     -o-border-radius: 3px;
+    padding: 8px;
     display: flex;
-    padding: 0.5rem 0.6rem 0.5rem 0.6rem;
+    width: 1.5rem;
+    height: 1rem;
     margin-left: 4%;
-    font-weight: 1000;
-    font-size: 1.5rem;
     color: white;
 }
-
-.carritoLogo-container a i{
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
-    color: white;
-    font-size: 1.3rem;
-    background-color: #000000;
-    padding: 0.65rem;
-}
-
 .fa-solid{
     margin: auto;
 }
-
 .cont-burger{
     background-color: var(--cultured);
     align-items: center;
@@ -721,7 +696,7 @@ section img{
         color: white;
     }
     .fa-solid{
-        margin: 4rem;
+        margin: auto;
     }
     .cont-burger{
         background-color: var(--cultured);
@@ -932,59 +907,3 @@ section img{
     }
     }
 
-
-    /* login and register style */
-
-.contenedor{
-   width: 100%;
-   padding: 15px;
-   
-}  
-.formulario{
-    margin: 6rem 0 6rem 0;
-   background:#fff;
-   padding: 3px;
-}
-h1{
-   text-align: center;
-   color: #1a2537;
-   font-size: 40px;
-}
-input[type="text"],
-input[type="password"]{
-   font-size: 1.3rem;
-   padding: 0.6rem;
-   border: none;
-} 
-.input-contenedor{
-   border: 1px solid #aaa;
-   border-radius: 0.2rem;
-}
-
-.userField{
-    margin-bottom: 0.8rem;
-}
-
-.button{
-   border: none;
-   width: 100%;
-   color: white;
-   font-size: 20px;
-   background: #1a2537;
-   padding: 15px 20px;
-   border-radius: 5px;
-   cursor: pointer;
-}
-.button:hover{
-   background: cadetblue;
-}
-p{
-   text-align: center;
-}
-@media(min-width:768px)
-{
-.formulario {
-   width: 50vw;
-   margin: auto;
-}
-}

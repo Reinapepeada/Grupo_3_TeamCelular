@@ -34,6 +34,7 @@ router.get('/create', productsController.viewFormCreate);
  
 router.get('/list_products', productsController.list_products);
 router.get('/search', productsController.search);
+
 router.get('/:id', productsController.detail);
 router.get('/', productsController.list);
 router.get('/details', productsController.detail);
