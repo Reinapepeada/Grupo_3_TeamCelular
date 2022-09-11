@@ -1,1 +1,74 @@
-[{"id":1,"description":"producto diseñado para la mejor utilizacion","img":"../img/01-cel.png","alt":"Ceular A32","name":"Samsung A32","price":"$69.600","category":1},{"id":2,"description":"producto diseñado para la mejor utilizacion","img":"../img/02-cel.jpg","alt":"Ceular A32","name":"Samsung A32","price":"$69.600","category":1},{"id":3,"description":"producto diseñado para la mejor utilizacion","img":"../img/03-cel.jpg","name":"Samsung A2","price":"62.555","category":1},{"id":4,"description":"producto diseñado para la mejor utilizacion","img":"../img/04-cel.jpg","alt":"Samsung 52","name":"Samsung 52","price":"$52.399"},{"id":5,"description":"producto diseñado para la mejor utilizacion","img":"../img/01-cel.png","alt":"Ceular A32","name":"Samsung A32","price":"$69.600","category":1},{"id":6,"description":"producto diseñado para la mejor utilizacion","img":"../img/02-cel.jpg","alt":"Ceular A32","name":"Samsung A32","price":"$69.600","category":1},{"id":7,"description":"producto diseñado para la mejor utilizacion","img":"../img/03-cel.jpg","name":"Samsung A2","price":"62.555","category":1},{"id":8,"description":"producto diseñado para la mejor utilizacion","img":"../img/04-cel.jpg","alt":"Samsung 52","name":"Samsung 52","price":"$52.399"},{"id":9,"description":"producto diseñado para la mejor utilizacion","img":"../img/01-cel.png","alt":"Ceular A32","name":"Samsung A32","price":"$69.600","category":1},{"id":10,"description":"producto diseñado para la mejor utilizacion","img":"../img/02-cel.jpg","alt":"Ceular A32","name":"Samsung A32","price":"$69.600","category":1},{"id":11,"description":"producto diseñado para la mejor utilizacion","img":"../img/03-cel.jpg","name":"Samsung A2","price":"62.555","category":1},{"id":12,"description":"producto diseñado para la mejor utilizacion","img":"../img/04-cel.jpg","alt":"Samsung 52","name":"Samsung 52","price":"$52.399"},{"id":5,"name":"producto 33","description":"descripcion","price":"123","img":"../img/sin-imagen.png"},{"id":0.45782948860487815,"name":"nuevo prueba","description":"Descripcion","price":"125","img":"../img/sin-imagen.png"},{"id":0.18377896316065945,"name":"nuevo prueba","description":"Descripcion","price":"125","img":"../img/sin-imagen.png"},{"id":0.43444591224833906,"name":"nuevo prueba","description":"Descripcion","price":"125","img":"../img/sin-imagen.png"},{"id":0.705146826016668,"name":"nuevo prueba","description":"Descripcion","price":"125","img":"../img/sin-imagen.png"},{"id":0.3012167161441368,"name":"nuevo prueba","description":"Descripcion","price":"125","img":"../img/sin-imagen.png"},{"id":0.016983386757543073,"name":"nuevo prueba","description":"Descripcion","price":"125","img":"../img/sin-imagen.png"},{"id":0.8096110859836516,"name":"nuevo prueba","description":"Descripcion","price":"125","img":"../img/sin-imagen.png"},{"id":0.48351634229327667,"name":"hola","description":"buen celu","price":"69696969","img":"../img/sin-imagen.png"},{"id":0.1071066572798598,"name":"hola","description":"buen celu","price":"69696969","img":"../img/sin-imagen.png"}]
+[
+ {
+  "id": 2,
+  "name": "Samsung A32",
+  "price": "$88.600",
+  "description": "producto diseñado para la mejor utilizacion test ok\r\n                    \r\n                    \r\n                    \r\n                    \r\n                    \r\n                    \r\n                    ",
+  "img": "../img/../img/A3222.jpg"
+ },
+ {
+  "id": 11,
+  "description": "producto diseñado para la mejor utilizacion",
+  "img": "../img/03-cel.jpg",
+  "name": "Samsung A2",
+  "price": "62.555",
+  "category": 1
+ },
+ {
+  "id": 12,
+  "description": "producto diseñado para la mejor utilizacion",
+  "img": "../img/04-cel.jpg",
+  "alt": "Samsung 52",
+  "name": "Samsung 52",
+  "price": "$52.399"
+ },
+ {
+  "id": 0.45782948860487815,
+  "name": "nuevo prueba",
+  "description": "Descripcion",
+  "price": "125",
+  "img": "../img/sin-imagen.png"
+ },
+ {
+  "id": 0.18377896316065945,
+  "name": "nuevo prueba",
+  "description": "Descripcion",
+  "price": "125",
+  "img": "../img/sin-imagen.png"
+ },
+ {
+  "id": 0.43444591224833906,
+  "name": "nuevo prueba",
+  "description": "Descripcion",
+  "price": "125",
+  "img": "../img/sin-imagen.png"
+ },
+ {
+  "id": 0.705146826016668,
+  "name": "nuevo prueba",
+  "description": "Descripcion",
+  "price": "125",
+  "img": "../img/sin-imagen.png"
+ },
+ {
+  "id": 0.3012167161441368,
+  "name": "nuevo prueba",
+  "description": "Descripcion",
+  "price": "125",
+  "img": "../img/sin-imagen.png"
+ },
+ {
+  "id": 0.016983386757543073,
+  "name": "nuevo prueba",
+  "description": "Descripcion",
+  "price": "125",
+  "img": "../img/sin-imagen.png"
+ },
+ {
+  "id": 0.8096110859836516,
+  "name": "nuevo prueba",
+  "price": "125",
+  "description": "Descripcion OK\r\n                    ",
+  "img": "../img/../img/sin-imagen.png"
+ }
+]
