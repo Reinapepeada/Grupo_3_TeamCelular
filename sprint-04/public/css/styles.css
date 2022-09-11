@@ -720,9 +720,7 @@ section img{
         margin-left: 4%;
         color: white;
     }
-    .fa-solid{
-        margin: 4rem;
-    }
+ 
     .cont-burger{
         background-color: var(--cultured);
         align-items: center;
