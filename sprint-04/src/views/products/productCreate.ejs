@@ -8,55 +8,61 @@
         enctype="multipart/form-data">
         <h2>Crear Producto</h2>
         <div class="form-group-create-produc">
-            <label><b>Nombre:</b></label>
-            <input 
-                type="text" 
-                name="name" 
-                class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>"
-                value="<%= locals.oldData ? oldData.name : null %>"
-            >
-            <% if (locals.errors && errors.name) { %>
-                <div class="text-danger">
-                    <%= errors.name.msg %> 
-                </div>
-            <% } %>
+            <h3><b>Nombre:</b></h3>
+            <div class="input-contenedor">
+                <input 
+                    type="text" 
+                    name="name" 
+                    class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+                    value="<%= locals.oldData ? oldData.name : null %>"
+                >
+                <% if (locals.errors && errors.name) { %>
+                    <div class="text-danger">
+                        <%= errors.name.msg %> 
+                    </div>
+                <% } %>
+            </div>
         </div>
     </div>
     <div class="col-md-6 my-1">
         <div class="form-group-create-produc">
-            <label><b>Precio:</b></label>
-            <input 
-                type="text" 
-                name="price" 
-                class="form-control <%= locals.errors && errors.price ? 'is-invalid' : null %>"
-                value="<%= locals.oldData ? oldData.price : null %>"
-            >
-            <% if (locals.errors && errors.price) { %>
-                <div class="text-danger">
-                    <%= errors.price.msg %>
-                </div>
-            <% } %>
+            <h3><b>Precio:</b></h3>
+            <div class="input-contenedor">
+                <input 
+                    type="text" 
+                    name="price" 
+                    class="form-control <%= locals.errors && errors.price ? 'is-invalid' : null %>"
+                    value="<%= locals.oldData ? oldData.price : null %>"
+                >
+                <% if (locals.errors && errors.price) { %>
+                    <div class="text-danger">
+                        <%= errors.price.msg %>
+                    </div>
+                <% } %>
+            </div>
         </div>
     </div>
     <div class="col-md-6 my-1">
         <div class="form-group-create-produc">
-            <label><b>Descripcion:</b></label>
-            <input 
-                type="text" 
-                name="description" 
-                class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>"
-            >
-            <% if (locals.errors && errors.description) { %>
-                <div class="text-danger">
-                    <%= errors.description.msg %>
-                </div>
-            <% } %>
+            <h3><b>Descripcion:</b></h3>
+            <div class="input-contenedor">
+                <input 
+                    type="text" 
+                    name="description" 
+                    class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>"
+                >
+                <% if (locals.errors && errors.description) { %>
+                    <div class="text-danger">
+                        <%= errors.description.msg %>
+                    </div>
+                <% } %>
+            </div>
         </div>
     </div>
     
     <div class="col-md-6 my-1">
         <div class="form-group-create-produc">
-            <label><b>Imagen del producto:</b></label>
+            <h3><b>Imagen del producto:</b></h3>
             <input 
                 type="file" 
                 name="img"
@@ -64,7 +70,7 @@
         </div>
     </div>
          </div>
-            <button type="submit" class="btn-create-count">Confirmar</button>
+            <button type="submit" class="buttonConfirm button">Confirmar</button>
         </form>
     </main>
 
