@@ -94,36 +94,26 @@ edit: (req, res) => {
        res.render('products/productDetail', {product: product});
     },
     	// Update - Method to update
-      update: (req, res) => {
-        let id = req.params.id
-        let producToEdit = products.find(product => product.id == id)
-    
-        producToEdit ={
-          id: producToEdit.id,
-          ...req.body,
-          img: '../img/'+producToEdit.img
-        };
-    
-        let newProducts = products.map(product=>{
-          if (product.id == producToEdit.id){
-            return product = {...producToEdit}
-          }
-          return product;
-        })
-        fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
-        products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        //res.redirect('/products/list_products/');
-          
-        res.render('products/list_products',{ products: products });
+	update: (req, res) => {
+		products.find(product=>{
+			if(product.id==req.params.id){
+				product.description=req.body.description,
+				product.alt=req.body.alt,
+				product.name=req.body.name,
+        product.price=req.body.price,
+				product.img=req.file.filename;
+			}
+		
+		})	
+		fs.writeFileSync(productsFilePath, JSON.stringify(products,null,'\t'));
+		res.redirect('/products/detail/'+req.params.id);
 
 	},
 
-	destroy :(req, res) => {
-    let id = req.params.id
-    let finalProducts = products.filter(product=> product.id != id);
-    fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
-    res.redirect('/products/list_products');
-  },
+	destroy : (req, res) => {
+	
+		// 
+	},
   search: function(req, res){
     let nuevoArray=[];
     let valueIn;

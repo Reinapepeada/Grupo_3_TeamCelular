@@ -5,7 +5,7 @@
    
     <main>
 
-        <form class="form-create-produc" action="/products/<%=product.id%>?_method=PUT" method="POST">
+        <form class="form-create-produc" action="/products/edit/<%=product.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
 
             <h1>Editar Producto</h1>
                 <div class="container-create-product">
@@ -22,11 +22,11 @@
                     <label for="description">Descripción</label>
                     <textarea type="text" name="description" class="input-product"><%= product.description %>
                     </textarea>
-                <!-- WORKING VP
+
                  <div class="form-control">
                     <label for="img">Seleccione la imagen</label>
                     <input type="file" name="img" value="<%= product.img %>" >
-                </div>  WORKING VP -->
+                </div>
 
                 <div class="box-btn-form-create-produc">
                     <input type="submit" value="Guardar" class="btn-guardar">
