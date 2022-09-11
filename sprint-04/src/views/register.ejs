@@ -3,32 +3,34 @@
 
 <%- include('./partials/header.ejs') %>
 <body>
-<form class="formulario">
+<form class="formulario"  action="/register" method="POST"
+enctype="multipart/form-data">
 
     <h1>REGISTRATE</h1>
     <div class="contenedor">
 
-    <div class="input-contenedor">
-        <input type="text" placeholder="Nombre y Apellido">
+    <div class="input-contenedor userField">
+        <input type="text" placeholder="Nombre y Apellido" name="nickname">
 
          </div>
 
-         <div class="input-contenedor">
-            <input type="text" placeholder="Correo Electrónico">
+         <div class="input-contenedor userField">
+            <input type="text" placeholder="Correo Electrónico" name="email">
     
              </div>
 
-             <div class="input-contenedor">
-                <input type="password" placeholder="Contraseña">
+             <div class="input-contenedor userField">
+                <input type="password" placeholder="Contraseña" name="password">
         
                  </div>
 
-                 <div class="input-contenedor">
+                 <div class="input-contenedor userField">
                     <input type="password" placeholder="Repetir Contraseña">
             
                      </div>
                 <input type="submit" value="REGISTRATE" class="button">
-                <input type="checkbox" id="check" name="check" value="Acepta condiciones" <p>Al registrarse , aceptas nuestras Condiciones de uso y Política de privacidad</p>
+                <input type="checkbox" id="check" name="check" value="Acepta condiciones"> 
+                <p>Al registrarse , aceptas nuestras Condiciones de uso y Política de privacidad</p>
                 </div>
     </form>
     <%- include('./partials/footer.ejs') %>

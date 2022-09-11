@@ -1,12 +1,1 @@
-[
-    {
-        "id": 1,
-        "firstName": "pedro",
-        "lastName": "Perez",
-        "email": "pedroperez.12@gmail.com",
-        "password": "pepito123455",
-        "category":"Admin",
-        "image":"../img/01-cel.png"
-
-    }
-]
+[{"id":1,"firstName":"pedro","lastName":"Perez","email":"pedroperez.12@gmail.com","password":"pepito123455","category":"Admin","image":"../img/01-cel.png"},{"id":0.891998557259533},{"id":0.1701866803951817},{"id":0.15102926573166675},{"id":0.7940337744024266}]
