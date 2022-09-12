@@ -1,1 +1,23 @@
-[{"id":2,"name":"Samsung A32","price":"$88.600","description":"producto diseñado para la mejor utilizacion test ok","img":"../img/../img/A3222.jpg"},{"id":11,"description":"producto diseñado para la mejor utilizacion","img":"../img/03-cel.jpg","name":"Samsung A2","price":"62.555","category":1},{"id":12,"description":"producto diseñado para la mejor utilizacion","img":"../img/04-cel.jpg","alt":"Samsung 52","name":"Samsung 52","price":"$52.399"},{"id":0.4016958693318884,"name":"Iphone 13","description":"alto celular","price":"230000","img":"../img/product-1662915661304.png"}]
+[
+ {
+  "id": 2,
+  "name": "Samsung A32",
+  "price": "$88.600",
+  "description": "producto diseñado para la mejor utilizacion test ok",
+  "img": "../img/../img/A3222.jpg"
+ },
+ {
+  "id": 11,
+  "name": "Samsung A2",
+  "price": "62.555",
+  "description": "producto diseñado para la mejor utilizacion OK\r\n                    ",
+  "img": "../img/../img/03-cel.jpg"
+ },
+ {
+  "id": 0.4016958693318884,
+  "name": "Iphone 13",
+  "description": "alto celular",
+  "price": "230000",
+  "img": "../img/product-1662915661304.png"
+ }
+]

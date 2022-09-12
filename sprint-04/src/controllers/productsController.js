@@ -75,26 +75,26 @@ let productsController = {
 
 
 // Update - Form to edit
-      edit: (req, res) => {
-        const product = products.find(item=>item.id==req.params.id);
-        res.render('products/productEdit',{product: product});
-          },
-          viewFormCreate: function(req, res){
-              res.render('products/productCreate');
-          },
+edit: (req, res) => {
+  const product = products.find(item=>item.id==req.params.id);
+  res.render('products/productEdit',{product: product});
+    },
+    viewFormCreate: function(req, res){
+        res.render('products/productCreate');
+    },
 
-      list: function(req, res){
-    
-          res.render('products/products',{products: products});
-      },
-    
-      detail: (req, res)=>{
-          
-        const product = products.find(oneProduct => oneProduct.id == req.params.id)
-        res.render('products/productDetail', {product: product});
-      },
+    list: function(req, res){
+   
+        res.render('products/products',{products: products});
+    },
+   
+    detail: (req, res)=>{
+        
+       const product = products.find(oneProduct => oneProduct.id == req.params.id)
+       res.render('products/productDetail', {product: product});
+    },
     	// Update - Method to update
-      update: (req, res) => {   
+      update: (req, res) => {
         let id = req.params.id
         let producToEdit = products.find(product => product.id == id)
     
@@ -116,7 +116,7 @@ let productsController = {
           
         res.render('products/list_products',{ products: products });
 
-	    },
+	},
 
 	destroy :(req, res) => {
     let id = req.params.id
