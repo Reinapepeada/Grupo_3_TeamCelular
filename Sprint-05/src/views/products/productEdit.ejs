@@ -1,0 +1,39 @@
+<%- include('../partials/head.ejs') %>
+<body>
+
+<%- include('../partials/header.ejs') %>
+   
+    <main>
+        <form class="form-create-produc" action="/products/<%=product.id%>?_method=PUT" method="POST">
+            <h1>Editar Producto</h1>
+            <h3><b>Nombre:</b></h3>
+                <div class="input-contenedor">
+                    <input type="text" name="name" class="input-contenedor" value="<%= product.name %>">
+                </div>
+                <h3><b>Precio:</b></h3>
+                 <div class="input-contenedor">
+                    <input type="text" name="price"class="input-contenedor" value="<%= product.price %>">
+                </div>
+                <h3><b>Descripción:</b></h3>
+                  <div class="form-control">      
+                    <textarea type="text" name="description" class="input-contenedor"><%= product.description %>
+                    </textarea>
+                </div>
+                <!-- WORKING VP
+                 <div class="form-control">
+                    <label for="img">Seleccione la imagen</label>
+                    <input type="file" name="img" value="<%= product.img %>" >
+                </div>  WORKING VP -->
+
+                <div class="form-group-create-produc">
+                    <input type="submit" value="Guardar" class="buttonConfirm button">
+                    <input type="reset" value="Borrar Cambios" class="buttonConfirm button">
+                    <input type="reset" value="Volver" class="buttonConfirm button" onclick="location.href='/products/list_products/'">
+                </div>
+             </div>
+        </form>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>

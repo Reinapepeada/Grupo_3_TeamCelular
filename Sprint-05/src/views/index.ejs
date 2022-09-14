@@ -1,0 +1,61 @@
+<%- include('./partials/head.ejs') %>
+<body>
+
+<%- include('./partials/header.ejs') %>
+        <main>
+            <section class="sections">
+                <div class="categorys-article">
+                    <article class="category">
+                        <div class="background-img">
+                            <img src="../img/smartwatch.jpg"  alt="imagen categoria smartwatch" class="article-img-0">
+                            <h2>Smartwatch</h2>
+                        </div>
+                    </article>
+                    <article class="category">
+                        <div class="background-img">
+                            <img src="../img/celulares.jpg" alt="imagen categoria celulares" class="article-img-0">
+                            <h2>Celulares</h2>
+                        </div>               
+                    </article>
+                </div>
+                
+                    <div class="categorys-article1">
+                        <article class="categorys-row">
+                            
+                                <div class="categorys-row-div">
+                                    <img src="../img/auriculares.jpg" alt="imagen categoria auriculares" class="article-img-1">
+                                    <h2>Auriculares</h2>
+                                </div>
+                            
+                            <div class="container">  
+                                    <div class="categorys-row-div">
+                                        <img src="../img/accesorios.jpg" class="w-72 article-img-1" alt="imagen categoria accesorios">
+                                        <h2>Accesorios</h2>
+                                    </div>  
+                            </div>       
+                        </article>
+                    </div>
+            </section>
+            <h2 class="nuestrosh2">Nuestros Productos</h2>
+            <section class="home home-desktop">
+            
+                <% for(let product of products) { %>
+                    <div class="box-products">
+                        <div class="text-center">
+                            <a href="/products/details/<%= product.id %>">
+                                <img src="<%= product.img %>" alt="<%= product.name %>">
+                            </a>
+                        </div>
+                        <h2 class=""><%= product.name %></h2>
+                        <p><%= product.price %></p>
+                       
+                        <a href="/products/details/<%= product.id %>" target="_parent"><button class="details">Ver Detalles</button></a>
+                    </div>
+                <% } %>
+            </section>
+        </main>
+
+ 
+        <%- include('./partials/footer.ejs') %>
+    </body>
+</html>
