@@ -61,20 +61,10 @@
  },
  {
   "id": 10,
-  "description": "producto diseñado para la mejor utilizacion",
-  "img": "../img/02-cel.jpg",
-  "alt": "Ceular A32",
-  "name": "Samsung A32",
+  "name": "Samsung A322",
   "price": "$69.600",
-  "category": 1
- },
- {
-  "id": 11,
-  "description": "producto diseñado para la mejor utilizacion",
-  "img": "../img/03-cel.jpg",
-  "name": "Samsung A2",
-  "price": "62.555",
-  "category": 1
+  "description": "producto diseñado para la mejor utilizacion\r\n                    ",
+  "img": "../img/../img/02-cel.jpg"
  },
  {
   "id": 12,
