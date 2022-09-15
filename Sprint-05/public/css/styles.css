@@ -957,8 +957,14 @@ input[type="password"]{
 .input-contenedor{
    border: 1px solid #aaa;
    border-radius: 0.2rem;
+   margin: 10px;
 }
 
+.input-error{
+    margin: 10px;
+    margin-left: 10px;
+    
+}
 .userField{
     margin-bottom: 0.8rem;
 }

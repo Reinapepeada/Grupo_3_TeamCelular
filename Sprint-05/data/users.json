@@ -3,8 +3,8 @@
     "id": 1,
     "firstName": "pedro",
     "lastName": "Perez",
-    "email": "pedroperez.12@gmail.com",
-    "password": "pepito123455",
+    "email": "pedro@gmail.com",
+    "password": "1234",
     "category": "Admin",
     "image": "../img/01-cel.png"
   },

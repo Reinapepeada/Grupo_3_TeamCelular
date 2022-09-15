@@ -30,17 +30,78 @@ let mainController = {
 
     login: (req , res)=> {
         res.render('login');
-        next();
+    },
+
+    loginEntry:(req, res)=>{
+        let errors = validationResult(req);
+        let usuarioLogueado=[];
+        if(!errors.isEmpty()){
+            console.log(errors)
+            return res.render('login', {
+                errors: errors.mapped(),
+                oldData: req.body,
+            });
+        }else {
+        const usersFilePath = path.join(__dirname, '../../data/users.json');
+        const userJSON = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'))
+        let users;
+        if(userJSON == ''){
+            users = []
+        }else{
+            users = userJSON
+           
+            for(let user of users){
+                if(user.email == req.body.email){
+                      
+                    //se modifica cuando ya este el alta de usuario 
+                  //  let verificarpass = bcryptjs.compareSync(req.body.password, user.password)
+                   // console.log(verificarpass) 
+                 //   if(verificarpass){
+                        usuarioLogueado = user
+                        req.session.usuarioLogueado = usuarioLogueado
+                        break
+                    }
+                }
+            }
+           
+            if(usuarioLogueado <=0){
+                console.log('is empty')
+                return res.render('login', {
+                    errors: errors.mapped(),
+                    errors:[{msg:'Las credenciales no coinciden'}],
+                    oldData: req.body,
+                });
+            }else{
+                
+                if(req.body.remember_user != undefined){
+                    //guardo una cookie 
+                    res.cookie('remember_user', usuarioLogueado.email,{
+                        maxAge: 600000
+                    })
+                }
+                                          
+               if(req.session.usuarioLogueado.category == "Admin"){
+                
+                const usersFilePathProducts = path.join(__dirname, '../../data/products.json');
+                const products = JSON.parse(fs.readFileSync(usersFilePathProducts, 'utf-8'))
+                 res.render('products/list_products',{products: products})  
+                   
+               }else{
+                   return res.redirect('/')
+               }
+            }
+        }
+        
     },
 
     register: (req , res)=> {
         res.render('register');
-        next();
+     
     },
     
     services: (req , res)=> {
         res.render('services')
-        next();
+      
     },
 
     createUser:(req,res)=>{
