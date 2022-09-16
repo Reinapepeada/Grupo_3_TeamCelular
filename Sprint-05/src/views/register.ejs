@@ -29,8 +29,11 @@ enctype="multipart/form-data">
             
                      </div>
                 <input type="submit" value="REGISTRATE" class="button">
-                <input type="checkbox" id="check" name="check" value="Acepta condiciones"> 
-                <p>Al registrarse , aceptas nuestras Condiciones de uso y Política de privacidad</p>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="remember_user"><p> Al registrarse aceptas nuestras Condiciones de uso y Política de privacidad</p>
+                    </label>
+                </div> 
                 </div>
     </form>
     <%- include('./partials/footer.ejs') %>

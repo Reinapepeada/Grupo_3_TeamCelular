@@ -936,6 +936,7 @@ section img{
 .contenedor{
    width: 100%;
    padding: 15px;
+   margin-bottom: 5rem;
    
 }  
 .formulario{
@@ -949,20 +950,22 @@ h1{
    font-size: 40px;
 }
 input[type="text"],
-input[type="password"]{
+input[type="password"],
+input[type="email"]{
    font-size: 1.3rem;
    padding: 0.6rem;
    border: none;
+   width: 100%;
 } 
 .input-contenedor{
    border: 1px solid #aaa;
    border-radius: 0.2rem;
-   margin: 10px;
+   /* margin: 10px; */
 }
 
 .input-error{
-    margin: 10px;
-    margin-left: 10px;
+    padding: 10px;
+    padding-left: 10px;
     
 }
 .userField{
@@ -970,6 +973,10 @@ input[type="password"]{
 }
 
 .button{
+   margin-left: 0;
+   margin-right: 0;
+   margin: auto;
+   margin-top: 1rem;
    border: none;
    width: 100%;
    color: white;
@@ -978,9 +985,20 @@ input[type="password"]{
    padding: 15px 20px;
    border-radius: 5px;
    cursor: pointer;
+   justify-content: center;
+   text-align: center;
+   display: flex;
 }
 .button:hover{
    background: cadetblue;
+}
+.form-check-label{
+    width: 97%;
+    margin: 0 auto;
+    font-size: 0.7rem;
+    display: flex;
+    align-items:center;
+    
 }
 p{
    text-align: center;
