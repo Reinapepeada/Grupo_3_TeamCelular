@@ -1,0 +1,35 @@
+<%- include('../partials/head.ejs') %>
+<body>
+
+<%- include('../partials/header.ejs') %>
+    <main>
+<div class="productos-grid">
+                <div class="imagenchica">
+                    <a href="#">
+                       <img src="/<%= product.img %>" alt="<%=product.alt%>">
+                    </a>
+                </div>
+                <div class="imagenproducto">
+                    <a href="#">
+                        <img src="/<%= user.img %>" alt="<%=product.alt%>">
+                    </a>
+                </div>
+                <div class="detallesproducto">Detalle del usuario: <%= user.name %>
+                    <h2 class="title-products-details"><%= user.name %></h2>
+                    <span class="price-value"><%= product.price %></span>
+                    <br>
+                    <span class="promo-transfer-value"><strong>10%</strong> de descuento pagando por transferencia bancaria ó efectivo</span>
+                    <br>
+                    <label class="field__label field__label--quantity" for="quantity">Cantidad</label>
+                    <input type="number" name="quantity" id="quantity" class="field__input border-radius" value="1" data-regex="/^[1-9]{1}([0-9]?)*$/" data-message="Ingrese una cantidad válida" data-required="1">
+                    <br>
+                    <button type="submit" id="add_to_cart-btn" class="add_to_cart-btn" data-label="Agregar al carrito" data-spinner-ratio="0.75">Agregar al carrito</button>
+                </div>
+              </div>
+            </div>
+            <div>
+                <p class="description-product-details"><%= product.name %></p>
+                <p><%= product.description %></p>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+</body>
