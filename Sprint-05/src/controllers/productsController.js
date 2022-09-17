@@ -149,7 +149,7 @@ edit: (req, res) => {
       res.render('products/list_products',{products: jsonData, msg: 'No hubo resultados para la búsqueda indicada'})
      }
   }
-	
+
 };
 
 module.exports = productsController;
