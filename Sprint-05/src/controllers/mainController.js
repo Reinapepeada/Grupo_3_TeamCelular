@@ -11,6 +11,7 @@ let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 
 const { validationResult } = require('express-validator');
+const { query } = require('express');
 
 
 //abro el products.json y lo convierto a javascript con parse
@@ -100,7 +101,12 @@ let mainController = {
     },
     
     services: (req , res)=> {
-        res.render('services')
+        function addAnotherIssue(){
+          const contenedor=document.querySelector(".anotherIssue")
+          contenedor.innerHTML="<input >"
+        }
+
+        res.render('services',)
       
     },
 

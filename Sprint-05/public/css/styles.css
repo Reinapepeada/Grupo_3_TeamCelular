@@ -278,6 +278,7 @@ nav ul li a{
     width: 50%;
     margin: 3%;
     margin: auto;
+    margin-bottom: 2rem;
 }
 
 .form-services div{
@@ -951,9 +952,10 @@ h1{
 }
 input[type="text"],
 input[type="password"],
-input[type="email"]{
+input[type="email"],
+input[type="tel"]{
    font-size: 1.3rem;
-   padding: 0.6rem;
+   padding: 0.5rem;
    border: none;
    width: 100%;
 } 
