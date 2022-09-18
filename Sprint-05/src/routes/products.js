@@ -45,5 +45,4 @@ router.delete('/delete/:id', productsController.destroy)
 router.get('/edit/:id', productsController.edit);
 router.put('/:id', productsController.update);
 
-router.get('/profile', usersController.profile);
 module.exports = router;

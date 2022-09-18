@@ -59,8 +59,9 @@ let mainController = {
                    // console.log(verificarpass) 
                  //   if(verificarpass){
                         usuarioLogueado = user
-                        req.session.usuarioLogueado = usuarioLogueado
-                        break
+                        req.session.userLogged = usuarioLogueado
+                      console.log(req.session.userLogged)
+                      
                     }
                 }
             }
@@ -76,12 +77,12 @@ let mainController = {
                 
                 if(req.body.remember_user != undefined){
                     //guardo una cookie 
-                    res.cookie('remember_user', usuarioLogueado.email,{
+                    res.cookie('remember_user', userLogged.email,{
                         maxAge: 600000
                     })
                 }
                                           
-               if(req.session.usuarioLogueado.category == "Admin"){
+               if(req.session.userLogged.category == "Admin"){
                 
                 const usersFilePathProducts = path.join(__dirname, '../../data/products.json');
                 const products = JSON.parse(fs.readFileSync(usersFilePathProducts, 'utf-8'))

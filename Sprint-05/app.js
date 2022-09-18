@@ -1,6 +1,7 @@
 let express = require('express')
 let app = express() //instancio en el objeto app 
 
+var usuarioLogued = require('./middlewares/userLoggedMiddleware')
 
 
 let path = require('path')
@@ -39,6 +40,8 @@ app.listen(3000,()=>{
 const productsRouter = require("./src/routes/products");
 const mainRouter = require("./src/routes/main");
 const cartRouter = require("./src/routes/cart");
+const userRouter = require("./src/routes/user");
+
 
 // rutas
 
@@ -48,10 +51,11 @@ app.set('views', path.join(__dirname, 'src/views'));
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: false }));
-
+app.use(usuarioLogued)
 app.use('/products', productsRouter);
 app.use('/', mainRouter);
 app.use('/login', mainRouter);
 app.use('/register', mainRouter);
 app.use('/services', mainRouter);
 app.use('/cart', cartRouter);
+app.use('/users', userRouter);

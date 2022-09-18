@@ -1,35 +1,55 @@
-<%- include('../partials/head.ejs') %>
+<%- include('./partials/head.ejs') %>
 <body>
 
-<%- include('../partials/header.ejs') %>
+<%- include('./partials/headerAdmin.ejs') %>
+
     <main>
-<div class="productos-grid">
-                <div class="imagenchica">
-                    <a href="#">
-                       <img src="/<%= product.img %>" alt="<%=product.alt%>">
-                    </a>
+
+        <form class="formProfile" action="/users/upload?_method=PUT" method="POST"
+        enctype="multipart/form-data">
+        
+        <h1>Editar Usuario</h1>
+        <div class="container-create-product">
+            <img class="widthProfile" src="./../../images/<%= user.image %>" >
+        </div>
+        <div class="form-control">
+           <label for="img">Seleccione la imagen</label>
+           <input type="file" name="image" value="<%= user.img %>" >
+       </div>
+        <div class="container-create-product">
+            
+                    <input type="hidden" name="id" class="d-none" value="<%= user.id %>">
+
+                    <div class="form-control">
+                    <label for="name">Nombre</label>
+                    <input type="text" name="firstName" class="input-product" value="<%= user.firstName %>">
                 </div>
-                <div class="imagenproducto">
-                    <a href="#">
-                        <img src="/<%= user.img %>" alt="<%=product.alt%>">
-                    </a>
+            
+                 <div class="form-control">
+                    <label for="price">Apellido</label>
+                    <input type="text" name="lastName"class="input-product" value="<%= user.lastName %>">
                 </div>
-                <div class="detallesproducto">Detalle del usuario: <%= user.name %>
-                    <h2 class="title-products-details"><%= user.name %></h2>
-                    <span class="price-value"><%= product.price %></span>
-                    <br>
-                    <span class="promo-transfer-value"><strong>10%</strong> de descuento pagando por transferencia bancaria ó efectivo</span>
-                    <br>
-                    <label class="field__label field__label--quantity" for="quantity">Cantidad</label>
-                    <input type="number" name="quantity" id="quantity" class="field__input border-radius" value="1" data-regex="/^[1-9]{1}([0-9]?)*$/" data-message="Ingrese una cantidad válida" data-required="1">
-                    <br>
-                    <button type="submit" id="add_to_cart-btn" class="add_to_cart-btn" data-label="Agregar al carrito" data-spinner-ratio="0.75">Agregar al carrito</button>
+ 
+                <div  class="form-control">
+                    <label for="description">Email</label>
+                    <input type="email" name="email"class="input-product" value="<%= user.email %>">
                 </div>
-              </div>
-            </div>
-            <div>
-                <p class="description-product-details"><%= product.name %></p>
-                <p><%= product.description %></p>
+
+                <label for="name">Categoria</label>
+                <select name="category">
+                    <option value="2" <%= locals.old && old.roll === '2' ? 'selected' :'' %> >Usuario</option>
+                    <option value="1" <%= locals.old && old.roll === '1' ? 'selected' :'' %> >Administrador</option>
+                </select>
+
+                <div class="box-btn-form-create-produc">
+                    <input type="submit" value="Guardar" class="btn-guardar">
+                    <input type="reset" value="Borrar" class="btn-reset">
+                </div>
+             </div>
+             
+        </form>
     </main>
-    <%- include('../partials/footer.ejs') %>
+
+    <%- include('./partials/footer.ejs') %>
 </body>
+</html>

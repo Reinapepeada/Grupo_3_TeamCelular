@@ -16,6 +16,11 @@
             <ul class="ul-count d-flex itemLog">
                 <li><a href="/register">Registrarse </a></li>
                 <li><a href="/login">Iniciar Sesión</a></li>
+                <% if (locals.isAnUserLogged == true) { %>
+                    <li>
+                      <a href="/users/profile/<%= locals.userLogged.id %>">Perfil </a>
+                </li>
+                <% } %> 
             </ul>     
             
             <ul class="nav-bar-major">

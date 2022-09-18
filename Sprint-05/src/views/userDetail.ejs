@@ -1,0 +1,29 @@
+<%- include('./partials/head.ejs') %>
+<body>
+
+<%- include('./partials/headerAdmin.ejs') %>
+
+    <main>
+
+        <form class="form-product" action="/users/upload?_method=PUT" method="POST"
+        enctype="multipart/form-data">
+        
+            <h1>Detalle Usuario</h1>
+            <div class="container-create-product">
+                <img class="imgProfile60" src="./../../images/<%= user.img %>" >
+            </div>
+        
+            <div class="container-create-product">
+                <p><%= user.id %>"</p>
+                <p><%= user.firstName %>"</p>
+                <p><%= user.lastName %>"</p>
+                <p><%= user.email %>"</p>
+                <p><%= user.category %>"</p>
+
+            </div>
+        </form>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>
