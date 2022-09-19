@@ -59,3 +59,7 @@ app.use('/register', mainRouter);
 app.use('/services', mainRouter);
 app.use('/cart', cartRouter);
 app.use('/users', userRouter);
+
+app.use((req, res)=>{
+    res.status(404).render('not-found');
+})

@@ -3,17 +3,18 @@
 
 <%- include('./partials/header.ejs') %>
 <body>
-<form class="formulario"  action="/register" method="POST"
-enctype="multipart/form-data">
+<form class="formulario"  action="/users/register" method="POST">
 
     <h1>REGISTRATE</h1>
     <div class="contenedor">
 
     <div class="input-contenedor">
-        <input type="text" placeholder="Nombre y Apellido" name="firstName">
-
+        <input type="text" placeholder="Nombre" name="firstName">
          </div>
-
+         <div class="input-contenedor">
+            <input type="text" placeholder="Apellido" name="lastName">
+    
+             </div>
          <div class="input-contenedor">
             <input type="text" placeholder="Correo Electrónico" name="email">
     
@@ -25,8 +26,7 @@ enctype="multipart/form-data">
                  </div>
 
                  <div class="input-contenedor">
-                    <input type="password" placeholder="Repetir Contraseña">
-            
+                    <input type="text" name="category" placeholder="Rol">
                      </div>
                 <input type="submit" value="REGISTRATE" class="button">
                 <div class="form-group form-check">

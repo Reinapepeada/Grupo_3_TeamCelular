@@ -13,8 +13,8 @@ const validationLogin =[
 router.get('/', mainController.list )
 router.get('/login', mainController.login )
 router.post('/login', validationLogin, mainController.loginEntry )
-router.post('/register', mainController.createUser )
-router.get('/register', mainController.register )
+//router.post('/register', mainController.createUser )
+//router.get('/register', mainController.register )
 router.get('/services', mainController.services )
 
 module.exports = router;

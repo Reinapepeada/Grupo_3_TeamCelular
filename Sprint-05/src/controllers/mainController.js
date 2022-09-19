@@ -96,11 +96,7 @@ let mainController = {
         
     },
 
-    register: (req , res)=> {
-        res.render('register');
-     
-    },
-    
+
     services: (req , res)=> {
         function addAnotherIssue(){
           const contenedor=document.querySelector(".anotherIssue")

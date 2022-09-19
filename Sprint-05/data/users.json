@@ -1,1 +1,18 @@
-[{"id":1,"firstName":"pedro12","lastName":"Perez12","email":"pedro@gmail.com","password":"1234","category":"admin"}]
+[
+ {
+  "id": 1,
+  "firstName": "pedro12",
+  "lastName": "Perez12",
+  "email": "pedro@gmail.com",
+  "password": "1234",
+  "category": "admin"
+ },
+ {
+  "id": 2,
+  "firstName": "test 2",
+  "lastName": "test",
+  "email": "test",
+  "password": "123456",
+  "category": "test"
+ }
+]
