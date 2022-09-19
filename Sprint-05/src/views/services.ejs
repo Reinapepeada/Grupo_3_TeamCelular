@@ -7,7 +7,7 @@
         <h1 class="services">Cotización de Servicio</h1>
         <h2 class="services">Completá el siguiente formulario:</h2>
         <form action="/servicios" method="post" class="form-services">
-            <div>
+            <div class="section-form">
                 <p>Selecciona la marca de tu equipo</p>
             
                 <div class="mx-2">
@@ -43,7 +43,7 @@
                     <label for="alcatel">Alcatel</label>
                 </div>
             </div>
-            <div>
+            <div class="section-form">
                 <p>Selecciona el modelo de tu equipo</p>
                 <select>
                     <option>Modelo</option>
@@ -55,7 +55,7 @@
                 </select>
             </div>
             
-            <div>
+            <div class="section-form">
                 <p>Selecciona el color de tu equipo</p>
                 <select>
                     <option>Color</option>
@@ -65,7 +65,7 @@
                 </select>
             </div>
 
-            <div>
+            <div class="section-form">
                 <p>Vayamos a la falla</p>
                 <select>
                     <option>Pantalla rota</option>
@@ -75,16 +75,19 @@
                     <option>No inicia el sistema</option>
                     <option>La falla no está en la lista <option>
                 </select>
+                <div class="anotherIssue"> <input type="text"></div>
+                <button class="anotherIssueButton" onclick="agregarInput()">Agregar otra falla</button>
+
           </div>
-            <div class="personal-data">
+            <div class="personal-data section-form">
                 <label for="name">Nombre y Apellido</label>
-                <input type="text" name="name" >
+                <div class="input-contenedor userField "><input type="text" name="name" ></div>
            
                 <label for="email">Email</label>
-                <input type="email" name="email" >
+                <div class="input-contenedor userField "><input type="email" name="email" ></div>
             
                 <label for="tel">Teléfono</label>
-                <input type="tel" name="tel" >
+                <div class="input-contenedor userField "><input type="tel" name="tel" ></div>
           
             </div>
            <div class="buttons-form-service">

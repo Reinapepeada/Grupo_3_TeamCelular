@@ -1,0 +1,55 @@
+<%- include('./partials/head.ejs') %>
+<body>
+
+<%- include('./partials/headerAdmin.ejs') %>
+
+    <main>
+
+        <form class="formProfile" action="/users/upload?_method=PUT" method="POST"
+        enctype="multipart/form-data">
+        
+        <h1>Editar Usuario</h1>
+        <div class="container-create-product">
+            <img class="widthProfile" src="./../../images/<%= user.image %>" >
+        </div>
+        <div class="form-control">
+           <label for="img">Seleccione la imagen</label>
+           <input type="file" name="image" value="<%= user.img %>" >
+       </div>
+        <div class="container-create-product">
+            
+                    <input type="hidden" name="id" class="d-none" value="<%= user.id %>">
+
+                    <div class="form-control">
+                    <label for="name">Nombre</label>
+                    <input type="text" name="firstName" class="input-product" value="<%= user.firstName %>">
+                </div>
+            
+                 <div class="form-control">
+                    <label for="price">Apellido</label>
+                    <input type="text" name="lastName"class="input-product" value="<%= user.lastName %>">
+                </div>
+ 
+                <div  class="form-control">
+                    <label for="description">Email</label>
+                    <input type="email" name="email"class="input-product" value="<%= user.email %>">
+                </div>
+
+                <label for="name">Categoria</label>
+                <select name="category">
+                    <option value="2" <%= locals.old && old.roll === '2' ? 'selected' :'' %> >Usuario</option>
+                    <option value="1" <%= locals.old && old.roll === '1' ? 'selected' :'' %> >Administrador</option>
+                </select>
+
+                <div class="box-btn-form-create-produc">
+                    <input type="submit" value="Guardar" class="btn-guardar">
+                    <input type="reset" value="Borrar" class="btn-reset">
+                </div>
+             </div>
+             
+        </form>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

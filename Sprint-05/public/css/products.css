@@ -74,6 +74,10 @@ textarea{
  p{
     text-align: center;
  }
+
+ .form-group-create-produc input{
+    margin-top: 1rem;
+ }
  /*boton details*/
  .details{
     margin-bottom: 15%;
