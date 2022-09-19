@@ -21,7 +21,7 @@ const userController={
       
       upload: function(req,res){
         let filenameVar;
-         console.log('upload img')
+        
          if(req.file !== undefined){
            filenameVar = req.file.filename
          }else{
@@ -44,28 +44,29 @@ const userController={
            firstName: req.body.firstName,
            lastName: req.body.lastName,
            email: req.body.email,
-           image: filenameVar
+           image: filenameVar,
+           category: req.body.category
            
        }
          for(let user of jsonData){
           
              if(parseInt(userUpdate.id) == parseInt(user.id)){
                user.firstName = userUpdate.firstName,
-               user.last = userUpdate.lastName,
+               user.lastName = userUpdate.lastName,
                user.email = userUpdate.email,
                user.image = userUpdate.image
+               user.category = userUpdate.category
              
              req.session.userLogged = userUpdate
-             
+          
              jsonData = JSON.stringify(jsonData); //lo convierto a json
-       
-
+      
              fs.writeFileSync(usersFilePath,  jsonData); //lo grabo en el json
     
              // lo convierto a js para poder recorrerlo en la vista
             jsonData = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'))
     
-                res.render('userDetail',{user: user})
+                res.render('userDetail',{user: userUpdate})
                }else{
                 res.send('no lo actualizo porque no encontro')
            }

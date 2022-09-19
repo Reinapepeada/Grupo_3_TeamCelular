@@ -37,8 +37,8 @@
 
                 <label for="name">Categoria</label>
                 <select name="category">
-                    <option value="2" <%= locals.old && old.roll === '2' ? 'selected' :'' %> >Usuario</option>
-                    <option value="1" <%= locals.old && old.roll === '1' ? 'selected' :'' %> >Administrador</option>
+                    <option value="user" <%= locals.old && old.roll === 'user' ? 'selected' :'' %> >Usuario</option>
+                    <option value="admin" <%= locals.old && old.roll === 'admin' ? 'selected' :'' %> >Administrador</option>
                 </select>
 
                 <div class="box-btn-form-create-produc">

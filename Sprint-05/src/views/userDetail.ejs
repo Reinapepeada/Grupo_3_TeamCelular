@@ -4,8 +4,7 @@
 <%- include('./partials/headerAdmin.ejs') %>
 
     <main>
-
-        <form class="form-product" action="/users/upload?_method=PUT" method="POST"
+        <form class="formProfile" action="/users/upload?_method=PUT" method="POST"
         enctype="multipart/form-data">
         
             <h1>Detalle Usuario</h1>
@@ -14,12 +13,17 @@
             </div>
         
             <div class="container-create-product">
-                <p><%= user.id %>"</p>
-                <p><%= user.firstName %>"</p>
-                <p><%= user.lastName %>"</p>
-                <p><%= user.email %>"</p>
-                <p><%= user.category %>"</p>
+                <p><strong>Nombre</strong></p>
+                <p><%= user.firstName %></p>
 
+                <p><strong>Apellido</strong></p>
+                <p><%= user.lastName %></p>
+
+                <p><strong>Email</strong></p>
+                <p><%= user.email %></p>
+
+                <p><strong>Categoría</strong></p>
+                <p><%= user.category %></p>
             </div>
         </form>
     </main>

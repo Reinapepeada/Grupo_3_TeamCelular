@@ -1,7 +1,7 @@
 let express = require('express')
 let app = express() //instancio en el objeto app 
 
-var usuarioLogued = require('./middlewares/userLoggedMiddleware')
+var userLogued = require('./middlewares/userLoggedMiddleware')
 
 
 let path = require('path')
@@ -51,7 +51,7 @@ app.set('views', path.join(__dirname, 'src/views'));
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: false }));
-app.use(usuarioLogued)
+app.use(userLogued)
 app.use('/products', productsRouter);
 app.use('/', mainRouter);
 app.use('/login', mainRouter);
