@@ -24,6 +24,7 @@ router.get('/profile/:id', userController.profile);
 router.put('/upload',upload.single('image'), userController.upload);
 //Mostrará el formulario de creación para un producto
 router.get('/register', guestMiddleware, userController.register);
+router.get('/userDetail', guestMiddleware, userController.detailView);
 
 //Deberá recibir los datos del formulario de creación
 router.post('/register', userController.processRegister);

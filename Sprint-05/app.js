@@ -1,14 +1,12 @@
 let express = require('express')
 let app = express() //instancio en el objeto app 
-
+var session = require('express-session')
 var userLogued = require('./middlewares/userLoggedMiddleware')
 
 
 let path = require('path')
 //path es un modulo nativo que le dice donde estoy ya que las rutas son obsoluta
 //__dirname es una variable que nos da node que muestra donde estoy parado , en el archivo que estoy
-
-let session = require('express-session')
 
 app.use(session({
     secret: "secret-secret by group 3",

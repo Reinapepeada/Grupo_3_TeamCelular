@@ -90,17 +90,21 @@ const userController={
           
              jsonData = JSON.stringify(jsonData); //lo convierto a json
       
-             fs.writeFileSync(usersFilePath,  jsonData); //lo grabo en el json
+             fs.writeFileSync(usersFilePath, jsonData); //lo grabo en el json
     
              // lo convierto a js para poder recorrerlo en la vista
             jsonData = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'))
     
-                res.render('userDetail',{user: userUpdate})
+                return res.redirect('userDetail');
+            //    res.render('userDetail',{user: userUpdate})
                }else{
                 res.send('no lo actualizo porque no encontro')
            }
         }
     },
+    detailView:(req,res)=>{
+      res.render('userDetail')
+    }, 
 }
 
 module.exports=userController

@@ -9,21 +9,21 @@
         
             <h1>Detalle Usuario</h1>
             <div class="container-create-product">
-                <img class="imgProfile60" src="./../../images/<%= user.img %>" >
+                <img class="imgProfile60" src="./../../images/<%= locals.userLogged.image %>" >
             </div>
         
             <div class="container-create-product">
                 <p><strong>Nombre</strong></p>
-                <p><%= user.firstName %></p>
+                <p><%= locals.userLogged.firstName %></p>
 
                 <p><strong>Apellido</strong></p>
-                <p><%= user.lastName %></p>
+                <p><%= locals.userLogged.lastName %></p>
 
                 <p><strong>Email</strong></p>
-                <p><%= user.email %></p>
+                <p><%= locals.userLogged.email%></p>
 
                 <p><strong>Categoría</strong></p>
-                <p><%= user.category %></p>
+                <p><%= locals.userLogged.category %></p>
             </div>
         </form>
     </main>
