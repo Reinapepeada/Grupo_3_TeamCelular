@@ -39,7 +39,7 @@ const userController={
       let newUser={
         id : lastId + 1,
         ...userToRegister,
-        password: userToRegister.password
+        password: bcrypt.hashSync(userToRegister.password, 10),
         //image: req.file? req.file.filename : "default-avatar.png"
       }
       users.push(newUser)

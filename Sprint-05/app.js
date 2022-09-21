@@ -2,6 +2,8 @@ let express = require('express')
 let app = express() //instancio en el objeto app 
 var session = require('express-session')
 var userLogued = require('./middlewares/userLoggedMiddleware')
+const cookieParser = require("cookie-parser");
+const recordameMiddleware = require ("./middlewares/recordameMiddleware");
 
 
 let path = require('path')
@@ -12,7 +14,9 @@ app.use(session({
     secret: "secret-secret by group 3",
     resave: false,
     saveUninitialized: false,
-}));
+}))
+app.use(cookieParser());
+app.use(recordameMiddleware);
 
 
 //static recibe como parametro la ruta en la que se encuentran los archivos public
