@@ -78,8 +78,9 @@ const userController={
            
        }
          for(let user of jsonData){
-          
-             if(parseInt(userUpdate.id) == parseInt(user.id)){
+        
+             if(req.body.id == user.id){
+            
                user.firstName = userUpdate.firstName,
                user.lastName = userUpdate.lastName,
                user.email = userUpdate.email,

@@ -38,5 +38,14 @@
   "email": "victorponce@gmail.com",
   "password": "$2a$10$12peeOsBt9TsvnmL49gxa.JHJIN3rs.fkS6i6f6nAqsMpP.Uus8uC",
   "category": "admin"
+ },
+ {
+  "id": 6,
+  "firstName": "florencia",
+  "lastName": "mer",
+  "email": "flor@gmail.com",
+  "password": "$2a$10$iRskA4CxEVyKAVsY4sk5OeIoO1/vxPKNcI/n0x8QXjm/gviwLv.JW",
+  "category": "user",
+  "remember_user": "on"
  }
 ]

@@ -4,6 +4,7 @@ const fs = require('fs');
 const multer = require('multer');
 const { json } = require('body-parser');
 const path = require('path');
+let bcryptjs = require('bcryptjs')
 
 let usersFilePath = path.join(__dirname, '../../data/users.json');
 let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
@@ -54,10 +55,9 @@ let mainController = {
             for(let user of users){
                 if(user.email == req.body.email){
                       
-                    //se modifica cuando ya este el alta de usuario 
-                  //  let verificarpass = bcryptjs.compareSync(req.body.password, user.password)
+                    let verificarpass = bcryptjs.compareSync(req.body.password, user.password)
                    // console.log(verificarpass) 
-                 //   if(verificarpass){
+                    if(verificarpass){
                         usuarioLogueado = user
                         req.session.userLogged = usuarioLogueado
                       console.log(req.session.userLogged)
@@ -65,7 +65,7 @@ let mainController = {
                     }
                 }
             }
-           
+        }
             if(usuarioLogueado <=0){
                 console.log('is empty')
                 return res.render('login', {
