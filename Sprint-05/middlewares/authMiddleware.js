@@ -3,7 +3,7 @@ const path = require("path");
 
 function authMiddleware (req, res, next){
     if( req.session.userLogged == undefined) {
-			res.redirect('login');
+			res.redirect('/login');
         }
         next();
     }

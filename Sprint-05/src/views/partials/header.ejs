@@ -35,7 +35,7 @@
             <li><a href="/login">Iniciar Sesión</a></li>
              <% if (locals.isAnUserLogged == true) { %>
                 <li>
-                  <a href="/users/profile/<%= locals.userLogged.id %>">Perfil </a>
+                  <a href="/users/profile/<%= locals.userLogged.name %>">Perfil </a>
             </li>
             <% } %>  
 

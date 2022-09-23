@@ -1,51 +1,60 @@
 [
-      {
-            "id": 1,
-            "firstName": "test 2",
-            "lastName": "testOK",
-            "email": "test@669.com",
-            "password": "1234",
-            "category": "user"
-      },
-      {
-            "id": 2,
-            "firstName": "test 2",
-            "lastName": "testOK",
-            "email": "test@798.com",
-            "password": "123456",
-            "category": "user"
-      },
-      {
-            "id": 3,
-            "firstName": "admin",
-            "lastName": "admin",
-            "email": "admin@gmail.com",
-            "password": "$2a$10$Nm5yfAr/q2RNhWTqTaqFsuNUtk61eOFIWdACa51v6azCJRQCwJ9HC",
-            "category": "admin"
-      },
-      {
-            "id": 4,
-            "firstName": "user",
-            "lastName": "user",
-            "email": "user@gmail.com",
-            "password": "1234",
-            "category": "user"
-      },
-      {
-            "id": 5,
-            "firstName": "victor",
-            "lastName": "ponce",
-            "email": "victorponce@gmail.com",
-            "password": "$2a$10$12peeOsBt9TsvnmL49gxa.JHJIN3rs.fkS6i6f6nAqsMpP.Uus8uC",
-            "category": "admin"
-      },
-      {
-            "id": 6,
-            "firstName": "florencia",
-            "lastName": "mer",
-            "email": "flor@gmail.com",
-            "password": "$2a$10$iRskA4CxEVyKAVsY4sk5OeIoO1/vxPKNcI/n0x8QXjm/gviwLv.JW",
-            "category": "user",
-            "remember_user": "on"
-      }
+ {
+  "id": 1,
+  "firstName": "test 2",
+  "lastName": "testOK",
+  "email": "test@669.com",
+  "password": "1234",
+  "category": "user"
+ },
+ {
+  "id": 2,
+  "firstName": "test 2",
+  "lastName": "testOK",
+  "email": "test@798.com",
+  "password": "123456",
+  "category": "user"
+ },
+ {
+  "id": 3,
+  "firstName": "admin",
+  "lastName": "admin",
+  "email": "admin@gmail.com",
+  "password": "$2a$10$Nm5yfAr/q2RNhWTqTaqFsuNUtk61eOFIWdACa51v6azCJRQCwJ9HC",
+  "category": "admin"
+ },
+ {
+  "id": 4,
+  "firstName": "user",
+  "lastName": "user",
+  "email": "user@gmail.com",
+  "password": "1234",
+  "category": "user"
+ },
+ {
+  "id": 5,
+  "firstName": "victor",
+  "lastName": "ponce",
+  "email": "victorponce@gmail.com",
+  "password": "$2a$10$12peeOsBt9TsvnmL49gxa.JHJIN3rs.fkS6i6f6nAqsMpP.Uus8uC",
+  "category": "admin"
+ },
+ {
+  "id": 6,
+  "firstName": "florencia",
+  "lastName": "mer",
+  "email": "flor@gmail.com",
+  "password": "$2a$10$iRskA4CxEVyKAVsY4sk5OeIoO1/vxPKNcI/n0x8QXjm/gviwLv.JW",
+  "category": "user",
+  "remember_user": "on"
+ },
+ {
+  "id": 7,
+  "firstName": "TESTER",
+  "lastName": "TESTER",
+  "email": "tester@gmail.com",
+  "password": "$2a$10$5yASNcRaQGTuNkPnT.mg/eR.rW7hBtSb0bwsU3/tUsHc35U4xq6D.",
+  "category": "admin",
+  "image": "avatar-1663947039972.jpg"
+ }
 ]

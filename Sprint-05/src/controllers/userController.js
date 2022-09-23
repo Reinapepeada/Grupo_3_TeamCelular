@@ -1,8 +1,8 @@
 const fs = require('fs');
+const path = require('path');
 const { validationResult } = require('express-validator');
 const multer = require('multer');
 const { json } = require('body-parser');
-const path = require('path');
 const bcrypt = require("bcryptjs");
 
 
@@ -10,22 +10,16 @@ let usersFilePath = path.join(__dirname, '../../data/users.json');
 let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const userController={
-    profile: (req, res)=>{
-        const idUrl = req.params.id;
-        console.log(idUrl)
-        let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'))
-         
-        for(let user of users){
-            if(parseInt(user.id) == parseInt(idUrl)){ 
-              res.render('profile',{user: user}); 
-           }
-       }
-      },
+  profile: (req, res)=>{
+
+		res.render("profile", {user:req.session.userLogged})
+
+	},
       register : (req,res) => {
         return res.render('register')
     },
     processRegister :  (req, res) => {
-      //console.log (req.body);
+      console.log (req.body);
       //return res.send (req.body);
       let errors = validationResult(req);
       console.log(errors.mapped());
@@ -40,7 +34,7 @@ const userController={
         id : lastId + 1,
         ...userToRegister,
         password: bcrypt.hashSync(userToRegister.password, 10),
-        //image: req.file? req.file.filename : "default-avatar.png"
+        image: req.file? req.file.filename : "default-avatar.png"
       }
       users.push(newUser)
       fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));

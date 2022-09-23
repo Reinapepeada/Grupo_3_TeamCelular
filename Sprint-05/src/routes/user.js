@@ -1,32 +1,32 @@
 const { check } = require("express-validator");
+const path = require('path');
 const express = require('express');
 const userController = require('../controllers/userController');
 const router = express.Router();
 const multer = require('multer');
 const { body } = require('express-validator');
 const guestMiddleware = require('../../middlewares/guestMiddleware');
+const authMiddleware = require("../../middlewares/authMiddleware");
 
-const storage = multer.diskStorage({
+var multerStorage = multer.diskStorage({
   destination:(req, file, cb)=>{
-         cb(null, path.join(__dirname,'../../public/images'))
+      cb(null, './public/img/users')
   },
-  filename:(req, file, cb)=>{
-      // extrae el nombre de la extencion de un archivo
-       const newFilename = 'user-'+ Date.now() + path.extname(file.originalname);
-      cb(null, newFilename);
+  filename: (req, file, cb) =>{
+      cb(null, "avatar-" + Date.now() + path.extname(file.originalname))
   }
- 
-})
-//ejecuto multer
-const upload = multer({storage: storage });
+  })
 
-router.get('/profile/:id', userController.profile);
-router.put('/upload',upload.single('image'), userController.upload);
+var upload = multer({storage: multerStorage})
+//ejecuto multer
+
+router.get('/profile/', authMiddleware, userController.profile);
+router.put('/upload',upload.single("image"), userController.upload);
 //Mostrará el formulario de creación para un producto
 router.get('/register', guestMiddleware, userController.register);
 router.get('/userDetail', guestMiddleware, userController.detailView);
 
 //Deberá recibir los datos del formulario de creación
-router.post('/register', userController.processRegister);
+router.post('/register', upload.single("image"), userController.processRegister);
 
 module.exports = router;
