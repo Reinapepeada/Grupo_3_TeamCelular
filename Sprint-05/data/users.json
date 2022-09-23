@@ -49,12 +49,12 @@
   "remember_user": "on"
  },
  {
-  "id": 7,
+  "id": "7",
   "firstName": "TESTER",
-  "lastName": "TESTER",
-  "email": "tester@gmail.com",
-  "password": "$2a$10$5yASNcRaQGTuNkPnT.mg/eR.rW7hBtSb0bwsU3/tUsHc35U4xq6D.",
-  "category": "admin",
-  "image": "avatar-1663947039972.jpg"
+  "lastName": "2020",
+  "email": "tester22@gmail.com",
+  "image": "default-avatar.png",
+  "category": "user",
+  "password": "$2a$10$5yASNcRaQGTuNkPnT.mg/eR.rW7hBtSb0bwsU3/tUsHc35U4xq6D."
  }
 ]

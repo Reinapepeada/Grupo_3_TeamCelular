@@ -19,7 +19,7 @@ const userController={
         return res.render('register')
     },
     processRegister :  (req, res) => {
-      console.log (req.body);
+      //console.log (req.body);
       //return res.send (req.body);
       let errors = validationResult(req);
       console.log(errors.mapped());
@@ -42,60 +42,32 @@ const userController={
     }
     },
       
-      upload: function(req,res){
-        let filenameVar;
-        
-         if(req.file !== undefined){
-           filenameVar = req.file.filename
-         }else{
-    
-           let jsonData = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-    
-           for(let user of jsonData){
-             if(parseInt(req.body.id) == parseInt(user.id)){
-              
-              filenameVar = user.image
-           }
+    upload: (req, res) => {
+      let id = req.params.id;
+      let user = users.find(oneUsers => oneUsers.id == id );
+  console.log (req.body)
+      userToEdit ={
+        id: req.body.id,                
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        image: req.file? req.file.filename : "default-avatar.png",
+        category: req.body.category
+      };
+  
+      let newUsers = users.map(user=>{
+        if (user.id == userToEdit.id){
+          return user = {...userToEdit,
+            password: user.password}
         }
-           filenameVar = req.body.image
-         }
-        
-         let jsonData = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-    
-         let userUpdate ={
-           id: req.body.id,                
-           firstName: req.body.firstName,
-           lastName: req.body.lastName,
-           email: req.body.email,
-           image: filenameVar,
-           category: req.body.category
-           
-       }
-         for(let user of jsonData){
-        
-             if(req.body.id == user.id){
-            
-               user.firstName = userUpdate.firstName,
-               user.lastName = userUpdate.lastName,
-               user.email = userUpdate.email,
-               user.image = userUpdate.image
-               user.category = userUpdate.category
-             
-             req.session.userLogged = userUpdate
-          
-             jsonData = JSON.stringify(jsonData); //lo convierto a json
-      
-             fs.writeFileSync(usersFilePath, jsonData); //lo grabo en el json
-    
-             // lo convierto a js para poder recorrerlo en la vista
-            jsonData = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'))
-    
-                return res.redirect('userDetail');
-            //    res.render('userDetail',{user: userUpdate})
-               }else{
-                res.send('no lo actualizo porque no encontro')
-           }
-        }
+        return user;
+      })
+  
+      fs.writeFileSync(usersFilePath, JSON.stringify(newUsers, null, ' '));
+      users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+      //res.redirect('userDetail');
+      res.render ('profile', {user: userToEdit});
+  
     },
     detailView:(req,res)=>{
       res.render('userDetail')
