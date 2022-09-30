@@ -56,5 +56,14 @@
   "image": "default-avatar.png",
   "category": "user",
   "password": "$2a$10$5yASNcRaQGTuNkPnT.mg/eR.rW7hBtSb0bwsU3/tUsHc35U4xq6D."
+ },
+ {
+  "id": "71",
+  "firstName": "florencia",
+  "lastName": "mer123",
+  "email": "flor@gmail.com",
+  "image": "avatar-1664567659912.jpeg",
+  "category": "user",
+  "password": "$2a$10$af6yIj.bORwxNIFj0OkEaemkXtX.4qrsujeTtnS.5Z4E9amLTron2"
  }
 ]
