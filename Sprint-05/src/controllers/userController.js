@@ -71,7 +71,14 @@ const userController={
     },
     detailView:(req,res)=>{
       res.render('userDetail')
-    }, 
+    },
+
+    logout:(req, res)=>{
+      req.session.userLogged = undefined;
+      users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+  
+      res.redirect("/");
+  } 
 }
 
 module.exports=userController

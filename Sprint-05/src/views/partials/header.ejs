@@ -31,16 +31,13 @@
         </div>
 
         <ul class="ul-count d-flex itemLog">
-            <% if (locals.isAnUserLogged == !true) { %>
-                <li><a href="/users/register">Registrarse </a></li>
-                <li><a href="/login">Iniciar Sesión</a></li>
-                <% } %>  
              <% if (locals.isAnUserLogged == true) { %>
-                <li>
-                  <a href="/users/profile/<%= locals.userLogged.name %>">Perfil </a>
-            </li>
-            <% } %>  
-
+                <li><a href="/users/profile/<%= locals.userLogged.name %>">Perfil </a></li>
+                <li><a href="/users/logout">Cerrar <i class="fas fa-sign-in-alt"></i></a></li>
+            <% } else { %>
+            <li><a href="/users/register">Registrarse </a></li>
+            <li><a href="/login">Iniciar Sesión</a></li>
+            <%} %>
         </ul>        
     </nav>
     <div class="cont-burger">

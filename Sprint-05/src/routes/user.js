@@ -22,11 +22,10 @@ var upload = multer({storage: multerStorage})
 
 router.get('/profile/', authMiddleware, userController.profile);
 router.put('/upload',upload.single("image"), userController.upload);
-//Mostrará el formulario de creación para un producto
 router.get('/register', guestMiddleware, userController.register);
 router.get('/userDetail', guestMiddleware, userController.detailView);
-
-//Deberá recibir los datos del formulario de creación
 router.post('/register', upload.single("image"), userController.processRegister);
+router.get('/logout', userController.logout);
+
 
 module.exports = router;

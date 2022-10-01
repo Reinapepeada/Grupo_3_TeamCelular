@@ -105,24 +105,6 @@ let mainController = {
 
         res.render('services',)
       
-    },
-
-    createUser:(req,res)=>{
-        if(jsonData == ''){
-            jsonData =[];
-          }
-          let user={}
-          user={
-            id:Math.random(),
-            nickname:req.body.nickname,
-            email:req.body.email,
-            password:req.body.password
-          }
-          console.log(user)
-          jsonData.push(user)
-          jsonData_two = JSON.stringify(jsonData); //a json
-          fs.writeFileSync('./data/users.json', jsonData_two);
-          res.redirect("/")
     }
 }
 module.exports = mainController;
