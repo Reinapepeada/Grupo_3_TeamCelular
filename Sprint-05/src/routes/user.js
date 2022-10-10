@@ -24,7 +24,11 @@ router.get('/profile/', authMiddleware, userController.profile);
 router.put('/upload',upload.single("image"), userController.upload);
 router.get('/register', guestMiddleware, userController.register);
 router.get('/userDetail', guestMiddleware, userController.detailView);
-router.post('/register', upload.single("image"), userController.processRegister);
+router.post('/register', upload.single("image"), [
+  check('firstName').isLength({min:1}).withMessage('Debe ingresar un nombre'),
+  check('lastName').isLength({min:1}).withMessage('Debe ingresar un apellido'),
+  check('email').isEmail().withMessage('Debe un email valido'),
+  check('password').isLength({min:3}).withMessage('Debe ingresar clave de mas de 3 caracteres'),]  ,userController.processRegister);
 router.get('/logout', userController.logout);
 
 

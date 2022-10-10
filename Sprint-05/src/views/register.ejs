@@ -9,22 +9,31 @@
     <div class="contenedor">
 
     <div class="input-contenedor">
-        <input type="text" placeholder="Nombre" name="firstName">
+        <input type="text" placeholder="Nombre" name="firstName" required>
+        <div class ="errors-danger">
+            <%= locals.errors && errors.name !== undefined ? errors.firstName.msg : ""%>
+        </div>
          </div>
          <div class="input-contenedor">
-            <input type="text" placeholder="Apellido" name="lastName">
-    
+            <input type="text" placeholder="Apellido" name="lastName" required>
+            <div class ="errors-danger">
+                <%= locals.errors && errors.name !== undefined ? errors.lastName.msg : ""%>
+            </div>
              </div>
          <div class="input-contenedor">
-            <input type="text" placeholder="Correo Electrónico" name="email">
-    
+            <input type="email" placeholder="Correo Electrónico" name="email" required>
+            <div class ="errors-danger">
+                <%= locals.errors && errors.name !== undefined ? errors.email.msg : ""%>
+            </div>
              </div>
 
              <div class="input-contenedor">
-                <input type="password" placeholder="Contraseña" name="password">
-        
+                <input type="password" placeholder="Contraseña" name="password" required>
+                <div class ="errors-danger">
+                    <%= locals.errors && errors.name !== undefined ? errors.password.msg : ""%>
+                </div>
                  </div>
-                 <div class="input-contenedor">
+                 <div class="input-contenedor" required>
                     <label for="category">Elige tu Rol</label>
                     <select name="category" id="category" >
                     <option value="admin">Administrador</option>
@@ -35,11 +44,11 @@
             <h4>Elegí tu foto de usuario</h4>
             <input type="file" name="image">
             <br>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="remember_user" required><p> Al registrarse aceptas nuestras Condiciones de uso y Política de privacidad</p>
+                </label>
                 <input type="submit" value="REGISTRATE" class="button">
-                <div class="form-group form-check">
-                    <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" name="remember_user"><p> Al registrarse aceptas nuestras Condiciones de uso y Política de privacidad</p>
-                    </label>
                 </div> 
                 </div>
     </form>
