@@ -1,0 +1,33 @@
+<%- include('./partials/head.ejs') %>
+<body>
+
+<%- include('./partials/headerAdmin.ejs') %>
+
+    <main>
+        <form class="formProfile" action="/users/upload?_method=PUT" method="POST"
+        enctype="multipart/form-data">
+        
+            <h1>Detalle Usuario</h1>
+            <div class="container-create-product">
+                <img class="imgProfile60" src="./../../images/aquivienelaimage" >
+            </div>
+        
+            <div class="container-create-product">
+                <p><strong>Nombre</strong></p>
+                <p><%= locals.userLogged.firstName %></p>
+
+                <p><strong>Apellido</strong></p>
+                <p><%= locals.userLogged.lastName %></p>
+
+                <p><strong>Email</strong></p>
+                <p><%= locals.userLogged.email%></p>
+
+                <p><strong>Categoría</strong></p>
+                <p><%= locals.userLogged.category %></p>
+            </div>
+        </form>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

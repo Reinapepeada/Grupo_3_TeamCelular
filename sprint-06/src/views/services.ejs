@@ -1,0 +1,100 @@
+<%- include('./partials/head.ejs') %>
+<body>
+
+<%- include('./partials/header.ejs') %>
+    
+    <main>
+        <h1 class="services">Cotización de Servicio</h1>
+        <h2 class="services">Completá el siguiente formulario:</h2>
+        <form action="/servicios" method="post" class="form-services">
+            <div class="section-form">
+                <p>Selecciona la marca de tu equipo</p>
+            
+                <div class="mx-2">
+                    <input type="radio" id="samsung" name="smartphone" value="samsung">
+                    <label for="samsung">Samsung</label>
+                </div>
+                <div class="mx-2">
+                    <input type="radio" id="motorola" name="smartphone" value="motorola">
+                    <label for="motorola">Motorola</label>
+                </div>
+                <div class="mx-2">
+                    <input type="radio" id="aple" name="smartphone" value="aple">
+                    <label for="aple">Aple</label>
+                </div>
+                <div class="mx-2">
+                    <input type="radio" id="huawei" name="smartphone" value="huawei">
+                    <label for="huawei">Huawei</label>
+                </div>
+                <div class="mx-2">
+                    <input type="radio" id="lg" name="smartphone" value="lg">
+                    <label for="lg">LG</label>
+                </div>
+                <div class="mx-2">
+                    <input type="radio" id="sperio" name="smartphone" value="sperio">
+                    <label for="sperio">XPeria</label>
+                </div>
+                <div class="mx-2">
+                    <input type="radio" id="mi" name="smartphone" value="mi">
+                    <label for="mi">MI</label>
+                </div>
+                <div class="mx-2">
+                    <input type="radio" id="alcatel" name="alcatel" value="alcatel">
+                    <label for="alcatel">Alcatel</label>
+                </div>
+            </div>
+            <div class="section-form">
+                <p>Selecciona el modelo de tu equipo</p>
+                <select>
+                    <option>Modelo</option>
+                    <option>Samsung A4</option>
+                    <option>Samsung A5</option>
+                    <option>Samsung A6</option>
+                    <option>Samsung A7</option>
+                    <option>Samsung A8</option>
+                </select>
+            </div>
+            
+            <div class="section-form">
+                <p>Selecciona el color de tu equipo</p>
+                <select>
+                    <option>Color</option>
+                    <option>Rojo</option>
+                    <option>Azul</option>
+                    <option>Negro A6</option>
+                </select>
+            </div>
+
+            <div class="section-form">
+                <p>Vayamos a la falla</p>
+                <select>
+                    <option>Pantalla rota</option>
+                    <option>No carga</option>
+                    <option>No enciende</option>
+                    <option>Batería Agotada</option>
+                    <option>No inicia el sistema</option>
+                    <option>La falla no está en la lista <option>
+                </select>
+                <div class="anotherIssue"> <input type="text"></div>
+                <button class="anotherIssueButton" onclick="agregarInput()">Agregar otra falla</button>
+
+          </div>
+            <div class="personal-data section-form">
+                <label for="name">Nombre y Apellido</label>
+                <div class="input-contenedor userField "><input type="text" name="name" ></div>
+           
+                <label for="email">Email</label>
+                <div class="input-contenedor userField "><input type="email" name="email" ></div>
+            
+                <label for="tel">Teléfono</label>
+                <div class="input-contenedor userField "><input type="tel" name="tel" ></div>
+          
+            </div>
+           <div class="buttons-form-service">
+                <button type="submit">Enviar</button>
+                <button type="reset">Borrar</button>
+            </div>
+        </form>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+</body>

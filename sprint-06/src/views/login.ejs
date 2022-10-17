@@ -1,0 +1,55 @@
+        <%- include('./partials/head.ejs') %>
+    <body>
+
+        <%- include('./partials/header.ejs') %>
+
+        <form action="/login" method="post"  class="formulario">
+            <h1>Logueate</h1>
+            <% if (typeof errors != 'undefined') { %>
+                <div class="text-danger">
+                    <% for (let i=0;i<errors.length ; i++){ %>
+                        <%= errors[i].msg %> 
+                </div>
+            <% } }%>
+
+            <div class="contenedor">
+
+                    <div class="input-contenedor userField input-error">
+                        <input 
+                            type="email"
+                            name="email" 
+                            placeholder="Correo Electrónico"
+                            class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+                            value="<%= locals.oldData ? oldData.email : null %>"
+                    >
+                        <% if(locals.errors && errors.email){ %>
+                            <div class="text-danger input-error"><%= errors.email.msg %></div>
+                        <% } %>
+                    </div>
+
+                    <div class="input-contenedor userField input-error">
+                        <input 
+                        type="password"
+                        name="password" 
+                        placeholder="Constraseña"
+                        class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+                        value="<%= locals.oldData ? oldData.password : null %>"
+                    >
+                    <% if(locals.errors && errors.password){ %>
+                        <div class="text-danger input-error"><%= errors.password.msg %></div>
+                    <% } %>
+                </div>  
+                
+                    <input type="submit" value="Ingresar" class="button">
+                
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="remember_user"><p>Recordar mi usuario</p>
+                    </label>
+                </div>  
+            </form>
+        </div>
+   
+        <%- include('./partials/footer.ejs') %>
+    </body>
+</html>
