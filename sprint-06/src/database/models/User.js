@@ -8,34 +8,47 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true
         },
         email: {
-            type: dataTypes.STRING(500),
+            type: dataTypes.STRING(45),
             allowNull: false
         },
         pàssword: {
-            type: dataTypes.DECIMAL(3, 1).UNSIGNED,
+            type: dataTypes.STRING(45).UNSIGNED,
             allowNull: false
         },
         users_category: {
-            type: dataTypes.BIGINT(10).UNSIGNED,
+            type: dataTypes.STRING(11).UNSIGNED,
             allowNull: false
         },
         create_date: {
             type: dataTypes.DATEONLY,
             allowNull: false
         },
-        length: dataTypes.BIGINT(10),
-        genre_id: dataTypes.BIGINT(10)
+        status: {
+            type: dataTypes.INT(11),
+            allowNull: false
+        },
+        full_name: {
+            type: dataTypes.STRING(45),
+            allowNull: false
+        },
+        country: {
+            type: dataTypes.STRING(45),
+            allowNull: false
+        },
+        profile_image: {
+            type: dataTypes.STRING(45),
+            allowNull: false
+        },
+        
     };
     let config = {
         timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
+        createdAt: 'create_date',
+        updatedAt: false,
         deletedAt: false
     }
     const User = sequelize.define(alias,cols,config); // va en singular
 
-    //RELACIONES
-
-    }
+    //RELACIONES PROMESAS
     return User;
 };
