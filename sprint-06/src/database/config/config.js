@@ -1,22 +1,22 @@
-{
+module.exports = {
   "development": {
     "username": "root",
     "password": null,
-    "database": "database_development",
+    "database": "team_celular",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": null,
-    "database": "database_test",
+    "database": "team_celula",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": null,
-    "database": "database_production",
+    "database": "team_celula",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
