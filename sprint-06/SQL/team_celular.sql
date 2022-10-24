@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2022 a las 04:29:32
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Servidor: localhost:3306
+-- Tiempo de generación: 24-10-2022 a las 21:02:57
+-- Versión del servidor: 10.4.16-MariaDB
+-- Versión de PHP: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `team celular`
+-- Base de datos: `team_celular`
 --
 
 -- --------------------------------------------------------
@@ -31,6 +31,25 @@ CREATE TABLE `brands` (
   `id` int(11) NOT NULL,
   `brand:name` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `colors`
+--
+
+CREATE TABLE `colors` (
+  `id` int(11) NOT NULL,
+  `name` varchar(120) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `colors`
+--
+
+INSERT INTO `colors` (`id`, `name`) VALUES
+(1, 'rojo'),
+(2, 'azul');
 
 -- --------------------------------------------------------
 
@@ -71,11 +90,19 @@ CREATE TABLE `products` (
   `product_code` int(11) NOT NULL,
   `price` decimal(10,0) NOT NULL,
   `description` varchar(120) NOT NULL,
-  `color` varchar(25) NOT NULL,
+  `colorId` int(25) NOT NULL,
   `status` int(11) NOT NULL,
-  `category` int(11) NOT NULL,
-  `brand` int(11) NOT NULL
+  `categoryId` int(11) NOT NULL,
+  `brandId` int(11) NOT NULL,
+  `img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `stock`, `product_code`, `price`, `description`, `colorId`, `status`, `categoryId`, `brandId`, `img`) VALUES
+(0, 'Samsung A32', 25, 123, '95000', 'Diseñado para una mejor experiencia', 1, 1, 1, 1, 'prueba.jpg');
 
 -- --------------------------------------------------------
 
@@ -85,9 +112,17 @@ CREATE TABLE `products` (
 
 CREATE TABLE `product_category` (
   `id` int(11) NOT NULL,
-  `category_name` int(11) NOT NULL,
+  `name` varchar(120) NOT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `product_category`
+--
+
+INSERT INTO `product_category` (`id`, `name`, `status`) VALUES
+(0, 'fundas', 2),
+(1, 'Celulares', 1);
 
 -- --------------------------------------------------------
 
@@ -130,6 +165,12 @@ ALTER TABLE `brands`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `colors`
+--
+ALTER TABLE `colors`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `orders`
 --
 ALTER TABLE `orders`
@@ -149,8 +190,7 @@ ALTER TABLE `order_details`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_prducts_brand` (`brand`),
-  ADD KEY `fk_products_productscategory` (`category`);
+  ADD KEY `fk_products_category` (`categoryId`);
 
 --
 -- Indices de la tabla `product_category`
@@ -170,6 +210,16 @@ ALTER TABLE `users`
 --
 ALTER TABLE `user_category`
   ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `colors`
+--
+ALTER TABLE `colors`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
@@ -192,8 +242,8 @@ ALTER TABLE `order_details`
 -- Filtros para la tabla `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `fk_prducts_brand` FOREIGN KEY (`brand`) REFERENCES `brands` (`id`),
-  ADD CONSTRAINT `fk_products_productscategory` FOREIGN KEY (`category`) REFERENCES `product_category` (`id`);
+  ADD CONSTRAINT `fk_products_category` FOREIGN KEY (`categoryId`) REFERENCES `product_category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_products_productscategory` FOREIGN KEY (`categoryId`) REFERENCES `product_category` (`id`);
 
 --
 -- Filtros para la tabla `users`
