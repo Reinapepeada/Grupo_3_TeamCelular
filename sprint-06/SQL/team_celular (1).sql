@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 24-10-2022 a las 21:02:57
+-- Tiempo de generación: 26-10-2022 a las 17:32:10
 -- Versión del servidor: 10.4.16-MariaDB
 -- Versión de PHP: 7.4.12
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `brands` (
   `id` int(11) NOT NULL,
-  `brand:name` int(11) NOT NULL
+  `name` varchar(120) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -102,7 +102,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `stock`, `product_code`, `price`, `description`, `colorId`, `status`, `categoryId`, `brandId`, `img`) VALUES
-(0, 'Samsung A32', 25, 123, '95000', 'Diseñado para una mejor experiencia', 1, 1, 1, 1, 'prueba.jpg');
+(1, 'Samsung A32', 25, 123, '95000', 'Diseñado para una mejor experiencia', 1, 1, 1, 1, 'prueba.jpg');
 
 -- --------------------------------------------------------
 
@@ -121,8 +121,8 @@ CREATE TABLE `product_category` (
 --
 
 INSERT INTO `product_category` (`id`, `name`, `status`) VALUES
-(0, 'fundas', 2),
-(1, 'Celulares', 1);
+(1, 'Celulares', 1),
+(2, 'fundas', 2);
 
 -- --------------------------------------------------------
 
@@ -134,7 +134,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `email` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
-  `users_category` int(11) NOT NULL,
+  `usersCategoryId` int(11) NOT NULL,
   `create_date` date NOT NULL,
   `status` int(11) NOT NULL,
   `full_name` varchar(45) NOT NULL,
@@ -202,8 +202,7 @@ ALTER TABLE `product_category`
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_category_users` (`users_category`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `user_category`
@@ -249,7 +248,7 @@ ALTER TABLE `products`
 -- Filtros para la tabla `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `fk_category_users` FOREIGN KEY (`users_category`) REFERENCES `user_category` (`id`);
+  ADD CONSTRAINT `fk_category_users` FOREIGN KEY (`usersCategoryId`) REFERENCES `user_category` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
