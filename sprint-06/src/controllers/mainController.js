@@ -1,5 +1,5 @@
 
-let products = require('../../public/js/products')
+//let products = require('../../public/js/products')
 const fs = require('fs');
 const multer = require('multer');
 const { json } = require('body-parser');
@@ -10,6 +10,9 @@ let usersFilePath = path.join(__dirname, '../../data/users.json');
 let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 
+let modelPath = path.join(__dirname, '../database/models');
+
+let db= require(modelPath)
 
 const { validationResult } = require('express-validator');
 const { query } = require('express');
@@ -21,13 +24,19 @@ const jsonData = JSON.parse(fs.readFileSync('./data/users.json', 'utf-8'))
 
 
 let mainController = {
-    products: products,
     
     list: function(req, res){
-        
-        res.render('index',{
+        db.Products.findAll({
+            include:[{association:"ProductsCategorys"}] 
+        })
+              .then(function(products){
+                res.render('index',{products: products});
+              })
+            
+           
+      /*  res.render('index',{
             products: products,
-        });
+        });*/
     },
 
     login: (req , res)=> {

@@ -12,11 +12,11 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         stock: {
-            type: dataTypes.INT(11).UNSIGNED,
+            type: dataTypes.INTEGER,
             allowNull: false
         },
         product_code: {
-            type: dataTypes.INT(11).UNSIGNED,
+            type: dataTypes.INTEGER,
             allowNull: false
         },
         price: {
@@ -27,7 +27,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(120),
             allowNull: false
         },
-        color: {
+        colorId: {
             type: dataTypes.STRING(25),
             allowNull: false
         },
@@ -35,11 +35,11 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(45),
             allowNull: false
         },
-        category: {
+        categoryId: {
             type: dataTypes.STRING(45),
             allowNull: false
         },
-        brand: {
+        brandId: {
             type: dataTypes.STRING(45),
             allowNull: false
         },
@@ -47,12 +47,30 @@ module.exports = (sequelize, dataTypes) => {
     };
     let config = {
         timestamps: true,
-        createdAt: 'create_date',
+       
+        createdAt: false,
         updatedAt: false,
         deletedAt: false
     }
-    const Product = sequelize.define(alias,cols,config); // va en singular
+    const Product = sequelize.define(alias, cols, config);
 
-    //RELACIONES PROMESAS
+    Product.associate = function(models){
+        Product.belongsTo(models.ProductsCategorys, {
+              as: "ProductsCategorys",
+              foreignKey: "categoryId"
+          })
+        /*  Product.belongsTo(models.CategorysProducts, {
+            as: "ProductsCategorys",
+            foreignKey: "categoryId"
+        }) /*
+         /* Product.belongsToMany(models.Provider, {
+              as: "provider",
+              //nombre de la tabla intermedia 'mediante traduccion'
+              through: 'providerxproduct',
+              foreignKey: "idProduct",
+              otherKey: "idProvider",
+              timestamps:false,
+          }) */    
+      }
     return Product;
 };

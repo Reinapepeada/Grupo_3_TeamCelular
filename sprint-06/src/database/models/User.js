@@ -12,11 +12,11 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         pàssword: {
-            type: dataTypes.STRING(45).UNSIGNED,
+            type: dataTypes.STRING,
             allowNull: false
         },
-        users_category: {
-            type: dataTypes.STRING(11).UNSIGNED,
+        usersCategoryId: {
+            type: dataTypes.INTEGER,
             allowNull: false
         },
         create_date: {
@@ -24,7 +24,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         status: {
-            type: dataTypes.INT(11),
+            type: dataTypes.INTEGER(),
             allowNull: false
         },
         full_name: {
@@ -47,7 +47,7 @@ module.exports = (sequelize, dataTypes) => {
         updatedAt: false,
         deletedAt: false
     }
-    const User = sequelize.define(alias,cols,config); // va en singular
+    const User = sequelize.define(alias, cols, config);
 
     //RELACIONES PROMESAS
     return User;
