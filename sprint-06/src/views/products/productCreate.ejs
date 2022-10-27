@@ -24,6 +24,18 @@
             </div>
         </div>
     </div>
+
+    <div class="col-md-6 my-1">
+        <div class="form-group-create-produc">
+            <select name="category_id" id="" required class="selectIn">
+                <option value="" disabled selected>- select categoría - </option>
+                <% categorysAll.forEach(category => { %>
+                <option value="<%= category.id %>"><%= category.name %></option>
+                <% }); %>
+            </select>
+         </div>
+    </div>
+
     <div class="col-md-6 my-1">
         <div class="form-group-create-produc">
             <h3><b>Precio:</b></h3>
@@ -42,6 +54,45 @@
             </div>
         </div>
     </div>
+
+    <div class="col-md-6 my-1">
+        <div class="form-group-create-produc">
+            <h3><b>Stock:</b></h3>
+            <div class="input-contenedor">
+                <input 
+                    type="text" 
+                    name="stock" 
+                    class="form-control <%= locals.errors && errors.stock ? 'is-invalid' : null %>"
+                    value="<%= locals.oldData ? oldData.stock : null %>"
+                >
+                <% if (locals.errors && errors.stock) { %>
+                    <div class="text-danger">
+                        <%= errors.stock.msg %>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 my-1">
+        <div class="form-group-create-produc">
+            <h3><b>Código de producto:</b></h3>
+            <div class="input-contenedor">
+                <input 
+                    type="text" 
+                    name="product_code" 
+                    class="form-control <%= locals.errors && errors.product_code ? 'is-invalid' : null %>"
+                    value="<%= locals.oldData ? oldData.product_code : null %>"
+                >
+                <% if (locals.errors && errors.product_code) { %>
+                    <div class="text-danger">
+                        <%= errors.product_code.msg %>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
     <div class="col-md-6 my-1">
         <div class="form-group-create-produc">
             <h3><b>Descripcion:</b></h3>
@@ -62,10 +113,44 @@
     
     <div class="col-md-6 my-1">
         <div class="form-group-create-produc">
+            <select name="color_id" required class="selectIn">
+                <option value="" disabled selected>- select color - </option>
+                <% colorsAll.forEach(color => { %>
+                <option value="<%= color.id %>"><%= color.name %></option>
+                <% }); %>
+            </select>
+         </div>
+    </div>
+
+    <div class="col-md-6 my-1">
+        <div class="form-group-create-produc">
+            <select name="status" id="" required class="selectIn">
+                <option value="" disabled selected>- select status - </option>
+               
+                <option value="<%= 1 %>">1</option>
+                <option value="<%= 2 %>">2</option>
+               
+            </select>
+         </div>
+    </div>
+
+    <div class="col-md-6 my-1">
+        <div class="form-group-create-produc">
+            <select name="brand_id" id="" required class="selectIn">
+                <option value="" disabled selected>- select marca - </option>
+                <% brandsAll.forEach(brand => { %>
+                <option value="<%= brand.id %>"><%= brand.name %></option>
+                <% }); %>
+            </select>
+         </div>
+    </div>
+
+    <div class="col-md-6 my-1">
+        <div class="form-group-create-produc">
             <h3><b>Imagen del producto:</b></h3>
             <input 
                 type="file" 
-                name="img"
+                name="img_id"
               >
         </div>
     </div>

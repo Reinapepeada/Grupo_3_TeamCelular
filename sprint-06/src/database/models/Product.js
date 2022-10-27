@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Products'; // en plural.
+    let alias = 'Product'; // en plural.
     let cols = {
         id: {
             type: dataTypes.BIGINT(11).UNSIGNED,
@@ -8,7 +8,7 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true
         },
         name: {
-            type: dataTypes.STRING(45),
+            type: dataTypes.STRING(120),
             allowNull: false
         },
         stock: {
@@ -16,49 +16,65 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         product_code: {
-            type: dataTypes.INTEGER,
+            type: dataTypes.STRING(45),
             allowNull: false
         },
         price: {
-            type: dataTypes.DECIMAL(10,0),
+            type: dataTypes.DECIMAL(2),
             allowNull: false
         },
         description: {
-            type: dataTypes.STRING(120),
+            type: dataTypes.STRING(255),
             allowNull: false
         },
-        colorId: {
-            type: dataTypes.STRING(25),
+        color_id: {
+            type: dataTypes.INTEGER,
             allowNull: false
         },
         status: {
+            type: dataTypes.INTEGER,
+            allowNull: false
+        },
+        category_id: {
             type: dataTypes.STRING(45),
             allowNull: false
         },
-        categoryId: {
-            type: dataTypes.STRING(45),
+        brand_id: {
+            type: dataTypes.INTEGER,
             allowNull: false
         },
-        brandId: {
-            type: dataTypes.STRING(45),
+        img_id:{
+            type: dataTypes.INTEGER,
+            allowNull: false
+        },
+        create_date: {
+            type: dataTypes.DATEONLY,
             allowNull: false
         },
         
     };
     let config = {
-        timestamps: true,
-       
-        createdAt: false,
-        updatedAt: false,
-        deletedAt: false
+            tableName: 'product',
+            timestamps: true,
+            updatedAt: false,
+            deletedAt: false,
+            createdAt:false
     }
     const Product = sequelize.define(alias, cols, config);
 
     Product.associate = function(models){
         Product.belongsTo(models.ProductsCategorys, {
               as: "ProductsCategorys",
-              foreignKey: "categoryId"
+              foreignKey: "category_id"
           })
+          Product.belongsTo(models.Colors, {
+            as: "Colors",
+            foreignKey: "color_id"
+        })
+        Product.belongsTo(models.Brands, {
+            as: "Brand",
+            foreignKey: "brand_id"
+        })
         /*  Product.belongsTo(models.CategorysProducts, {
             as: "ProductsCategorys",
             foreignKey: "categoryId"
