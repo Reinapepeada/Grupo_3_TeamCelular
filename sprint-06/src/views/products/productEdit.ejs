@@ -4,12 +4,42 @@
 <%- include('../partials/header.ejs') %>
    
     <main>
-        <form class="form-create-produc" action="/products/<%=product.id%>?_method=PUT" method="POST">
+        <form action="/products/upload/<%=product.id%>?_method=PUT" method="POST">
+
+        <form class="form-product" action="/products/upload?<%=product.id%>?_method=PUT" method="POST"
+        enctype="multipart/form-data">
+    
+            
             <h1>Editar Producto</h1>
+            <input type="text" name="id" class="input-contenedor" value="<%= product.name %>">
+              
             <h3><b>Nombre:</b></h3>
                 <div class="input-contenedor">
                     <input type="text" name="name" class="input-contenedor" value="<%= product.name %>">
                 </div>
+
+                <% if (product.category) {  %>
+                    <select name="category_id" id="" required>
+                        <% allCategorys.forEach(category => { %>
+                        <option value="<%= category.id %>" <% if (product.category.id == cateogory.id) { %><%= 'selected' %><% }; %>><%= genre.name %></option>
+                        <% }); %>
+                    </select>
+                <% } else { %>
+                    <select name="category_id" id="" required>
+                        <% allCategorys.forEach(category => { %>
+                        <option value="<%= category.id %>"><%= category.name %></option>
+                        <% }); %>
+                    </select>
+                    <% } %>
+                <div class="col-md-6 my-1">
+                    <div class="form-group-create-produc">
+                        <h3><b>Código de producto:</b></h3>
+                        <div class="input-contenedor">
+                            <input type="text" name="code_product"class="input-contenedor" value="<%= product.product_code %>">
+                        </div>
+                    </div>
+                </div>
+
                 <h3><b>Precio:</b></h3>
                  <div class="input-contenedor">
                     <input type="text" name="price"class="input-contenedor" value="<%= product.price %>">
@@ -19,6 +49,58 @@
                     <textarea type="text" name="description" class="input-contenedor"><%= product.description %>
                     </textarea>
                 </div>
+
+                <h3><b>Color:</b></h3>
+        <div class="col-md-6 my-1">
+            <div class="form-group-create-produc">
+                <% if (product.color) {  %>
+                    <select name="color_id" id="" required>
+                        <% allcolors.forEach(color => { %>
+                        <option value="<%= color.id %>" <% if (product.color.id == genre.id) { %><%= 'selected' %><% }; %>><%= genre.name %></option>
+                        <% }); %>
+                    </select>
+                <% } else { %>
+                    <select name="color_id" id="" required>
+                        <% allcolors.forEach(color => { %>
+                        <option value="<%= color.id %>"><%= color.name %></option>
+                        <% }); %>
+                    </select>
+                    <% } %>
+            </div>
+        </div>
+        <h3><b>Status:</b></h3>
+                <div class="col-md-6 my-1">
+                    <div class="form-group-create-produc">
+                        <% if (product.status) {  %>
+                            <select name="status" id="" required>
+                                <option value="<%= product.status %>" <% if (product.status == 1)%> 
+                                    >1
+                                </option>
+                            </select>
+                        <% } %>
+                        
+                     </div>
+                </div>
+            
+                <h3><b>Marca:</b></h3>
+                <div class="col-md-6 my-1">
+                    <div class="form-group-create-produc">
+                        <% if (product.brand) {  %>
+                            <select name="brand_id" id="" required>
+                                <% allbrands.forEach(brand => { %>
+                                <option value="<%= brand.id %>" <% if (product.brand.id == genre.id) { %><%= 'selected' %><% }; %>><%= genre.name %></option>
+                                <% }); %>
+                            </select>
+                        <% } else { %>
+                            <select name="brand_id" id="" required>
+                                <% allbrands.forEach(brand => { %>
+                                <option value="<%= brand.id %>"><%= brand.name %></option>
+                                <% }); %>
+                            </select>
+                            <% } %>
+                     </div>
+                </div>
+
                 <!-- WORKING VP
                  <div class="form-control">
                     <label for="img">Seleccione la imagen</label>

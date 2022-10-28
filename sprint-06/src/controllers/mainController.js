@@ -14,19 +14,21 @@ let modelPath = path.join(__dirname, '../database/models');
 
 let db= require(modelPath)
 
+let Products = db.Product;
+
 const { validationResult } = require('express-validator');
 const { query } = require('express');
 
 
 //abro el products.json y lo convierto a javascript con parse
-const jsonData = JSON.parse(fs.readFileSync('./data/users.json', 'utf-8'))
+//const jsonData = JSON.parse(fs.readFileSync('./data/users.json', 'utf-8'))
 
 
 
 let mainController = {
     
     list: function(req, res){
-        db.Products.findAll({
+        Products.findAll({
             include:[{association:"ProductsCategorys"}] 
         })
               .then(function(products){

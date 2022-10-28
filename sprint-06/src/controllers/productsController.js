@@ -7,21 +7,23 @@ let productsFilePath = path.join(__dirname, '../../data/products.json');
 //let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 //let products = require('../../public/js/products')
 
+const { validationResult } = require('express-validator');
 
 let modelPath = path.join(__dirname, '../database/models');
 let db= require(modelPath)
-
 let Products = db.Product;
-const { validationResult } = require('express-validator');
+let Categorys = db.ProductsCategorys;
+let Brands = db.Brands;
+let Colors = db.Colors
 
 
 //abro el products.json y lo convierto a javascript con parse
-const jsonData = JSON.parse(fs.readFileSync('./data/products.json', 'utf-8'))
+//const jsonData = JSON.parse(fs.readFileSync('./data/products.json', 'utf-8'))
 
 
 let productsController = { 
     list_products: function(req, res){
-      db.Products.findAll({
+      Products.findAll({
         include:[{association:"ProductsCategorys"},{association: "Colors"}, {association:"Brands"}] 
         })
           .then(function(products){
@@ -58,7 +60,8 @@ let productsController = {
                     brand_id: req.body.brand_id,
                     color_id: req.body.color_id,
                     create_date: miFechaActual.getFullYear(),  
-                    img_id: 11
+                    img_id: 11,
+                    product_code: req.body.product_code
                    // img: '../img/'+req.file.filename
                 })
           
@@ -75,11 +78,14 @@ let productsController = {
                   brand_id: req.body.brand_id,
                   color_id: req.body.color_id,
                   create_date: miFechaActual.getFullYear(),  
+                  product_code: req.body.product_code,
               //    img: '../img/sin-imagen.png'
                   img_id: 11 
               })
               Products.findAll().then((products) => {
-                res.render('products/list_products',{ products });
+                res.redirect('/products/list_products');
+
+              //  res.render('products/list_products',{ products });
               })
           
               .catch((error) => res.send(error));
@@ -89,11 +95,30 @@ let productsController = {
       
 
 // Update - Form to edit
+
 edit: (req, res) => {
-  const product = products.find(item=>item.id==req.params.id);
-  res.render('products/productEdit',{product: product});
-    },
- viewFormCreate: function(req, res){
+
+  const produc_id = req.params.id;
+  const product = Products.findByPk(produc_id, { include: ["ProductsCategorys","Brands","Colors"] });
+  const categorys = Categorys.findAll();
+  const brands = Brands.findAll();
+  const colors = Colors.findAll();
+
+  Promise.all([product, categorys, brands, colors])
+    .then(function ([product, categorys, brands, colors]) {
+      res.render("products/productEdit", {
+        product,
+        allCategorys:categorys,
+        allbrands: brands,
+        allcolors: colors,
+      });
+    })
+    .catch(function (err) {
+      console.error(err);
+      res.send(err);
+    });
+},
+ 'viewFormCreate': function(req, res){
   const categorys = db.ProductsCategorys;
   const brands = db.Brands;
   const colors = db.Colors;
@@ -106,8 +131,7 @@ edit: (req, res) => {
     res.render('products/productCreate',{
       categorysAll, brandsAll, colorsAll
     });
-    console.log('======pruebaa===========')
-    console.log(categorysAll)
+    
     })
     .catch(function (err) {
       console.error(err);
@@ -121,46 +145,73 @@ edit: (req, res) => {
     },
 
     list: function(req, res){
-   
+      Products.findAll({
+        include:[{association:"ProductsCategorys"}] 
+    })
+      .then(function(products){
         res.render('products/products',{products: products});
-    },
+        
+      })
+},
    
     detail: (req, res)=>{
-        
-       const product = products.find(oneProduct => oneProduct.id == req.params.id)
-       res.render('products/productDetail', {product: product});
+      Products.findByPk(req.params.id)
+      .then((product) => {
+        res.render('products/productDetail',{product: product});
+      });
+
     },
     	// Update - Method to update
-      update: (req, res) => {
-        let id = req.params.id
-        let producToEdit = products.find(product => product.id == id)
-    
-        producToEdit ={
-          id: producToEdit.id,
-          ...req.body,
-          img: '../img/'+producToEdit.img
-        };
-    
-        let newProducts = products.map(product=>{
-          if (product.id == producToEdit.id){
-            return product = {...producToEdit}
-          }
-          return product;
-        })
-        fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
-        products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        //res.redirect('/products/list_products/');
-          
-        res.render('products/list_products',{ products: products });
+      
+      update: (req, res)=>{
+        const categorys = db.ProductsCategorys;
+        const brands = db.Brands;
+        const colors = db.Colors;
 
-	},
+        const allCategorys = categorys.findAll()
+        const allBrands = brands.findAll()
+        const allColors = colors.findAll()
+        const product =  db.Product.findByPk(req.params.id, { include:[{association:"ProductsCategorys"},{association: "Colors"}, {association:"Brands"}] })
+
+        Promise.all([allCategorys, allBrands, allColors, product])
+        
+ //falta a imagen
+        Products.update({
+          name:req.body.name,
+          stock:req.body.stock,
+          product_code:req.body.product_code,
+          price:req.body.price,
+          description:req.body.description,
+          color_id:req.body.color_id,
+          status:req.body.status,
+          category_id:req.body.category_id,
+          brand_id:req.body.brand_id,
+          create_date:req.body.create_date,
+          img_id: 'sin-img'
+        },{
+          where:{
+              id: req.params.id
+          }
+        })
+        .then(function ([product, allCategorys, allColors, allBands]) {
+           return res.render('products/productDetail',{ product, allCategorys, allColors, allBrands });
+        })  
+        .catch((error) => res.send(error));
+    },
+
 
 	destroy :(req, res) => {
-    let id = req.params.id
-    let finalProducts = products.filter(product=> product.id != id);
-    fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
-    res.render('products/list_products',{ products: finalProducts });
-  },
+    Products.destroy({
+      where:{
+          id: req.params.id
+        }
+    })
+    
+    .then(function(){
+      res.redirect('/products/list_products');
+    })
+
+    },
   search: function(req, res){
     let nuevoArray=[];
     let valueIn;

@@ -43,6 +43,9 @@ router.delete('/delete/:id', productsController.destroy)
 
 /*** EDIT ONE PRODUCT ***/ 
 router.get('/edit/:id', productsController.edit);
-router.put('/:id', productsController.update);
+
+router.put('/upload/:id', productsController.update);
+
+//router.put('/upload/:id', productsController.update);
 
 module.exports = router;

@@ -72,7 +72,7 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: "color_id"
         })
         Product.belongsTo(models.Brands, {
-            as: "Brand",
+            as: "Brands",
             foreignKey: "brand_id"
         })
         /*  Product.belongsTo(models.CategorysProducts, {
