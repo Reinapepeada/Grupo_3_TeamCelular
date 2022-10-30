@@ -4,6 +4,7 @@ const { validationResult } = require('express-validator');
 const multer = require('multer');
 const { json } = require('body-parser');
 const bcrypt = require("bcryptjs");
+const user = require('user')
 
 
 let usersFilePath = path.join(__dirname, '../../data/users.json');
@@ -30,48 +31,46 @@ const userController={
       let userToRegister = req.body;
       let lastId = users.length !== 0 ? users[users.length - 1].id : 0
       delete userToRegister.password_confirm;
-      let newUser={
-        id : lastId + 1,
-        ...userToRegister,
-        password: bcrypt.hashSync(userToRegister.password, 10),
-        image: req.file? req.file.filename : "default-avatar.png"
-      }
-      users.push(newUser)
-      fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
+      //let newUser={
+        //id : lastId + 1,
+        //...userToRegister,
+        //password: bcrypt.hashSync(userToRegister.password, 10),
+        //image: req.file? req.file.filename : "default-avatar.png"
+      //}
+      user.create({
+        id: req.body.id,
+        password: bcrypt.hashSync(userToRegister.password, 10),                
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        image: req.file? req.file.filename : "default-avatar.png",
+        category: req.body.category
+       // img: '../img/'+req.file.filename
+    });
+      //users.push(newUser)
+      //fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
       res.redirect('/login');
     }
     },
       
     upload: (req, res) => {
-      let id = req.params.id;
-      let user = users.find(oneUsers => oneUsers.id == id );
-  console.log (req.body)
-      userToEdit ={
+     // let id = req.params.id;
+     // let user = users.find(oneUsers => oneUsers.id == id );
+       user.update({
         id: req.body.id,                
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
         image: req.file? req.file.filename : "default-avatar.png",
         category: req.body.category
-      };
-  
-      let newUsers = users.map(user=>{
-        if (user.id == userToEdit.id){
-          return user = {...userToEdit,
-            password: user.password}
-        }
-        return user;
+      },
+      .then(function (user) {
+      return res.render ('profile', {user});
       })
-  
-      fs.writeFileSync(usersFilePath, JSON.stringify(newUsers, null, ' '));
-      users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-      //res.redirect('userDetail');
-      res.render ('profile', {user: userToEdit});
-  
     },
-    detailView:(req,res)=>{
-      res.render('userDetail')
-    },
+detailView:(req, res)=>{
+  res.render('userDetail')
+},
 
     logout:(req, res)=>{
       req.session.userLogged = undefined;
