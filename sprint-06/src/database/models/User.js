@@ -2,21 +2,21 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'Users'; // en plural.
     let cols = {
         id: {
-            type: dataTypes.BIGINT(11).UNSIGNED,
+            type: dataTypes.INTEGER(11).UNSIGNED,
             primaryKey: true,
             allowNull: false,
             autoIncrement: true
         },
         email: {
-            type: dataTypes.STRING(45),
+            type: dataTypes.VARCHAR(45),
             allowNull: false
         },
         pàssword: {
-            type: dataTypes.STRING,
+            type: dataTypes.VARCHAR(45),
             allowNull: false
         },
         usersCategoryId: {
-            type: dataTypes.INTEGER,
+            type: dataTypes.INTEGER(11),
             allowNull: false
         },
         create_date: {
@@ -24,7 +24,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         status: {
-            type: dataTypes.INTEGER(),
+            type: dataTypes.INTEGER(11),
             allowNull: false
         },
         full_name: {

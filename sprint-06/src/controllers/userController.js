@@ -4,7 +4,6 @@ const { validationResult } = require('express-validator');
 const multer = require('multer');
 const { json } = require('body-parser');
 const bcrypt = require("bcryptjs");
-const user = require('user')
 
 
 let usersFilePath = path.join(__dirname, '../../data/users.json');
@@ -31,46 +30,58 @@ const userController={
       let userToRegister = req.body;
       let lastId = users.length !== 0 ? users[users.length - 1].id : 0
       delete userToRegister.password_confirm;
-      //let newUser={
-        //id : lastId + 1,
-        //...userToRegister,
-        //password: bcrypt.hashSync(userToRegister.password, 10),
-        //image: req.file? req.file.filename : "default-avatar.png"
+     // let newUser={
+       // id : lastId + 1,
+       // ...userToRegister,
+       // password: bcrypt.hashSync(userToRegister.password, 10),
+      //  image: req.file? req.file.filename : "default-avatar.png"
       //}
-      user.create({
-        id: req.body.id,
-        password: bcrypt.hashSync(userToRegister.password, 10),                
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        image: req.file? req.file.filename : "default-avatar.png",
-        category: req.body.category
-       // img: '../img/'+req.file.filename
-    });
+      Users.create({
+               
+        name: req.body.name,
+        password: bcrypt.hashSync(userToRegister.password, 10),
+        create_date: miFechaActual.getFullYear(),  
+        product_code: req.body.product_code,
+    //    img: '../img/sin-imagen.png'
+        img_id: 11 
+    })
+
       //users.push(newUser)
-      //fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
+
+     // fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
       res.redirect('/login');
     }
     },
       
     upload: (req, res) => {
-     // let id = req.params.id;
-     // let user = users.find(oneUsers => oneUsers.id == id );
-       user.update({
-        id: req.body.id,                
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        image: req.file? req.file.filename : "default-avatar.png",
-        category: req.body.category
-      },
-      .then(function (user) {
-      return res.render ('profile', {user});
+     // let id = req.body.id;
+    //  let user = users.find(oneUsers => oneUsers.id == id );
+
+      Users.update({
+        name:req.body.name,
+        password:req.body.password,
+        product_code:req.body.product_code,
+        price:req.body.price,
+        description:req.body.description,
+        color_id:req.body.color_id,
+        status:req.body.status,
+        category_id:req.body.category_id,
+        brand_id:req.body.brand_id,
+        create_date:req.body.create_date,
+        img_id: 'sin-img'
+      },{
+        where:{
+            id: req.body.id
+        }
       })
+      .then(function (user) {
+        return res.render ('profile', {user});
+      })  
+  
     },
-detailView:(req, res)=>{
-  res.render('userDetail')
-},
+    detailView:(req,res)=>{
+      res.render('userDetail')
+    },
 
     logout:(req, res)=>{
       req.session.userLogged = undefined;
