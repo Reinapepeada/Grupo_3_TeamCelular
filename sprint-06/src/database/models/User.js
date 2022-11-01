@@ -7,25 +7,25 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
             autoIncrement: true
         },
-        email: {
-            type: dataTypes.VARCHAR(45),
-            allowNull: false
-        },
-        pàssword: {
-            type: dataTypes.VARCHAR(45),
-            allowNull: false
-        },
-        usersCategoryId: {
-            type: dataTypes.INTEGER(11),
-            allowNull: false
-        },
+        //email: {
+            //type: dataTypes.VARCHAR(45),
+            //allowNull: false
+        //},
+        //password: {
+           // type: dataTypes.VARCHAR(45),
+            //allowNull: false
+        //},
+        //usersCategoryId: {
+            //type: dataTypes.INTEGER(11),
+            //allowNull: false
+//},
         create_date: {
             type: dataTypes.DATEONLY,
             allowNull: false
         },
         status: {
             type: dataTypes.INTEGER(11),
-            allowNull: false
+            allowNull: false      
         },
         full_name: {
             type: dataTypes.STRING(45),
