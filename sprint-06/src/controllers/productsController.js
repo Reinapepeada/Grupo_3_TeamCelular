@@ -92,7 +92,25 @@ let productsController = {
             }
       }
     },
-      
+
+    ///PROBANDO STORE PARA CREAR NUEVO PRODUCTO.
+    store: (req, res, next) => {
+      const products = products.findAll();
+      products
+        .then((products) => {
+          let newProduct = {
+            id: maxId(products),
+            image: req.file.filename,
+            ...req.body,
+          };
+          products.store(newProduct);
+          res.redirect("/products/list_products")
+        })
+        .catch((err) => {
+          res.send(err)
+        });
+
+      },
 
 // Update - Form to edit
 
