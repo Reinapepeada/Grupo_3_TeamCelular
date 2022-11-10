@@ -14,10 +14,11 @@ module.exports = (sequelize, dataTypes) => {
      
     };
     let config = {
-        tableName: 'colors',
+        tableName: 'color',
         timestamps: true,
         updatedAt: false,
-        deletedAt: false
+        deletedAt: false,
+        createdAt:false
     }
     const Color = sequelize.define(alias,cols,config); // va en singular
 

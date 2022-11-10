@@ -9,30 +9,44 @@
     <div class="contenedor">
 
     <div class="input-contenedor">
-        <input type="text" placeholder="Nombre" name="firstName" required>
-        <div class ="errors-danger">
-            <%= locals.errors && errors.name !== undefined ? errors.firstName.msg : ""%>
-        </div>
-         </div>
-         <div class="input-contenedor">
-            <input type="text" placeholder="Apellido" name="lastName" required>
+       
+        <div class="input-contenedor">
+            <input type="text" placeholder="Nombre Completo" name="full_name" required>
             <div class ="errors-danger">
-                <%= locals.errors && errors.name !== undefined ? errors.lastName.msg : ""%>
+                <%= locals.errors && errors.name !== undefined ? errors.full_name.msg : ""%>
             </div>
-             </div>
+         </div>
+
          <div class="input-contenedor">
             <input type="email" placeholder="Correo Electrónico" name="email" required>
             <div class ="errors-danger">
                 <%= locals.errors && errors.name !== undefined ? errors.email.msg : ""%>
             </div>
-             </div>
+         </div>
 
-             <div class="input-contenedor">
-                <input type="password" placeholder="Contraseña" name="password" required>
-                <div class ="errors-danger">
-                    <%= locals.errors && errors.name !== undefined ? errors.password.msg : ""%>
-                </div>
+        <div class="input-contenedor">
+            <input type="password" placeholder="Contraseña" name="password" required>
+            <div class ="errors-danger">
+                <%= locals.errors && errors.name !== undefined ? errors.password.msg : ""%>
+            </div>
+         </div>
+
+            <div class="input-contenedor">
+              <input type="password" placeholder="Confirme contraseña" name="password_confirm" required>
+            <div class ="errors-danger">
+                <%= locals.errors && errors.name !== undefined ? errors.password_onfirm.msg : ""%>
+            </div>
+            </div>
+
+            <div class="input-contenedor" required>
+                <label for="status">Status</label>
+                <select name="status" id="status" >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                </select>
                  </div>
+                 <br>      
+
                  <div class="input-contenedor" required>
                     <label for="category">Elige tu Rol</label>
                     <select name="category" id="category" >
@@ -44,6 +58,8 @@
             <h4>Elegí tu foto de usuario</h4>
             <input type="file" name="image">
             <br>
+
+            
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" name="remember_user" required><p> Al registrarse aceptas nuestras Condiciones de uso y Política de privacidad</p>

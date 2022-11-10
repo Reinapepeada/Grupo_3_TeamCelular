@@ -15,7 +15,7 @@ module.exports = (sequelize, dataTypes) => {
            type: dataTypes.STRING(45),
             allowNull: false
         },
-        usersCategoryId: {
+        users_category: {
             type: dataTypes.INTEGER(11),
             allowNull: false
         },
@@ -31,10 +31,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(45),
             allowNull: false
         },
-        country: {
-            type: dataTypes.STRING(45),
-            allowNull: false
-        },
+       
         profile_image: {
             type: dataTypes.STRING(45),
             allowNull: false
