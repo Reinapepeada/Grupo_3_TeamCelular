@@ -8,19 +8,23 @@ const bcrypt = require("bcryptjs");
 let modelPath = path.join(__dirname, '../database/models');
 let db= require(modelPath)
 let Users = db.Users;
-
+let UsersCategorys = db.UserCategorys //alias
 
 const userController={
   profile: (req, res)=>{
 
-    Users.findOne({
-      email: req.body.email, 
-    })
-   
-    .then(function (user) {
-      req.session.userLogged = user;
-		  return res.render("profile", {user})
+    
+    const user =  db.Users.findOne(req.body.email, { include:[{association:"UserCategorys"} ] })
+    const allCategorys = UsersCategorys.findAll()
+    Promise.all([user,allCategorys])
 
+    .then(function ([user, allCategorys]) {
+      req.session.userLogged = user;
+      console.log('user datalle')
+      console.log(user)
+      console.log('all Categorias')
+      console.log(allCategorys)
+		  return res.render("profile", {user, allCategorys})
 	})
 },
       register : (req,res) => {
@@ -68,12 +72,6 @@ const userController={
     
         .catch((error) => res.send(error));
       
-    
-      
-
-      //users.push(newUser)
-
-     // fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
     },
       
     upload: (req, res) => {
@@ -93,9 +91,9 @@ const userController={
             id: req.body.id
         }
       })
-      .then((UserUpdate) => {
-				console.log(UserUpdate);
-				return res.redirect('profile');
+      .then((user) => {
+				
+				return res.redirect('userDetail');
 			}).catch(error => console.log(error));
 		
   

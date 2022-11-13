@@ -9,21 +9,30 @@
         
             <h1>Detalle Usuario</h1>
             <div class="container-create-product">
-                <img class="imgProfile60" src="./../../images/aquivienelaimage" >
+                <img class="imgProfile60" src="../<%= userLogged.image %>" >
             </div>
-        
-            <div class="container-create-product">
-                <p><strong>Nombre</strong></p>
-                <p><%= locals.userLogged.firstName %></p>
 
-                <p><strong>Apellido</strong></p>
-                <p><%= locals.userLogged.lastName %></p>
+            <div class="container-create-product">
+                <p><strong>Nombre Completo</strong></p>
+                <p><%= locals.userLogged.full_name %></p>
+
 
                 <p><strong>Email</strong></p>
                 <p><%= locals.userLogged.email%></p>
 
+
+                <p><strong>Status</strong></p>
+                <p><%= locals.userLogged.status %></p>
+
                 <p><strong>Categoría</strong></p>
-                <p><%= locals.userLogged.category %></p>
+                <% if (locals.userLogged.users_category==1) {  %>
+                    <p>Administrador</p>
+                   
+                <% } else { %>
+                     <p>Usuario</p>
+               >
+                <% } %>
+
             </div>
         </form>
     </main>

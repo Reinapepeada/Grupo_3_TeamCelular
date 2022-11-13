@@ -156,10 +156,6 @@ edit: (req, res) => {
       res.send(err);
     });
 
-    //    
-    
- 
-      
     },
 
     list: function(req, res){
