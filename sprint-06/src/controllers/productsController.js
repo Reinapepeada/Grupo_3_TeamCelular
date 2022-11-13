@@ -176,18 +176,18 @@ edit: (req, res) => {
 
     },
     	// Update - Method to update
-      
+ 
       update: (req, res)=>{
         const categorys = db.ProductsCategorys;
         const brands = db.Brands;
         const colors = db.Colors;
-
         const allCategorys = categorys.findAll()
         const allBrands = brands.findAll()
         const allColors = colors.findAll()
-        const product =  db.Product.findByPk(req.params.id, { include:[{association:"ProductsCategorys"},{association: "Colors"}, {association:"Brands"}] })
+        const product =  db.Product.findByPk(req.params.id, 
+          { include:[{association:"ProductsCategorys"},{association: "Colors"}, {association:"Brands"}] })
 
-        Promise.all([allCategorys, allBrands, allColors, product])
+
         
  //falta a imagen
         Products.update({
@@ -201,14 +201,16 @@ edit: (req, res) => {
           category_id:req.body.category_id,
           brand_id:req.body.brand_id,
           create_date:req.body.create_date,
-          img_id: 'sin-img'
+          //img_id: 'sin-img'
         },{
           where:{
               id: req.params.id
           }
         })
-        .then(function ([product, allCategorys, allColors, allBands]) {
-           return res.render('products/productDetail',{ product, allCategorys, allColors, allBrands });
+        Promise.all([product, allCategorys, allBrands, allColors])
+        .then(function ([product, allCategorys, allColors, allBrands]) {
+            res.render('products/productDetailAdmin',{ product, allCategorys, allColors, allBrands });
+          
         })  
         .catch((error) => res.send(error));
     },

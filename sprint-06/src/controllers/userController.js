@@ -20,10 +20,7 @@ const userController={
 
     .then(function ([user, allCategorys]) {
       req.session.userLogged = user;
-      console.log('user datalle')
-      console.log(user)
-      console.log('all Categorias')
-      console.log(allCategorys)
+      
 		  return res.render("profile", {user, allCategorys})
 	})
 },
