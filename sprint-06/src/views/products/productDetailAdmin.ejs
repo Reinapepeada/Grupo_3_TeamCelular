@@ -1,0 +1,44 @@
+<%- include('../partials/head.ejs') %>
+<body>
+
+<%- include('../partials/header.ejs') %>
+    <main>
+<div class="productos-grid">
+                
+                <div class="imagenproducto">
+                    <img src="../<%= product.img %>" alt="<%= product.name %>">
+                </div>
+                
+                 <div>  
+                    <h2>Nombre del producto</h2> 
+                    <span class="price-value"><%= product.name %></span></div>
+                  <div> 
+                  
+                 <div> 
+                    <h3>Categoría</h3>
+                   
+                    <% if (product.category_id) {  %>
+                        <input
+                         name="category_id" 
+                         type="text"
+                         class="text-center"
+                        
+                         <% allCategorys.forEach(category => { %>
+                            <% if (product.category_id == category.id) %>value="<%= category.name %>"
+                            <% }); %>
+                    <% }  %>
+                </div>
+                 <div> 
+                    <h3>Descripción</h3>
+                    <p><%= product.description %></p></div>
+                </div>
+                <div>  
+                 <h3>Precio</h3>
+                 <span class="price-value">$<%= product.price %></span></div>
+                
+              </div>
+            </div>
+          
+    </main>
+    <%- include('../partials/footer.ejs') %>
+</body>

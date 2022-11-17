@@ -34,7 +34,7 @@
             <div class="input-contenedor">
               <input type="password" placeholder="Confirme contraseña" name="password_confirm" required>
             <div class ="errors-danger">
-                <%= locals.errors && errors.name !== undefined ? errors.password_onfirm.msg : ""%>
+                <%= locals.errors && errors.name !== undefined ? errors.password_confirm.msg : ""%>
             </div>
             </div>
 
@@ -48,12 +48,12 @@
                  <br>      
 
                  <div class="input-contenedor" required>
-                    <label for="category">Elige tu Rol</label>
-                    <select name="category" id="category" >
-                    <option value="admin">Administrador</option>
-                    <option value="user">Usuario</option>
+                    <label for="users_category">Elige tu Rol</label>
+                    <select name="users_category" id="category" >
+                    <option value="1">Administrador</option>
+                    <option value="2">Usuario</option>
                     </select>
-                     </div>
+                 </div>
                      <br>        
             <h4>Elegí tu foto de usuario</h4>
             <input type="file" name="image">

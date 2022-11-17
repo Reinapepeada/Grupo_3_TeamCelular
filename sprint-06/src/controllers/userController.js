@@ -8,14 +8,22 @@ const bcrypt = require("bcryptjs");
 let modelPath = path.join(__dirname, '../database/models');
 let db= require(modelPath)
 let Users = db.Users;
-
+let UsersCategorys = db.UserCategorys //alias
 
 const userController={
   profile: (req, res)=>{
 
-		res.render("profile", {user:req.session.userLogged})
+    
+    const user =  db.Users.findOne(req.body.email, { include:[{association:"UserCategorys"} ] })
+    const allCategorys = UsersCategorys.findAll()
+    Promise.all([user,allCategorys])
 
-	},
+    .then(function ([user, allCategorys]) {
+      req.session.userLogged = user;
+      
+		  return res.render("profile", {user, allCategorys})
+	})
+},
       register : (req,res) => {
         return res.render('register')
     },
@@ -36,7 +44,11 @@ const userController={
        // password: bcrypt.hashSync(userToRegister.password, 10),
       //  image: req.file? req.file.filename : "default-avatar.png"
       //}
-       const passwordHash = bcrypt.hashSync(req.body.password, 10) 
+       const passBody = req.body.password
+       console.log('passwd hash')
+       
+       const passwordHash = bcrypt.hashSync(passBody);
+       console.log(passwordHash)
         Users.create({     
           email: req.body.email,
           password: passwordHash,
@@ -45,7 +57,6 @@ const userController={
           full_name: req.body.full_name,
           country: req.body.country,
           profile_image: req.file ?  req.file.filename : "default-avatar.png",
-          status: req.body.status,
           users_category:req.body.category,
           create_date: Date.now(),  
         //falta la imagen
@@ -58,12 +69,6 @@ const userController={
     
         .catch((error) => res.send(error));
       
-    
-      
-
-      //users.push(newUser)
-
-     // fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
     },
       
     upload: (req, res) => {
@@ -71,25 +76,23 @@ const userController={
     //  let user = users.find(oneUsers => oneUsers.id == id );
 
       Users.update({
-        name:req.body.name,
+        email:req.body.email,
+        full_name:req.body.full_name,
         password:req.body.password,
-        product_code:req.body.product_code,
-        price:req.body.price,
-        description:req.body.description,
-        color_id:req.body.color_id,
+        users_category:req.body.users_category,
         status:req.body.status,
-        category_id:req.body.category_id,
-        brand_id:req.body.brand_id,
-        create_date:req.body.create_date,
-        img_id: 'sin-img'
+        create_date: Date.now(),
+        profile_image: req.file ?  req.file.filename : "default-avatar.png",
       },{
         where:{
             id: req.body.id
         }
       })
-      .then(function (user) {
-        return res.render ('profile', {user});
-      })  
+      .then((user) => {
+				
+				return res.redirect('userDetail');
+			}).catch(error => console.log(error));
+		
   
     },
     detailView:(req,res)=>{

@@ -1,7 +1,7 @@
 function userLoggedMiddleware (req, res, next){
     res.locals.isAnUserLogged = false;
 
-    /*console.log('se ejecuta el middleware userlogged sin session')
+    console.log('se ejecuta el middleware userlogged sin session')
     console.log(req.session.userLogged)
     if(req.session.userLogged != undefined){
         res.locals.isAnUserLogged = true;
@@ -10,7 +10,7 @@ function userLoggedMiddleware (req, res, next){
 
        
     }
-    console.log (res.locals.userLogged);*/
+    console.log (res.locals.userLogged);
     next ();
 
 }

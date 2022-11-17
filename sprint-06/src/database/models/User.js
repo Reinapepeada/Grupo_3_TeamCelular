@@ -46,6 +46,11 @@ module.exports = (sequelize, dataTypes) => {
     }
     const User = sequelize.define(alias, cols, config);
 
-    //RELACIONES PROMESAS
+    User.associate = function(models){
+        User.belongsTo(models.UserCategorys, {
+              as: "UserCategorys",
+              foreignKey: "users_category"
+          })
+   }
     return User;
 };

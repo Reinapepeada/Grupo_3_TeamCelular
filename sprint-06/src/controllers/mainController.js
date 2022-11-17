@@ -51,26 +51,22 @@ let mainController = {
                 oldData: req.body,
             });
         }else {
-      /*  const usersFilePath = path.join(__dirname, '../../data/users.json');
-        const userJSON = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'))*/
-     
-        const password = req.body.password
+      
         Users.findOne({
             
             where:{
                 email: req.body.email,
             }
         })
-        .then((response) => {
-            console.log(response.password)
-            const passwordVerificar = bcrypt.compareSync(req.body.password, response.password)
+        .then((user) => {
+
+            const passwordVerificar = bcrypt.compareSync(req.body.password, user.password)
 
             console.log(passwordVerificar)
 
             if(passwordVerificar){
-                req.session.userLogged = response
-                console.log(req.session.userLogged)
-                console.log('todo ok se logueo bien')  
+                req.session.userLogged = user
+       
                 res.redirect('/');
             }
            

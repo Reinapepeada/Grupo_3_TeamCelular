@@ -28,5 +28,7 @@ module.exports = (sequelize, dataTypes) => {
     const UserCategory = sequelize.define(alias,cols,config); // va en singular
 
     //RELACIONES PROMESAS
+
+  
     return UserCategory;
 };
