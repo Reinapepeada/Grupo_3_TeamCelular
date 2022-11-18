@@ -818,7 +818,6 @@ section img{
         font: inherit;
         color: inherit;
         text-transform: none;
-        -webkit-appearance: none;
         border-radius: 0;
         display: inline-block;
         box-sizing: border-box;
@@ -958,11 +957,15 @@ section img{
    padding: 15px;
    margin-bottom: 5rem;
    
-}  
+} 
+::placeholder{
+    color: black;
+} 
 .formulario{
     margin: 6rem 0 6rem 0;
-   background:#fff;
-   padding: 3px;
+    background:rgba(26, 152, 255, 0.521);
+    padding: 2rem;
+    border-radius: 0.7rem;
 }
 h1{
    text-align: center;
@@ -977,10 +980,13 @@ input[type="tel"]{
    padding: 0.5rem;
    border: none;
    width: 100%;
+   border-radius:0.3rem ;
 } 
+
+
 .input-contenedor{
-   border: 1px solid #aaa;
-   border-radius: 0.2rem;
+   border: 1px solid rgb(80, 80, 80);
+   border-radius: 0.3rem;
    /* margin: 10px; */
 }
 
@@ -1014,8 +1020,8 @@ input[type="tel"]{
    background: cadetblue;
 }
 .form-check-label{
-    width: 97%;
-    margin: 0 auto;
+    width: 95%;
+    margin-top: 0.5rem ;
     font-size: 0.7rem;
     display: flex;
     align-items:center;
