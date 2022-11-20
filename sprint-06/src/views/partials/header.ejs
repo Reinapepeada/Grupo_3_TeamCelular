@@ -1,49 +1,97 @@
 <header class="header-mobile">
-    <nav>    
-        <div class="section-nav">
-        <a href="/"><img class="logoImg" src="/../img/teamCelularPNG.png"></a>
-        
-        <ul class="nav-bar-major">
-            <li class="li-mobile-nav-bar"><a class="d-flex itemsNav" href="/"> Home <span class="pipe">|</span> </a></li>
-           
-            <li class="li-mobile-nav-bar nav-products"><a href="/products">Productos <span class="pipe">|</span></a> 
-                <ul>
-                    <li><a href="/products">Ver todos los productos</a></li>
-                    <li><a href="">Smartwatch</a></li>
-                    <li><a href="">Celulares</a></li> 
-                    <li><a href="">Auriculares</a></li>   
-                    <li><a href="">Accesorios</a></li>
+    <nav class="navbar navbar-expand-md navbar-gray bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/"><img style="width: 3rem;"src="/img/teamCelularPNG2.png"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <div class="collapse navbar-collapse align-items-center" id="navbarsExample04">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link text-light active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="/services">Servicios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="#">Contacto</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link text-light dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/products">Ver todos los productos</a></li>
+                  <li><a class="dropdown-item" href="#">Celulares</a></li>
+                  <li><a class="dropdown-item" href="#">Auriculares</a></li>
+                  <li><a class="dropdown-item" href="#">Accesorios</a></li>
                 </ul>
-            </li>
-            <li class="li-mobile-nav-bar"><a class="d-flex itemsNav" href="/services"> servicios  </a></li>
-            <li class="li-mobile-nav-bar"><a class="d-flex itemsNav" href="#">contacto </a></li>
-            <li class="li-mobile-nav-bar"><a class="d-flex itemsNav" href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
-        </ul>
-        <div>
-            <form action="/products/search" method="get" class="form-nav-mobile"> 
-                <div class="input-contenedor">
-                    <input type="text" name="search" placeholder="Buscar..." class="p-4">
-                </div>
-                <button type="submit" class="search">
-                    <i class="text-light fa-solid fa-magnifying-glass p-4"></i>
-                </button>
-            </form>   
+              </li>
+            </ul>
+            <form role="search">
+                <input type="text" name="search" placeholder="Buscar..." class="p-1" >
+            </form>
+            <li class="nav-item list-group-item m-1">
+                <a href="/cart"><button type ="button" class="btn btn-light ">
+                    <svg class="bi" width="30" height="24"><use xlink:href="#cart"></use></svg>
+                </button></li></a>
+                
+            <ul class="p-0 m-2 d-inline-flex ">
+                <% if (locals.isAnUserLogged == true) { %>
+                   <li><a href="/users/profile/<%= locals.userLogged.name %>">Perfil </a></li>
+                   <li><a href="/users/logout">Cerrar <i class="fas fa-sign-in-alt"></i></a></li>
+               <% } else { %>
+               <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/users/register">Registrarse </a></li>
+               <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/login">Iniciar Sesión</a></li>
+               <%} %>
+           </ul>   
+          </div>
         </div>
-
-        <ul class="ul-count d-flex itemLog">
-             <% if (locals.isAnUserLogged == true) { %>
-                <li><a href="/users/profile/<%= locals.userLogged.name %>">Perfil </a></li>
-                <li><a href="/users/logout">Cerrar <i class="fas fa-sign-in-alt"></i></a></li>
-            <% } else { %>
-            <li><a href="/users/register">Registrarse </a></li>
-            <li><a href="/login">Iniciar Sesión</a></li>
-            <%} %>
-        </ul>        
     </nav>
-    <div class="cont-burger">
-        <div class="burger-menu">
-            <i class="fa-solid iconBurger fa-bars"></i>
-        </div>
-        <div class="carritoLogo-container"><a href="/sprint-02/views/carrito.html"><i class="fa-solid fa-cart-shopping"></i></a></div>
-    </div>
 </header>
+<!-- <nav>    
+    <div class="section-nav">
+    <a href="/"><img class="logoImg" src="/../img/teamCelularPNG.png"></a>
+    
+    <ul class="nav-bar-major">
+        <li class="li-mobile-nav-bar"><a class="d-flex itemsNav" href="/"> Home <span class="pipe">|</span> </a></li>
+       
+        <li class="li-mobile-nav-bar nav-products"><a href="/products">Productos <span class="pipe">|</span></a> 
+            <ul>
+                <li><a href="/products">Ver todos los productos</a></li>
+                <li><a href="">Smartwatch</a></li>
+                <li><a href="">Celulares</a></li> 
+                <li><a href="">Auriculares</a></li>   
+                <li><a href="">Accesorios</a></li>
+            </ul>
+        </li>
+        <li class="li-mobile-nav-bar"><a class="d-flex itemsNav" href="/services"> servicios  </a></li>
+        <li class="li-mobile-nav-bar"><a class="d-flex itemsNav" href="#">contacto </a></li>
+        <li class="li-mobile-nav-bar"><a class="d-flex itemsNav" href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+    </ul>
+    <div>
+        <form action="/products/search" method="get" class="form-nav-mobile"> 
+            <div class="input-contenedor">
+                <input type="text" name="search" placeholder="Buscar..." class="p-4">
+            </div>
+            <button type="submit" class="search">
+                <i class="text-light fa-solid fa-magnifying-glass p-4"></i>
+            </button>
+        </form>   
+    </div>
+
+    <ul class="ul-count d-flex itemLog">
+         <% if (locals.isAnUserLogged == true) { %>
+            <li><a href="/users/profile/<%= locals.userLogged.name %>">Perfil </a></li>
+            <li><a href="/users/logout">Cerrar <i class="fas fa-sign-in-alt"></i></a></li>
+        <% } else { %>
+        <li><a href="/users/register">Registrarse </a></li>
+        <li><a href="/login">Iniciar Sesión</a></li>
+        <%} %>
+    </ul>        
+</nav>
+<div class="cont-burger">
+    <div class="burger-menu">
+        <i class="fa-solid iconBurger fa-bars"></i>
+    </div>
+    <div class="carritoLogo-container"><a href="/sprint-02/views/carrito.html"><i class="fa-solid fa-cart-shopping"></i></a></div>
+</div> -->

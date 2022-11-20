@@ -71,10 +71,7 @@ textarea{
 .button:hover{
     background: cadetblue;
  }
- p{
-    text-align: center;
- }
-
+ 
  .form-group-create-produc input{
     margin-top: 1rem;
  }

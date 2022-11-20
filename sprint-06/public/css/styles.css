@@ -6,7 +6,6 @@
 /* paleta de colores */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-
 :root{
     --midnight-blue: hsla(239, 94%, 19%, 1);
     --dark-cornflower-blue: hsla(214, 97%, 27%, 1);
@@ -74,7 +73,7 @@ body{
 
 /* fin botonera */
 /* organizando la primera seccion del nav */
-.section-nav{
+/* .section-nav{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -105,10 +104,7 @@ body{
     margin-bottom: 0.5rem;
 }
 
-nav ul{
-    display: flex;
-    justify-content: center;
-}
+
 nav ul li a{
     color: white;
     text-decoration: none;   
@@ -269,12 +265,12 @@ nav ul li a{
  }
 
 
-
+ */
 .title-pay{
-  /*  padding-left:15px;*/
+    padding-left:15px;
     text-transform: uppercase;
     text-align: center;
-}
+} 
 
 /* termino de nav style */
 
@@ -330,10 +326,10 @@ nav ul li a{
 /* fin page services */
 /* ------------------------------------- */
 /* footer style */
-footer{
+/* footer{
     display: flex;
    flex-direction: column;
-}
+} */
 
 .container-nets{
     display: flex;
@@ -583,7 +579,7 @@ section img{
 
 /* inicio menu desplegable*/
 
-.nav-bar-major{
+/* .nav-bar-major{
     display: none;
 }
     .nav-bar-major ul, ol{
@@ -628,7 +624,7 @@ section img{
     .nav-bar-major li ul li ul{
         right:-100px;
 
-    }
+    } */
     /* fin menu desplegable */
 
 /* termino del category style */
@@ -672,56 +668,58 @@ section img{
 /* COMIENZA DETALLES DE PRODUCTOS*/
 
 
-  /*tablets*/
-  
+/*tablets*/
+/* .section-nav{
+    display: flex;
+    flex-direction: initial;
+    justify-content: space-between;
+    align-items: center;
+    background-color:var(--cultured);
+    width: 100%;
+    padding-left: 0;
+    flex-direction: column;
+}
+.itemsNav{
+    margin: 0.5rem;
+}
+.header-desktop{
+    display: none;
+}
+.nav-bar-major{
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.fa-search{
+    color: white;
+}
+.busquedaNav{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin-bottom: 0.5rem;
+}
+
+nav ul{
+    display: flex;
+    justify-content: center;
+}
+nav ul a{
+    color: white;
+    text-decoration: none;   
+}
+   */
 @media(min-width: 780px){ 
-  
+
+    
+    
     .logoImg{
         width: 7rem;
         margin-left: 1rem;
         margin-right: 1rem;
     }
 
-    .section-nav{
-        display: flex;
-        flex-direction: initial;
-        justify-content: space-between;
-        align-items: center;
-        background-color:var(--cultured);
-        width: 100%;
-        padding-left: 0;
-        flex-direction: column;
-    }
-    .itemsNav{
-        margin: 0.5rem;
-    }
-    .header-desktop{
-        display: none;
-    }
-    .nav-bar-major{
-        display: flex;
-        margin: 0;
-        padding: 0;
-    }
-    
-    .fa-search{
-        color: white;
-    }
-    .busquedaNav{
-        display: flex;
-        align-items: center;
-        justify-content:center;
-        margin-bottom: 0.5rem;
-    }
-    
-    nav ul{
-        display: flex;
-        justify-content: center;
-    }
-    nav ul a{
-        color: white;
-        text-decoration: none;   
-    }
     .d-flex{
         display: flex;
     }
@@ -833,7 +831,7 @@ section img{
     }
     
     
-    
+/*     
     nav ul li a{
         text-transform:capitalize;
         font-size: 1.2rem;
@@ -847,7 +845,7 @@ section img{
      .ul-count{
         padding: 0;
      }
-    
+     */
     
     
     .title-pay{
@@ -857,12 +855,12 @@ section img{
     }
  
    
-    footer{
+    /* footer{
         border-top: 1px solid #e9ecef;
         padding-top: 2%;
         justify-content: space-around;
         flex-direction: row;
-    }
+    } */
     .padding-0-no-mobile{
         padding: 0;
     }
@@ -908,10 +906,10 @@ section img{
         margin: 0;
         flex-wrap: wrap;
     }
-    footer{
+    /* footer{
         justify-content: space-evenly;
         flex-direction: row;
-    }
+    } */
 
     .ul-count{
        justify-content: end;
@@ -1025,11 +1023,8 @@ input[type="tel"]{
     font-size: 0.7rem;
     display: flex;
     align-items:center;
-    
 }
-p{
-   text-align: center;
-}
+
 @media(min-width:768px)
 {
 .formulario {
