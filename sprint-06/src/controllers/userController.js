@@ -8,22 +8,20 @@ const bcrypt = require("bcryptjs");
 let modelPath = path.join(__dirname, '../database/models');
 let db= require(modelPath)
 let Users = db.Users;
-let UsersCategorys = db.UserCategorys //alias
+//let UsersCategorys = db.UserCategorys //alias
 
 const userController={
-  profile: (req, res)=>{
-
-    
-    const user =  db.Users.findOne(req.body.email, { include:[{association:"UserCategorys"} ] })
-    const allCategorys = UsersCategorys.findAll()
-    Promise.all([user,allCategorys])
-
-    .then(function ([user, allCategorys]) {
+  profile: (req, res) => {
+    console.log(req.session)
+    Users.findOne({
+      email: req.body.email, 
+    })
+   
+    .then(function (user) {
       req.session.userLogged = user;
-      
-		  return res.render("profile", {user, allCategorys})
-	})
-},
+		  return res.render("profile", {user})
+    })
+	},
       register : (req,res) => {
         return res.render('register')
     },
@@ -63,9 +61,9 @@ const userController={
             id: req.body.id
         }
       })
-      .then((user) => {
-				
-				return res.redirect('userDetail');
+      .then((UserUpdate) => {
+				console.log(UserUpdate);
+				return res.redirect('profile');
 			}).catch(error => console.log(error));
 		
   
@@ -74,11 +72,12 @@ const userController={
       res.render('userDetail')
     },
 
-    logout:(req, res)=>{
-      req.session.userLogged = undefined;
-      users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+    logout: (req, res) => {
+      res.clearCookie('user')
+      res.locals.isLogged = false;
+      req.session.destroy();
+      res.redirect('/');
   
-      res.redirect("/");
   } 
 }
 

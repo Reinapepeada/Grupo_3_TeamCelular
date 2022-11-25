@@ -32,22 +32,10 @@
                 </div>
 
                 <label for="name">Categoria</label>
-                <div class="col-md-6 my-1">
-                    <div class="form-group-create-produc">
-                        <% if (user.users_category) {  %>
-                            <select name="users_category">
-                                <% allCategorys.forEach(userCategory => { %>
-                                    <option value="<%= userCategory.id %>" <% if (user.users_category == userCategory.id) { %><%= 'selected' %><% }; %>><%= userCategory.category_name %></option>
-                                <% }); %>
-                            </select>
-                        <% } else { %>
-                            <select name="users_category">  
-                                <% allCategorys.forEach(userCategory => { %>
-                                    <option value="<%= userCategory.id %>"><%= userCategory.category_name %></option>
-                                <% }); %>
-                            </select>
-                        <% } %>
-
+                <select name="category">
+                    <option value="user" <%= locals.old && old.category === 'user' ? 'selected' :'' %> >Usuario</option>
+                    <option value="admin" <%= locals.old && old.category === 'admin' ? 'selected' :'' %> >Administrador</option>
+                </select>
                     </div>
                 </div>
 

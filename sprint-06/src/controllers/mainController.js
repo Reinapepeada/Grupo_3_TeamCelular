@@ -41,48 +41,67 @@ let mainController = {
         res.render('login');
     },
 
-    loginEntry:(req, res)=>{
+    loginEntry:  (req, res) => {
         let errors = validationResult(req);
-        let usuarioLogueado=[];
-        if(!errors.isEmpty()){
-            console.log(errors)
-            return res.render('login', {
-                errors: errors.mapped(),
-                oldData: req.body,
-            });
-        }else {
-      
-        Users.findOne({
-            
-            where:{
-                email: req.body.email,
-            }
-        })
-        .then((user) => {
-
-            const passwordVerificar = bcrypt.compareSync(req.body.password, user.password)
-
-            console.log(passwordVerificar)
-
-            if(passwordVerificar){
-                req.session.userLogged = user
-       
-                res.redirect('/');
-            }
-           
-           // let verificarpass = (bcryptjs.compareSync(req.body.password, 10), userLogin)
-
-          //if(verificarpass){
-           
-   
-           // }   
-        })
-        .catch((error) => res.send(error)); 
+        if (!errors.isEmpty()) {
+          return res.render("login", { errors: errors.mapped(), old: req.body });
         }
-        
-    },
-
-
+    
+        Users.findOne({
+          // attributes:['id', 'full_name'], //Campos que quiero traer de la tabla User, si pongo user_category se rompe la query asique sigo trabajando en ello.
+          where: {
+            email: req.body.email,
+          },
+          include: [{ association: "UserCategorys" }],
+        })
+          .then((userToLogin) => {
+            const passwordVerificar = bcrypt.compareSync(
+              req.body.password,
+              userToLogin.password
+            );
+             console.log("Como salio la validacion: "+ passwordVerificar)
+            if (passwordVerificar) {
+              req.session.userLogged = {
+                //dando estructura
+                id: userToLogin.id, 
+                full_name: userToLogin.full_name,
+                //last_name: userToLogin.last_name,
+                email: userToLogin.email,
+                profile_image: userToLogin.profile_image,
+                //users_category: users_category
+              };
+              //Cookie
+              console.log("Que usuario logeo?: "+ userToLogin.email)
+              if (req.body.recordame) {
+                res.cookie("recordame", req.session.userLogged.email, {
+                  maxAge: 120000,
+                });
+              }
+    
+              return res.redirect("/");
+            }
+    
+            return res.render("login", {
+              errors: {
+                email: {
+                  msg: "Credenciales inválidas",
+                },
+              },
+            });
+          })
+    
+          .catch((e) => {
+            // Si quiero puedo captar el error como parámetro en el callback del catch
+            console.log(e);
+            return res.render("login", {
+              errors: {
+                email: {
+                  msg: "Este email no está registrado",
+                },
+              },
+            });
+          });
+      },
     services: (req , res)=> {
         function addAnotherIssue(){
           const contenedor=document.querySelector(".anotherIssue")
