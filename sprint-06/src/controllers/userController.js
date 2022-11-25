@@ -12,16 +12,12 @@ let Users = db.Users;
 
 const userController={
   profile: (req, res) => {
-    console.log(req.session)
-    Users.findOne({
-      email: req.body.email, 
-    })
-   
-    .then(function (user) {
-      req.session.userLogged = user;
-		  return res.render("profile", {user})
-    })
-	},
+    console.log("Que Usuario llega al profile: "+ req.session.userLogged.id )
+    let idABuscar = req.session.userLogged.id;
+    db.Users.findByPk(idABuscar).then((user) => {
+      return res.render("profile", { user: user });
+    });
+  },
       register : (req,res) => {
         return res.render('register')
     },
@@ -55,7 +51,7 @@ const userController={
         users_category:req.body.users_category,
         status:req.body.status,
         create_date: Date.now(),
-        profile_image: req.file ?  req.file.filename : "default-avatar.png",
+        profile_image: req.file  ?  req.file.filename : req.session.userLogged.profile_image,
       },{
         where:{
             id: req.body.id
