@@ -32,42 +32,20 @@ let productsController = {
      //    res.render('products/list_products',{products: jsonData})
      },
 
-     'create': function(req, res){
-        const resultValidation = validationResult(req);
+    ///PROBANDO CREATE NUEVO PARA CREAR PRODUCTO.
+    create : (req, res) => {
+      let image = req.file ? req.file.filename : (req.params.id != '-1') ? req.params.id : "default.png";
+      const resultValidation = validationResult(req);
         
-        let errors = validationResult(req)
-       
-        if(!errors.isEmpty()){
-            return res.render('products/productCreate', {
-                errors: resultValidation.mapped(),
-                oldData: req.body,
-              });
-    
-            }else{
-          
-              var miFechaActual = new Date()
-
-              if(req.file !== undefined){
-                Products.create({   
-                            
-                    name: req.body.name,
-                    description: req.body.description,
-                    price: req.body.price,
-                    stock: req.body.stock,
-                    product_code: req.body.product_code,
-                    status: req.body.status,
-                    category_id: req.body.category_id,
-                    brand_id: req.body.brand_id,
-                    color_id: req.body.color_id,
-                    create_date: miFechaActual.getFullYear(),  
-                    img_id: 11,
-                    product_code: req.body.product_code
-                   // img: '../img/'+req.file.filename
-                })
-          
-              }else{
-                Products.create({
-               
+      let errors = validationResult(req)
+     
+      if(!errors.isEmpty()){
+          return res.render('products/productCreate', {
+              errors: resultValidation.mapped(),
+              oldData: req.body,
+            });
+      }else{
+        Products.create({
                   name: req.body.name,
                   description: req.body.description,
                   price: req.body.price, 
@@ -77,41 +55,14 @@ let productsController = {
                   category_id: req.body.category_id,
                   brand_id: req.body.brand_id,
                   color_id: req.body.color_id,
-                  create_date: miFechaActual.getFullYear(),  
+                  create_date: Date.now(),  
                   product_code: req.body.product_code,
-              //    img: '../img/sin-imagen.png'
-                  img_id: 11 
-              })
-              Products.findAll().then((products) => {
-                res.redirect('/products/list_products');
-
-              //  res.render('products/list_products',{ products });
-              })
-          
-              .catch((error) => res.send(error));
-            }
+                  img_id: image
+        }).then((product) => {
+          res.redirect('/products/list_products');
+        }).catch(error => res.send(error))
       }
     },
-
-    ///PROBANDO STORE PARA CREAR NUEVO PRODUCTO.
-    store: (req, res, next) => {
-      const products = products.findAll();
-      products
-        .then((products) => {
-          let newProduct = {
-            id: maxId(products),
-            image: req.file.filename,
-            ...req.body,
-          };
-          products.store(newProduct);
-          res.redirect("/products/list_products")
-        })
-        .catch((err) => {
-          res.send(err)
-        });
-
-      },
-
 // Update - Form to edit
 
 edit: (req, res) => {

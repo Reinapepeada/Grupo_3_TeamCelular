@@ -44,7 +44,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         img_id:{
-            type: dataTypes.INTEGER,
+            type: dataTypes.STRING(45),
             allowNull: false
         },
         create_date: {

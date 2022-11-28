@@ -27,7 +27,7 @@ const validationProducts =[
     body('description').notEmpty().withMessage('debes completar una descripcion'), 
     
 ]
-router.post('/create', upload.single('img'),validationProducts, productsController.create); //validationProducts
+router.post('/create', upload.single('img_id'), productsController.create); //validationProducts
 router.get('/create', productsController.viewFormCreate);
 
 //ejecuto multer
