@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-md navbar-gray bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="/"><img style="width: 3rem;"src="/img/teamCelularPNG2.png"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler btn btn-light active" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
     
@@ -37,8 +37,8 @@
                 
             <ul class="p-0 m-2 d-inline-flex ">
                 <% if (locals.isAnUserLogged == true) { %>
-                   <li><a href="/users/profile/<%= locals.userLogged.name %>">Perfil </a></li>
-                   <li><a href="/users/logout">Cerrar <i class="fas fa-sign-in-alt"></i></a></li>
+                   <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/users/profile/<%= locals.userLogged.name %>">Perfil </a></li>
+                   <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/users/logout">Cerrar <i class="fas fa-sign-in-alt"></i></a></li>
                <% } else { %>
                <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/users/register">Registrarse </a></li>
                <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/login">Iniciar Sesión</a></li>

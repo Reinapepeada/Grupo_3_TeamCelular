@@ -724,7 +724,7 @@ nav ul a{
         display: flex;
     }
     
-    .burger-menu {
+    /* .burger-menu {
         background-color: black;
         border-radius: 3px;
         -webkit-border-radius: 3px;
@@ -829,7 +829,7 @@ nav ul a{
         transition: .1s ease-in-out;
         transition-property: color;
     }
-    
+     */
     
 /*     
     nav ul li a{
