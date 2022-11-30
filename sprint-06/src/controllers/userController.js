@@ -48,7 +48,7 @@ const userController={
         email:req.body.email,
         full_name:req.body.full_name,
         password:req.body.password,
-        users_category:req.body.users_category,
+        users_category:req.body.category,
         status:req.body.status,
         create_date: Date.now(),
         profile_image: req.file  ?  req.file.filename : req.session.userLogged.profile_image,
@@ -59,9 +59,9 @@ const userController={
       })
       .then((UserUpdate) => {
 				console.log(UserUpdate);
+        console.log(req.body.users_category);
 				return res.redirect('profile');
 			}).catch(error => console.log(error));
-		
   
     },
     detailView:(req,res)=>{

@@ -37,6 +37,8 @@
                 
             <ul class="p-0 m-2 d-inline-flex ">
                 <% if (locals.isAnUserLogged == true) { %>
+                    <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/products/create"><i class="fa-solid fa-circle-plus"></i>Nuevo Producto</span></a></li>
+                    <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/products/list_products">Productos </span></a> 
                    <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/users/profile/<%= locals.userLogged.name %>">Perfil </a></li>
                    <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/users/logout">Cerrar <i class="fas fa-sign-in-alt"></i></a></li>
                <% } else { %>
