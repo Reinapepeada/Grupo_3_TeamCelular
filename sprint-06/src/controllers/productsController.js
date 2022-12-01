@@ -160,7 +160,9 @@ edit: (req, res) => {
         })
         Promise.all([product, allCategorys, allBrands, allColors])
         .then(function ([product, allCategorys, allColors, allBrands]) {
-            res.render('products/productDetailAdmin',{ product, allCategorys, allColors, allBrands });
+          console.log('product category')
+          console.log(product)
+           return res.render('products/productDetailAdmin',{ product, allCategorys, allColors, allBrands });
           
         })  
         .catch((error) => res.send(error));

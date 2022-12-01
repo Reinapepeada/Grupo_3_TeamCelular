@@ -10,13 +10,14 @@
                 </div>
                 
                  <div>  
-                    <h2>Nombre del producto</h2> 
+                
                     <span class="price-value"><%= product.name %></span></div>
                   <div> 
                   
                  <div> 
-                    <h3>Categoría</h3>
+                    <h3>Categoría </h3>
                    
+
                     <% if (product.category_id) {  %>
                         <input
                          name="category_id" 
@@ -24,8 +25,12 @@
                          class="text-center"
                         
                          <% allCategorys.forEach(category => { %>
-                            <% if (product.category_id == category.id) %>value="<%= category.name %>"
-                            <% }); %>
+
+                           <!-- <% if (product.category_id == category.id) %>  -->
+                           
+                           <% if (product.category_id == category.id) { %><%= category.name %><%}%>
+                           <!-- value="<%= category.name %>" -->
+                           <% }); %>
                     <% }  %>
                 </div>
                  <div> 

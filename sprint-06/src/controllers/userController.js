@@ -15,6 +15,8 @@ const userController={
     console.log("Que Usuario llega al profile: "+ req.session.userLogged.id )
     let idABuscar = req.session.userLogged.id;
     db.Users.findByPk(idABuscar).then((user) => {
+      console.log('user en profile')
+      console.log(user)
       return res.render("profile", { user: user });
     });
   },
@@ -58,6 +60,7 @@ const userController={
         }
       })
       .then((UserUpdate) => {
+        
 				console.log(UserUpdate);
         console.log(req.body.users_category);
 				return res.redirect('profile');

@@ -28,8 +28,8 @@
 
                 <label for="name">Categoria</label>
                 <select name="category">
-                    <option value="0" <%= locals.old && old.category === 'user' ? 'selected' :'' %> >Usuario</option>
-                    <option value="1" <%= locals.old && old.category === 'admin' ? 'selected' :'' %> >Administrador</option>
+                    <option value="0" <%= user.users_category === 0 ? 'selected' : '' %>>Usuario</option>
+                    <option value="1" <%= user.users_category === 1 ? 'selected' :'' %> >Administrador</option>
                 </select>
                     
                 

@@ -17,12 +17,13 @@
                 <div class="input-contenedor">
                     <input type="text" name="name" class="input-contenedor" value="<%= product.name %>">
                 </div>
-
-                <% if (product.category) {  %>
-                    <select name="category_id" id="" required>
+                <% if (product.category_id) {  %> 
+                    <select name="category_id" id="">
                         <% allCategorys.forEach(category => { %>
-                        <option value="<%= category.id %>" <% if (product.category.id == cateogory.id) { %><%= 'selected' %><% }; %>><%= genre.name %></option>
-                        <% }); %>
+                        <option value="<%= category.id %>"
+                            <%= product.category_id === category.id ?  'selected' :'' %>><%=category.name %>
+                        </option>
+                            <% }); %>
                     </select>
                 <% } else { %>
                     <select name="category_id" id="" required>
@@ -35,7 +36,7 @@
                     <div class="form-group-create-produc">
                         <h3><b>Código de producto:</b></h3>
                         <div class="input-contenedor">
-                            <input type="text" name="code_product"class="input-contenedor" value="<%= product.product_code %>">
+                            <input type="text" name="product_code"class="input-contenedor" value="<%= product.product_code %>">
                         </div>
                     </div>
                 </div>
@@ -53,10 +54,12 @@
                 <h3><b>Color:</b></h3>
         <div class="col-md-6 my-1">
             <div class="form-group-create-produc">
-                <% if (product.color) {  %>
+                <% if (product.color_id) {  %>
                     <select name="color_id" id="" required>
                         <% allcolors.forEach(color => { %>
-                        <option value="<%= color.id %>" <% if (product.color.id == genre.id) { %><%= 'selected' %><% }; %>><%= genre.name %></option>
+                                <option value="<%= color.id %>"
+                                    <%= product.color_id === color.id ?  'selected' :'' %>><%=color.name %>
+                                </option>
                         <% }); %>
                     </select>
                 <% } else { %>
@@ -71,13 +74,11 @@
         <h3><b>Status:</b></h3>
                 <div class="col-md-6 my-1">
                     <div class="form-group-create-produc">
-                        <% if (product.status) {  %>
-                            <select name="status" id="" required>
-                                <option value="<%= product.status %>" <% if (product.status == 1)%> 
-                                    >1
-                                </option>
-                            </select>
-                        <% } %>
+                        <select name="status">
+                            <option value="1" <%= product.status === '1' ? 'selected' : '' %> >1</option>
+                            <option value="2" <%= product.status === '2' ? 'selected' :'' %> >2</option>
+                            <option value="3" <%= product.status === '3' ? 'selected' :'' %> >3</option>
+                        </select>
                         
                      </div>
                 </div>
@@ -85,11 +86,13 @@
                 <h3><b>Marca:</b></h3>
                 <div class="col-md-6 my-1">
                     <div class="form-group-create-produc">
-                        <% if (product.brand) {  %>
-                            <select name="brand_id" id="" required>
+                        <% if (product.brand_id) {  %> 
+                            <select name="brand_id" id="">
                                 <% allbrands.forEach(brand => { %>
-                                <option value="<%= brand.id %>" <% if (product.brand.id == genre.id) { %><%= 'selected' %><% }; %>><%= genre.name %></option>
-                                <% }); %>
+                                <option value="<%= brand.id %>"
+                                    <%= product.brand_id === brand.id ?  'selected' :'' %>><%=brand.name %>
+                                </option>
+                                    <% }); %>
                             </select>
                         <% } else { %>
                             <select name="brand_id" id="" required>

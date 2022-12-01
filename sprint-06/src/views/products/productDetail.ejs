@@ -16,7 +16,7 @@
                     <% if (product.category) {  %>
                         <p name="category_id" id="" required>
                             <% allCategorys.forEach(category => { %>
-                            <option value="<%= category.id %>" <% if (product.category.id == cateogory.id) { %><%= 'selected' %><% }; %>><%= genre.name %></option>
+                            <option value="<%= category.id %>" <% if (product.category.id == cateogory.id) { %><%= 'selected' %><% }; %>><%= category.name %></option>
                             <% }); %>
                         </select>
                     <% }  %>
