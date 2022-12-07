@@ -39,7 +39,7 @@ let productsController = {
         
       let errors = validationResult(req)
      
-      if(errors.isEmpty()){
+      if(!errors.isEmpty()){
           return res.render('products/productCreate', {
               errors: resultValidation.mapped(),
               oldData: req.body,

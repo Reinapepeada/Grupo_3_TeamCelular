@@ -16,14 +16,11 @@
                             class=" <%= locals.errors && errors.name ? 'is-invalid' : null %>"
                             value="<%= locals.oldData ? oldData.name : null %>"
                         >
-                    </div>
-                    <div>
                         <% if (locals.errors && errors.name) { %>
-                        <div class="text-danger">
-                            <p><%= errors.name.msg %></p>
-                        </div>
+                            <div class="text-danger">
+                                <%= errors.name.msg %>
+                            </div>
                         <% } %>
-
                     </div>
                 </div>
                 
@@ -99,19 +96,18 @@
                 <div>
                     <div class="">
                         <h3><b>Descripcion:</b></h3>
-                        <div class="input-contenedor userField">
+                        <div class="input-contenedor"userField>
                             <input 
                                 type="text" 
                                 name="description" 
                                 class=" <%= locals.errors && errors.description ? 'is-invalid' : null %>"
                             >
-
-                        </div>
-                        <% if (locals.errors && errors.description) { %>
-                            <div class="text-danger">
-                                <%= errors.description.msg %>
-                            </div>
+                            <% if (locals.errors && errors.description) { %>
+                                <div class="text-danger">
+                                    <%= errors.description.msg %>
+                                </div>
                             <% } %>
+                        </div>
                     </div>
                 </div>
             
