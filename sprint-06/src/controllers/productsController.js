@@ -38,12 +38,27 @@ let productsController = {
       const resultValidation = validationResult(req);
         
       let errors = validationResult(req)
-     
+      
+      
       if(!errors.isEmpty()){
-          return res.render('products/productCreate', {
-              errors: resultValidation.mapped(),
-              oldData: req.body,
-            });
+        const categorys = db.ProductsCategorys;
+        const brands = db.Brands;
+        const colors = db.Colors;
+        const categorysAll = categorys.findAll()
+        const brandsAll = brands.findAll()
+        const colorsAll = colors.findAll()
+      
+        Promise.all([categorysAll, brandsAll, colorsAll])
+          .then(function ([categorysAll, brandsAll, colorsAll]) {
+          res.render('products/productCreate',{
+            categorysAll, brandsAll, colorsAll,errors: resultValidation.mapped()
+          });
+          
+          })
+          .catch(function (err) {
+            console.error(err);
+            res.send(err);
+          });
       }else{
         Products.create({
                   name: req.body.name,

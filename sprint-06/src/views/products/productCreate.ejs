@@ -27,7 +27,7 @@
 
                 <div>
                     <div class="">
-                        <select name="category_id" id="" required class="selectIn">
+                        <select name="category_id" id=""  class="selectIn">
                             <option value="" disabled selected>- seleccione categoría - </option>
                             <% categorysAll.forEach(category => { %>
                             <option value="<%= category.id %>"><%= category.name %></option>
@@ -113,7 +113,7 @@
             
                 <div>
                     <div class="">
-                        <select name="color_id" required class="selectIn">
+                        <select name="color_id"  class="selectIn">
                             <option value="" disabled selected>- seleccione color - </option>
                             <% colorsAll.forEach(color => { %>
                             <option value="<%= color.id %>"><%= color.name %></option>
@@ -124,7 +124,7 @@
 
                 <div>
                     <div class="">
-                        <select name="status" id="" required class="selectIn">
+                        <select name="status" id=""  class="selectIn">
                             <option value="" disabled selected>- seleccione status - </option>
                             <option value="<%= 1 %>">Habilitado</option>
                             <option value="<%= 2 %>">Desactivado</option>
@@ -135,7 +135,7 @@
 
                 <div>
                     <div class="">
-                        <select name="brand_id" id="" required class="selectIn">
+                        <select name="brand_id" id=""  class="selectIn">
                             <option value="" disabled selected>- seleccione marca - </option>
                             <% brandsAll.forEach(brand => { %>
                             <option value="<%= brand.id %>"><%= brand.name %></option>
