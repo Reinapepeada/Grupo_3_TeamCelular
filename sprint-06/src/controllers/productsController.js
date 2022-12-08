@@ -143,7 +143,7 @@ edit: (req, res) => {
     },
     	// Update - Method to update
       
-      update: async(req, res)=>{
+      update: (req, res)=>{
         const categorys = db.ProductsCategorys;
         const brands = db.Brands;
         const colors = db.Colors;
@@ -155,37 +155,37 @@ edit: (req, res) => {
         let image = req.file ? req.file.filename : undefined;
        
  //falta a imagen
- Products.update({
-  name:req.body.name,
-  stock:req.body.stock,
-  product_code:req.body.product_code,
-  price:req.body.price,
-  description:req.body.description,
-  color_id:req.body.color_id,
-  status:req.body.status,
-  category_id:req.body.category_id,
-  brand_id:req.body.brand_id,
-  img_id: image,
-  create_date:req.body.create_date,
-},
+        Products.update({
+          name:req.body.name,
+          stock:req.body.stock,
+          product_code:req.body.product_code,
+          price:req.body.price,
+          description:req.body.description,
+          color_id:req.body.color_id,
+          status:req.body.status,
+          category_id:req.body.category_id,
+          brand_id:req.body.brand_id,
+          img_id: image,
+          create_date:req.body.create_date,
+        },
        
         {
           where:{
               id: req.params.id
-            }
+          }
           
-          }) 
-          const product1 =  db.Product.findByPk(req.params.id, 
-            { include:[{association:"ProductsCategorys"},{association: "Colors"}, {association:"Brands"}] })
-    
-          Promise.all([product1, allCategorys, allBrands, allColors])
-          .then(function ([product1, allCategorys, allColors, allBrands]) {
-            product = product1
-             return res.render('products/productDetailAdmin',{ product, allCategorys, allColors, allBrands });
-          })  
-          .catch((error) => res.send(error));
-      },
-  
+        }) 
+        Promise.all([product, allCategorys, allBrands, allColors])
+        .then(function ([product, allCategorys, allColors, allBrands]) {
+          console.log('product category')
+          console.log(product)
+           return res.render('products/productDetailAdmin',{ product, allCategorys, allColors, allBrands });
+          
+        })  
+        .catch((error) => res.send(error));
+    },
+
+
 	destroy :(req, res) => {
     Products.destroy({
       where:{

@@ -24,22 +24,18 @@ const userController={
         return res.render('register')
     },
     processRegister :  (req, res) => {
-      let errors = validationResult(req);
-      if (!errors.isEmpty()) {
-      return res.render("register", { errors: errors.mapped(), old: req.body });
-      }
-      const passBody = req.body.password
-      const passwordHash = bcrypt.hashSync(passBody);
-      console.log(passwordHash)
-      Users.create({     
-        email: req.body.email,
-        password: passwordHash,
-        users_category: req.body.users_category,
-        status: req.body.status,
-        full_name: req.body.full_name,
-        profile_image: req.file ?  req.file.filename : "default-avatar.png",
-        create_date: Date.now(),  
-      })
+       const passBody = req.body.password
+       const passwordHash = bcrypt.hashSync(passBody);
+       console.log(passwordHash)
+        Users.create({     
+          email: req.body.email,
+          password: passwordHash,
+          users_category: req.body.users_category,
+          status: req.body.status,
+          full_name: req.body.full_name,
+          profile_image: req.file ?  req.file.filename : "default-avatar.png",
+          create_date: Date.now(),  
+        })
         .then(() => {
           res.redirect('/login');
         })
