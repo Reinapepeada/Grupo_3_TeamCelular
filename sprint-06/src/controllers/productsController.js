@@ -34,8 +34,9 @@ let productsController = {
 
     ///PROBANDO CREATE NUEVO PARA CREAR PRODUCTO.
     create : (req, res) => {
+      let image = req.file ? req.file.filename : (req.params.id != '-1') ? req.params.id : "default.png";
       const resultValidation = validationResult(req);
-      
+        
       let errors = validationResult(req)
       
       
@@ -46,20 +47,18 @@ let productsController = {
         const categorysAll = categorys.findAll()
         const brandsAll = brands.findAll()
         const colorsAll = colors.findAll()
-        
-        Promise.all([categorysAll, brandsAll, colorsAll])
       
+        Promise.all([categorysAll, brandsAll, colorsAll])
           .then(function ([categorysAll, brandsAll, colorsAll]) {
           res.render('products/productCreate',{
             categorysAll, brandsAll, colorsAll,errors: resultValidation.mapped()
           });
+          
           })
-
           .catch(function (err) {
             console.error(err);
             res.send(err);
           });
-
       }else{
         Products.create({
                   name: req.body.name,
@@ -143,7 +142,8 @@ edit: (req, res) => {
 
     },
     	// Update - Method to update
-      update: (req, res)=>{
+      
+      update: async(req, res)=>{
         const categorys = db.ProductsCategorys;
         const brands = db.Brands;
         const colors = db.Colors;
@@ -152,38 +152,39 @@ edit: (req, res) => {
         const allColors = colors.findAll()
         const product =  db.Product.findByPk(req.params.id, 
           { include:[{association:"ProductsCategorys"},{association: "Colors"}, {association:"Brands"}] })
-        let image = req.file ? req.file.filename : product.img_id
+        let image = req.file ? req.file.filename : undefined;
        
  //falta a imagen
-        Products.update({
-          name:req.body.name,
-          stock:req.body.stock,
-          product_code:req.body.product_code,
-          price:req.body.price,
-          description:req.body.description,
-          color_id:req.body.color_id,
-          status:req.body.status,
-          category_id:req.body.category_id,
-          brand_id:req.body.brand_id,
-          create_date:req.body.create_date,
-          img_id: image
-        },
-        console.log('imagennnn'),
-        console.log(image),
-        console.log('no ingresa aqui'),
+ Products.update({
+  name:req.body.name,
+  stock:req.body.stock,
+  product_code:req.body.product_code,
+  price:req.body.price,
+  description:req.body.description,
+  color_id:req.body.color_id,
+  status:req.body.status,
+  category_id:req.body.category_id,
+  brand_id:req.body.brand_id,
+  img_id: image,
+  create_date:req.body.create_date,
+},
+       
         {
           where:{
               id: req.params.id
           }
           
-        })
-        
-        Promise.all([product, allCategorys, allBrands, allColors])
-        .then(function ([product, allCategorys, allColors, allBrands]) {
-          console.log('product category')
-          console.log(product)
+        }) 
+        const product1 =  db.Product.findByPk(req.params.id, 
+          { include:[{association:"ProductsCategorys"},{association: "Colors"}, {association:"Brands"}] })
+  
+         
+        Promise.all([product1, allCategorys, allBrands, allColors])
+        .then(function ([product1, allCategorys, allColors, allBrands]) {
+         
+          product = product1
+    
            return res.render('products/productDetailAdmin',{ product, allCategorys, allColors, allBrands });
-          
         })  
         .catch((error) => res.send(error));
     },
