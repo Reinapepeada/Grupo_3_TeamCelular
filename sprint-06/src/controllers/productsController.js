@@ -7,7 +7,7 @@ const path = require('path');
 //let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 //let products = require('../../public/js/products')
 
-const { validationResult } = require('express-validator');
+const { validationResult, body } = require('express-validator');
 
 let modelPath = path.join(__dirname, '../database/models');
 let db= require(modelPath)
@@ -142,7 +142,6 @@ edit: (req, res) => {
 
     },
     	// Update - Method to update
- 
       update: (req, res)=>{
         const categorys = db.ProductsCategorys;
         const brands = db.Brands;
@@ -152,9 +151,8 @@ edit: (req, res) => {
         const allColors = colors.findAll()
         const product =  db.Product.findByPk(req.params.id, 
           { include:[{association:"ProductsCategorys"},{association: "Colors"}, {association:"Brands"}] })
-
-
-        
+        let image = req.file ? req.file.filename : product.img_id
+       
  //falta a imagen
         Products.update({
           name:req.body.name,
@@ -167,12 +165,18 @@ edit: (req, res) => {
           category_id:req.body.category_id,
           brand_id:req.body.brand_id,
           create_date:req.body.create_date,
-          //img_id: 'sin-img'
-        },{
+          img_id: image
+        },
+        console.log('imagennnn'),
+        console.log(image),
+        console.log('no ingresa aqui'),
+        {
           where:{
               id: req.params.id
           }
+          
         })
+        
         Promise.all([product, allCategorys, allBrands, allColors])
         .then(function ([product, allCategorys, allColors, allBrands]) {
           console.log('product category')
