@@ -33,7 +33,11 @@ const userApiController = {
             id: user.id,
             full_name: user. full_name,
             email: user.email,
-            img_id: user.img_id,
+            profile_image: user.profile_image,
+            category: user.users_category,
+            create_date: user.create_date,
+            status: user.status,
+
         })
     }
 };
