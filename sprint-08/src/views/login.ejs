@@ -1,0 +1,48 @@
+        <%- include('./partials/head.ejs') %>
+    <body>
+
+        <%- include('./partials/header.ejs') %>
+
+        <h1>Logueate</h1>
+        <div class="contenedor">
+            <form action="/login" method="post"  class="formulario">
+
+                    <div class="input-contenedor userField">
+                        <input 
+                            type="email"
+                            name="email" 
+                            placeholder="Correo Electrónico"
+                            class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+                            value="<%= locals.oldData ? oldData.email : null %>"
+                        >
+                    </div>
+                    <% if(locals.errors && errors.email){ %>
+                        <div class="text-danger"><%= errors.email.msg %></div>
+                    <% } %>
+
+                    <div class="input-contenedor userField">
+                        <input 
+                        type="password"
+                        name="password" 
+                        placeholder="Constraseña"
+                        class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+                        value="<%= locals.oldData ? oldData.password : null %>"
+                        >
+                    </div>  
+                    <% if(locals.errors && errors.password){ %>
+                        <div class="text-danger"><%= errors.password.msg %></div>
+                    <% } %>
+                
+                    <input type="submit" value="Ingresar" class="button">
+                
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="remember_user"><p>Recordar mi usuario</p>
+                    </label>
+                </div>  
+            </form>
+        </div>
+   
+        <%- include('./partials/footer.ejs') %>
+    </body>
+</html>

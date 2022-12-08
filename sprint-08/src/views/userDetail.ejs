@@ -1,0 +1,44 @@
+<%- include('./partials/head.ejs') %>
+<body>
+
+<%- include('./partials/headerAdmin.ejs') %>
+
+    <main>
+        <div class="contenedor">
+            <form class="formulario" action="/users/upload?_method=PUT" method="POST"
+            enctype="multipart/form-data">
+            
+                <h1>Detalle Usuario</h1>
+                <div class="container-create-product">
+                    <img class="imgProfile60" src="../<%= userLogged.image %>" >
+                </div>
+
+                <div class="container-create-product">
+                    <p><strong>Nombre Completo</strong></p>
+                    <p><%= locals.userLogged.full_name %></p>
+
+
+                    <p><strong>Email</strong></p>
+                    <p><%= locals.userLogged.email%></p>
+
+
+                    <p><strong>Status</strong></p>
+                    <p><%= locals.userLogged.status %></p>
+
+                    <p><strong>Categoría</strong></p>
+                    <% if (locals.userLogged.users_category==1) {  %>
+                        <p>Administrador</p>
+                    
+                    <% } else { %>
+                        <p>Usuario</p>
+                >
+                    <% } %>
+
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<%- include('./partials/head.ejs') %>
+
+<%- include('./partials/header.ejs') %>
+
+<body>
+
+    <h1>REGISTRATE</h1>
+
+    
+    
+    <div class="contenedor">
+        <form class="formulario"  action="/users/register" method="POST" enctype="multipart/form-data">
+        
+            <div class="input-contenedor userField">
+                <input type="text" placeholder="Nombre Completo" name="full_name" >
+            </div>
+            <% if(locals.errors && errors.email){ %>
+                <div class="text-danger"><%= errors.full_name.msg %></div>
+            <% } %>  
+            <div class="input-contenedor userField">
+                <input type="email" placeholder="Correo Electrónico" name="email" >
+            </div>
+            <% if(locals.errors && errors.email){ %>
+                <div class="text-danger"><%= errors.email.msg %></div>
+            <% } %>                
+    
+            <div class="input-contenedor userField">
+                <input type="password" placeholder="Contraseña" name="password" >
+            </div>
+            <% if(locals.errors && errors.email){ %>
+                <div class="text-danger"><%= errors.password.msg %></div>
+            <% } %>
+    
+            <div class="input-contenedor userField">
+                <input type="password" placeholder="Confirme contraseña" name="password_confirm" >
+                <div class ="errors-danger">
+                </div>
+            </div>
+    
+            <div class="userField" >
+                <label for="status">Status</label>
+                <select name="status" id="status" >
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+            </div>
+            <br>    
+
+            <div class="userField" >
+                <label for="users_category">Elige tu Rol</label>
+                <select name="users_category" id="category" >
+                    <option value="1">Administrador</option>
+                    <option value="2">Usuario</option>
+                </select>
+            </div>
+            
+            <br>        
+                <h4>Elegí tu foto de usuario</h4>
+                <input type="file" name="image">
+            <br>    
+            
+            <div class="">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="remember_user" ><p> Al registrarse aceptas nuestras Condiciones de uso y Política de privacidad</p>
+                </label>
+                <input type="submit" value="REGISTRATE" class="button">
+            </div> 
+        </form>
+    </div>
+    
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>
+    
