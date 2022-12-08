@@ -34,9 +34,8 @@ let productsController = {
 
     ///PROBANDO CREATE NUEVO PARA CREAR PRODUCTO.
     create : (req, res) => {
-      let image = req.file ? req.file.filename : (req.params.id != '-1') ? req.params.id : "default.png";
       const resultValidation = validationResult(req);
-        
+      
       let errors = validationResult(req)
       
       
@@ -47,18 +46,20 @@ let productsController = {
         const categorysAll = categorys.findAll()
         const brandsAll = brands.findAll()
         const colorsAll = colors.findAll()
-      
+        
         Promise.all([categorysAll, brandsAll, colorsAll])
+      
           .then(function ([categorysAll, brandsAll, colorsAll]) {
           res.render('products/productCreate',{
             categorysAll, brandsAll, colorsAll,errors: resultValidation.mapped()
           });
-          
           })
+
           .catch(function (err) {
             console.error(err);
             res.send(err);
           });
+
       }else{
         Products.create({
                   name: req.body.name,

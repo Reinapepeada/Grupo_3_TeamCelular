@@ -12,34 +12,32 @@
         <form class="formulario"  action="/users/register" method="POST" enctype="multipart/form-data">
         
             <div class="input-contenedor userField">
-                <input type="text" placeholder="Nombre Completo" name="full_name" required>
+                <input type="text" placeholder="Nombre Completo" name="full_name" >
+            </div>
+            <% if(locals.errors && errors.email){ %>
+                <div class="text-danger"><%= errors.full_name.msg %></div>
+            <% } %>  
+            <div class="input-contenedor userField">
+                <input type="email" placeholder="Correo Electrónico" name="email" >
+            </div>
+            <% if(locals.errors && errors.email){ %>
+                <div class="text-danger"><%= errors.email.msg %></div>
+            <% } %>                
+    
+            <div class="input-contenedor userField">
+                <input type="password" placeholder="Contraseña" name="password" >
+            </div>
+            <% if(locals.errors && errors.email){ %>
+                <div class="text-danger"><%= errors.password.msg %></div>
+            <% } %>
+    
+            <div class="input-contenedor userField">
+                <input type="password" placeholder="Confirme contraseña" name="password_confirm" >
                 <div class ="errors-danger">
-                    <%= locals.errors && errors.name !== undefined ? errors.full_name.msg : ""%>
                 </div>
             </div>
     
-            <div class="input-contenedor userField">
-                <input type="email" placeholder="Correo Electrónico" name="email" required>
-                <div class ="errors-danger">
-                    <%= locals.errors && errors.name !== undefined ? errors.email.msg : ""%>
-                </div>
-            </div>
-    
-            <div class="input-contenedor userField">
-                <input type="password" placeholder="Contraseña" name="password" required>
-                <div class ="errors-danger">
-                    <%= locals.errors && errors.name !== undefined ? errors.password.msg : ""%>
-                </div>
-             </div>
-    
-            <div class="input-contenedor userField">
-                <input type="password" placeholder="Confirme contraseña" name="password_confirm" required>
-                <div class ="errors-danger">
-                    <%= locals.errors && errors.name !== undefined ? errors.password_confirm.msg : ""%>
-                </div>
-            </div>
-    
-            <div class="userField" required>
+            <div class="userField" >
                 <label for="status">Status</label>
                 <select name="status" id="status" >
                     <option value="1">1</option>
@@ -48,7 +46,7 @@
             </div>
             <br>    
 
-            <div class="userField" required>
+            <div class="userField" >
                 <label for="users_category">Elige tu Rol</label>
                 <select name="users_category" id="category" >
                     <option value="1">Administrador</option>
@@ -63,7 +61,7 @@
             
             <div class="">
                 <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input" name="remember_user" required><p> Al registrarse aceptas nuestras Condiciones de uso y Política de privacidad</p>
+                    <input type="checkbox" class="form-check-input" name="remember_user" ><p> Al registrarse aceptas nuestras Condiciones de uso y Política de privacidad</p>
                 </label>
                 <input type="submit" value="REGISTRATE" class="button">
             </div> 

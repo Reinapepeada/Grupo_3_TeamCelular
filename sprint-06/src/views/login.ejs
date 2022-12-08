@@ -4,13 +4,6 @@
         <%- include('./partials/header.ejs') %>
 
         <h1>Logueate</h1>
-        <% if (typeof errors != 'undefined') { %>
-            <div class="text-danger">
-            <% for (let i=0;i<errors.length ; i++){ %>
-                <%= errors[i].msg %> 
-            </div>
-            <% } }%>
-                
         <div class="contenedor">
             <form action="/login" method="post"  class="formulario">
 
