@@ -44,6 +44,7 @@ const mainRouter = require("./src/routes/main");
 const cartRouter = require("./src/routes/cart");
 const userRouter = require("./src/routes/user");
 const userApiRouter = require('./src/routes/api/users/userApiRouter');
+const productApiRouter = require('./src/routes/api/products/productApiRouter');
 // view engine setup
 app.set('views', path.join(__dirname, 'src/views'));
 app.set('view engine', 'ejs');
@@ -58,6 +59,8 @@ app.use('/services', mainRouter);
 app.use('/cart', cartRouter);
 app.use('/users', userRouter);
 app.use('/api/users/', userApiRouter);
+app.use('/api/products/', productApiRouter);
+
 
 app.use((req, res)=>{
     res.status(404).render('not-found');

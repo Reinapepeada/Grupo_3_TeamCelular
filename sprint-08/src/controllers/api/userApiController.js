@@ -37,7 +37,6 @@ const userApiController = {
             category: user.users_category,
             create_date: user.create_date,
             status: user.status,
-
         })
     }
 };
