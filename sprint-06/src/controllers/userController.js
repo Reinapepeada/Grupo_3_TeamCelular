@@ -4,6 +4,7 @@ const { validationResult } = require('express-validator');
 const multer = require('multer');
 const { json } = require('body-parser');
 const bcrypt = require("bcryptjs");
+const val=require("validator")
 
 let modelPath = path.join(__dirname, '../database/models');
 let db= require(modelPath)
@@ -24,6 +25,12 @@ const userController={
         return res.render('register')
     },
     processRegister :  (req, res) => {
+      let errors = validationResult(req)
+      
+      
+      if (!errors.isEmpty()) {
+        return res.render("register", { errors: errors.mapped(), old: req.body });
+      }
        const passBody = req.body.password
        const passwordHash = bcrypt.hashSync(passBody);
        console.log(passwordHash)

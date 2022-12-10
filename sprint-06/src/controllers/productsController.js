@@ -34,7 +34,6 @@ let productsController = {
 
     ///PROBANDO CREATE NUEVO PARA CREAR PRODUCTO.
     create : (req, res) => {
-      let image = req.file ? req.file.filename : (req.params.id != '-1') ? req.params.id : "default.png";
       const resultValidation = validationResult(req);
         
       let errors = validationResult(req)
