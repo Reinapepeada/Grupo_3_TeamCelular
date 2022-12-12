@@ -10,11 +10,7 @@ body {
     padding: 15px;
     
  }  
- .form-create-products{
-    background:#fff;
-    margin-top: 150px;
-    padding: 3px;
- }
+
  h1{
     text-align: center;
     color: #1a2537;
@@ -79,11 +75,11 @@ textarea{
  .details{
     margin-bottom: 15%;
  }
- @media(min-width:768px)
+ /* @media(min-width:768px)
  {
 .formulario {
-    width: 50vw;
+    width: 70%;
     margin: auto;
  }
- }
+ } */
  

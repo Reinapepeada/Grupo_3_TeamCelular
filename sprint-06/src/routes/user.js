@@ -1,4 +1,3 @@
-const { check } = require("express-validator");
 const path = require("path");
 const express = require("express");
 const userController = require("../controllers/userController");
@@ -28,14 +27,37 @@ router.post(
     "/register",
     upload.single("image"),
     [
-        check("full_name")
-            .isLength({ min: 1 })
+        body("full_name")
+            .isLength({ min: 4 })
             .withMessage("Debe ingresar un Nombre completo"),
-        check("email").isEmail().withMessage("Debe un email valido"),
-        check("password")
-            .isLength({ min: 3 })
-            .withMessage("Debe ingresar clave de mas de 3 caracteres"),
-    ],
+        body("email")
+            .isEmail()
+            .withMessage("Debe ingresar un email valido"),
+        body("password")
+            .isStrongPassword({
+                    minLength: 8,
+                    minLowercase: 1,
+                    minUppercase: 1,
+                    minNumbers: 1,
+                    minSymbols: 0,
+                    returnScore: false,
+                    pointsPerUnique: 1,
+                    pointsPerRepeat: 0.5,
+                    pointsForContainingLower: 10,
+                    pointsForContainingUpper: 10,
+                    pointsForContainingNumber: 10,
+                    pointsForContainingSymbol: 10})
+            .withMessage("La clave debe tener mas de 3 caracteres, una mayúscula y una minúscula"),
+        body('password_confirm').custom((value, { req }) => {
+            if (value !== req.body.password) {
+                throw new Error('Password confirmation does not match password');
+            }
+            return true;
+            }),
+        body('acepta_condiciones')
+            .notEmpty()
+            .withMessage("Debe aceptar nuestros terminos y condiciones"),
+        ],
     userController.processRegister
 );
 

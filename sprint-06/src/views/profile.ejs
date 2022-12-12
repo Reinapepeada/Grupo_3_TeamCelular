@@ -4,29 +4,29 @@
 <%- include('./partials/headerAdmin.ejs') %>
 
     <main>
-        <div class="contenedor">
-            <form class="formulario" action="/users/upload?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form class="formulario" action="/users/upload?_method=PUT" method="POST" enctype="multipart/form-data">
+            <div class="contenedor">
             
                 <h1>Editar Usuario</h1>
             
-                <img class="w-50 p-3" src="./../../img/users/<%= user.profile_image %>" >
+                <img class="d-flex w-50 p-3 mx-auto pb-5" src="./../../img/users/<%= user.profile_image %>" >
          
            
-                <label for="img">Seleccione la imagen</label>
+                <h3><label for="img">Seleccione la imagen</label></h3>
                 <input type="file" name="image" value="<%= user.profile_image %>" class="input-contenedor userField m-3" >
             
             
                 
                 <input type="hidden" name="id" class="input-contenedor userField" value="<%= user.id %>">
 
-                <label for="name">Nombre Completo</label>
+                <h3><label for="name">Nombre Completo</label></h3>
                 <input type="text" name="full_name" class="input-contenedor userField" value="<%= user.full_name %>">
 
-                <label for="email">Email</label>
+                <h3><label for="email">Email</label></h3>
                 <input type="email" name="email"class="input-contenedor userField" value="<%= user.email %>">
             
 
-                <label for="name">Categoria</label>
+                <h3><label for="name">Categoria</label></h3>
                 <select name="category">
                     <option value="0" <%= user.users_category === 0 ? 'selected' : '' %>>Usuario</option>
                     <option value="1" <%= user.users_category === 1 ? 'selected' :'' %> >Administrador</option>
@@ -40,8 +40,8 @@
                 </div>
                 
                 
-            </form>
-        </div>
+            </div>
+        </form>
     </main>
 
     <%- include('./partials/footer.ejs') %>
