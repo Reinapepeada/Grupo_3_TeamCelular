@@ -4,6 +4,14 @@ var session = require('express-session')
 var userLogued = require('./middlewares/userLoggedMiddleware')
 const cookieParser = require("cookie-parser");
 const recordameMiddleware = require ("./middlewares/recordameMiddleware");
+/////// CORS  ///////
+const cors=require("cors");
+const corsOptions ={
+   origin:'*', 
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
+}
+/////// CORS  ///////
 
 
 let path = require('path')
@@ -48,7 +56,7 @@ const productApiRouter = require('./src/routes/api/products/productApiRouter');
 // view engine setup
 app.set('views', path.join(__dirname, 'src/views'));
 app.set('view engine', 'ejs');
-
+app.use(cors(corsOptions)) // Use this after the variable declaration
 app.use(express.urlencoded({ extended: false }));
 app.use(userLogued)
 app.use('/products', productsRouter);

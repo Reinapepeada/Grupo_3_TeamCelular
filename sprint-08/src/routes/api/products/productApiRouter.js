@@ -5,6 +5,6 @@ const productApiRouter = require('../../../controllers/api/productApiController'
 
 
 router.get('/', productApiRouter.listProducts);
-//router.get('/:id', productApiController.showOneUser);
+router.get('/:id', productApiRouter.detail);
 
 module.exports = router;
