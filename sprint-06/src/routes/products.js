@@ -35,8 +35,7 @@ const validationProducts = [
     body("codigoProducto")
       .isLength({min:4})
       .withMessage("El numero de serie debe tener mas de 4 caracteres."),
-    body("description")
-      .isEmpty()
+    body("descripcion")
       .isLength({min:20})
       .withMessage("Debes completar una descripción al menos con 20 caracteres"),
       body("color_id")
@@ -49,7 +48,7 @@ const validationProducts = [
         .isInt()
         .withMessage("Seleccione una marca de producto."),
       body("img_id")
-        .notEmpty()
+        .isEmpty()
         .withMessage("Suba una foto de su producto")
 ];
 
