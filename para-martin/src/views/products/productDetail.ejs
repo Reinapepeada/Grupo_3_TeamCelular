@@ -1,0 +1,45 @@
+<%- include('../partials/head.ejs') %>
+<body>
+
+<%- include('../partials/header.ejs') %>
+    <main>
+<div class="productos-grid">
+                
+                <div class="imagenproducto">
+                    <a href="#">
+                        <img src="../../img/<%= product.img_id %>" alt="<%=product.name%>">
+                    </a>
+                </div>
+                
+                <div>   <span class="price-value"><%= product.name %></span></div>
+                  <div> 
+                    <% if (product.category) {  %>
+                        <p name="category_id" id="" required>
+                            <% allCategorys.forEach(category => { %>
+                            <option value="<%= category.id %>" <% if (product.category.id == cateogory.id) { %><%= 'selected' %><% }; %>><%= category.name %></option>
+                            <% }); %>
+                        </select>
+                    <% }  %>
+                </div>      
+                 <div>  <p><%= product.description %></p></div>
+                 <div>   <span class="price-value">$<%= product.price %></span></div>
+                    <br>
+                    <span class="promo-transfer-value"><strong>10%</strong> de descuento pagando por transferencia bancaria ó efectivo</span>
+                    <br>
+                   <div>
+                    <label class="field__label field__label--quantity" for="quantity">Cantidad</label>
+                </div>
+                <div>
+                    <input type="number" name="quantity" id="quantity" class="field__input border-radius" value="1" data-regex="/^[1-9]{1}([0-9]?)*$/" data-message="Ingrese una cantidad válida" data-required="1">
+                </div>
+                    
+                    <button type="submit" id="add_to_cart-btn" class="add_to_cart-btn" data-label="Agregar al carrito" data-spinner-ratio="0.75">Agregar al carrito</button>
+                </div>
+              </div>
+            </div>
+            <div>
+              
+              
+    </main>
+    <%- include('../partials/footer.ejs') %>
+</body>

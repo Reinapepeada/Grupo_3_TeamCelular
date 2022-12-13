@@ -1,0 +1,49 @@
+<%- include('./partials/head.ejs') %>
+<body>
+
+<%- include('./partials/headerAdmin.ejs') %>
+
+    <main>
+        <form class="formulario" action="/users/upload?_method=PUT" method="POST" enctype="multipart/form-data">
+            <div class="contenedor">
+            
+                <h1>Editar Usuario</h1>
+            
+                <img class="d-flex w-50 p-3 mx-auto pb-5" src="./../../img/users/<%= user.profile_image %>" >
+         
+           
+                <h3><label for="img">Seleccione la imagen</label></h3>
+                <input type="file" name="image" value="<%= user.profile_image %>" class="input-contenedor userField m-3" >
+            
+            
+                
+                <input type="hidden" name="id" class="input-contenedor userField" value="<%= user.id %>">
+
+                <h3><label for="name">Nombre Completo</label></h3>
+                <input type="text" name="full_name" class="input-contenedor userField" value="<%= user.full_name %>">
+
+                <h3><label for="email">Email</label></h3>
+                <input type="email" name="email"class="input-contenedor userField" value="<%= user.email %>">
+            
+
+                <h3><label for="name">Categoria</label></h3>
+                <select name="category">
+                    <option value="0" <%= user.users_category === 0 ? 'selected' : '' %>>Usuario</option>
+                    <option value="1" <%= user.users_category === 1 ? 'selected' :'' %> >Administrador</option>
+                </select>
+                    
+                
+
+                <div class="box-btn-form-create-produc">
+                    <input type="submit" value="Guardar" class="buttonConfirm button">
+                    <input type="reset" value="Borrar Cambios" class="buttonConfirm button">
+                </div>
+                
+                
+            </div>
+        </form>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

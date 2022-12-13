@@ -1,0 +1,136 @@
+<%- include('./partials/head.ejs') %>
+<html>
+    <body>
+        <%- include('./partials/header.ejs') %>
+        <main>
+            <div
+                class="imagenPrincipal   p-3 p-md-5 m-md-3 text-center  "
+                style="background-image: url(./img/smartwatch-l.jpg);"
+                >
+                
+                <div class="col-md-5 p-lg-5 mx-auto my-5" >
+                    <h1 class="display-4 fw-normal">Punny headline</h1>
+                    <p class="lead fw-normal">
+                        And an even wittier subheading to boot. Jumpstart your
+                        marketing efforts with this example based on Apple’s
+                        marketing pages.
+                    </p>
+                    <a class="btn btn-outline-secondary" href="#"
+                        >Coming soon</a
+                    >
+                </div>
+                <div class="product-device shadow-sm d-none d-md-block"></div>
+                <div
+                    class="product-device product-device-2 shadow-sm d-none d-md-block"
+                ></div>
+            </div>
+            <div class="d-md-flex flex-md-equal justify-content-center w-100 my-md-3 ps-md-3">
+                <div
+                    class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
+                >
+                    <div class="my-3 py-3">
+                        <h2 class="display-5">Another headline</h2>
+                        <p class="lead">And an even wittier subheading.</p>
+                    </div>
+                    <div
+                        class="bg-light shadow-sm mx-auto"
+                        style="
+                            width: 80%;
+                            height: 300px;
+                            border-radius: 21px 21px 0 0;
+                        "
+                    ></div>
+                </div>
+                <div
+                    class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
+                >
+                    <div class="my-3 p-3">
+                        <h2 class="display-5">Another headline</h2>
+                        <p class="lead">And an even wittier subheading.</p>
+                    </div>
+                    <div
+                        class="bg-dark shadow-sm mx-auto"
+                        style="
+                            width: 80%;
+                            height: 300px;
+                            border-radius: 21px 21px 0 0;
+                        "
+                    ></div>
+                </div>
+            </div>
+            <section class="sections">
+                <div class="categorys-article p-4">
+                    <article class="category">
+                        <div class="background-img">
+                            <img
+                                src="../img/smartwatch.jpg"
+                                alt="imagen categoria smartwatch"
+                                class="article-img-0"
+                            />
+                            <h2>Smartwatch</h2>
+                        </div>
+                    </article>
+                    <article class="category">
+                        <div class="background-img">
+                            <img
+                                src="../img/celulares.jpg"
+                                alt="imagen categoria celulares"
+                                class="article-img-0"
+                            />
+                            <h2>Celulares</h2>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="categorys-article1">
+                    <article class="categorys-row">
+                        <div class="categorys-row-div">
+                            <img
+                                src="../img/auriculares.jpg"
+                                alt="imagen categoria auriculares"
+                                class="article-img-1"
+                            />
+                            <h2>Auriculares</h2>
+                        </div>
+
+                        <div class="container">
+                            <div class="categorys-row-div">
+                                <img
+                                    src="../img/accesorios.jpg"
+                                    class="w-72 article-img-1"
+                                    alt="imagen categoria accesorios"
+                                />
+                                <h2>Accesorios</h2>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <h2 class="nuestrosh2">Nuestros Productos</h2>
+            <section class="home home-desktop">
+                <% for(let product of products) { %>
+                <div class="box-products">
+                    <div class="text-center">
+                        <a href="/products/details/<%= product.id %>">
+                            <img
+                                src="../img/<%= product.img_id %>"
+                                alt="<%= product.name %>"
+                            />
+                        </a>
+                    </div>
+                    <h2 class=""><%= product.name %></h2>
+                    <p><%= product.price %></p>
+
+                    <a
+                        href="/products/details/<%= product.id %>"
+                        target="_parent"
+                        ><button class="details">Ver Detalles</button></a
+                    >
+                </div>
+                <% } %>
+            </section>
+        </main>
+
+        <%- include('./partials/footer.ejs') %>
+    </body>
+</html>
