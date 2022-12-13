@@ -16,6 +16,7 @@ const userApiController = {
                 id: user.id,
                 full_name:  user.full_name,
                 email: user.email,
+                profile_image: user.profile_image,
                 detail: "/api/users/" + user.id
             }
         });

@@ -55,9 +55,11 @@ const productsApiController = {
     const newProductsArray = products.map((product) => {
       return {
         id: product.id,
-        name: product.fullname,
+        name: product.name,
         description: product.description,
         category: product.category_id,
+        stock: product.stock,
+        image: product.img_id,
         detail: "/api/products/" + product.id,
       };
     });
