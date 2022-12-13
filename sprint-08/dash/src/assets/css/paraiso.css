@@ -1,0 +1,26 @@
+*{
+    font-family: Roboto;
+}
+
+.fondo {
+    background-color: #CF0A2C;
+}
+
+.articulo {
+    display: flex;
+    width: auto;
+    flex-direction: column; 
+    background-color: black;
+    color:whitesmoke;
+    border-radius: 6%;
+    margin: 1%;
+}
+
+.articulo:hover 
+{
+    transform: scale(1.05);
+    transition: all 0.5s;
+    background-color: #5f5d5e; 
+    cursor: pointer;
+    font-size: 12px;
+}
