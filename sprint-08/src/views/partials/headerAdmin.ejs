@@ -36,19 +36,21 @@
                 </button></li></a>
                 
             <ul class="p-0 m-2 d-inline-flex ">
-              <% if (locals.isAnUserLogged == true && locals.userLogged.users_category==1 ) { %>
-                <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/products/create"><i class="fa-solid fa-circle-plus"></i>Nuevo Producto</span></a></li>
-                <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/products/list_products">Productos </span></a> 
-               <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/users/profile/<%= locals.userLogged.name %>">Perfil </a></li>
-               <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/users/logout">Cerrar <i class="fas fa-sign-in-alt"></i></a></li>
+              <% if (locals.isAnUserLogged == true) { %>
+                <% if (locals.userLogged.users_category==1 ) { %>
+                    <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/products/create"><i class="fa-solid fa-circle-plus"></i>Nuevo Producto</span></a></li>
+                    <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/products/list_products">Productos </span></a> 
+                   <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/users/profile/<%= locals.userLogged.name %>">Perfil </a></li>
+                   <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/users/logout">Cerrar <i class="fas fa-sign-in-alt"></i></a></li>
+                   <%}%>
+                   <% if (locals.userLogged.users_category==0 ) { %>
+                   <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/users/profile/<%= locals.userLogged.name %>">Perfil </a></li>
+                   <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/users/logout">Cerrar <i class="fas fa-sign-in-alt"></i></a></li>
+                   <%} %>
+                   <% } else { %>
+               <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/users/register">Registrarse </a></li>
+               <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/login">Iniciar Sesión</a></li>
                <%} %>
-               <% if (locals.isAnUserLogged == true && locals.userLogged.users_category==0 ) { %>
-               <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/users/profile/<%= locals.userLogged.name %>">Perfil </a></li>
-               <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/users/logout">Cerrar <i class="fas fa-sign-in-alt"></i></a></li>
-               <% } else { %>
-           <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/users/register">Registrarse </a></li>
-           <li class="m-1 list-group-item"><a class="text-decoration-none text-light" href="/login">Iniciar Sesión</a></li>
-           <%} %>
            </ul>   
           </div>
         </div>
