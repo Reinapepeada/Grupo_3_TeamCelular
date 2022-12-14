@@ -1,4 +1,4 @@
-/* HOLA SOY VICK */
+/* HOLA SOY VICK
 /* HOLA SOY FLORENCIA 123*/
 /* HOLA SOY JERE */
 /* HOLA SOY FLORENCIA */
@@ -223,9 +223,7 @@ body{
 .p-home{
     padding: 10%;
 }
-section img{
-    width: 100%;
-}
+
 .title-products{
     font-weight: bold;
     font-size: 18px;
@@ -304,12 +302,6 @@ section img{
 
 /* categorys styles */
 
-.sections{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 
 .categorys-article{
     display: flex;
@@ -441,7 +433,6 @@ section img{
 .filter-search{
     display: flex;
     justify-content: space-evenly;
-    margin: 3%;
 }
 
 .filter-search select{
@@ -517,7 +508,10 @@ section img{
         width: 30%;
     }
     
-
+    .contenedor{
+        width: 70%;
+    }
+    
     .text-center ul{
         display: block;
         margin-top: 30%;
@@ -567,7 +561,7 @@ section img{
           list-style: none;
       }
 
-      /* sections */
+  
       /* article */
     .category{
         background-color: #000000;
@@ -588,6 +582,8 @@ section img{
    width: 100%;
    padding: 15px;
    margin-bottom: 5rem;
+   display: flex;
+   justify-content: center;
    
 } 
 ::placeholder{
@@ -598,12 +594,9 @@ section img{
     background:rgba(26, 152, 255, 0.521);
     padding: 2rem;
     border-radius: 0.7rem;
+    width: 90%;
 }
-h1{
-   text-align: center;
-   color: #1a2537;
-   font-size: 40px;
-}
+
 input[type="text"],
 input[type="password"],
 input[type="email"],
@@ -659,15 +652,15 @@ input[type="tel"]{
     align-items:center;
 }
 
-/* @media(min-width:768px)
+@media(min-width:768px)
 {
 .formulario {
-   width: 60%;
+   width: 40%;
     margin: auto;
 }
 
 
-} */
+}
 
 * {
 	box-sizing: border-box;
@@ -678,18 +671,8 @@ body {
 	background: #ffffff;
 }
 
-/* main {
-	max-width: 800px;
-	width: 90%;
-	margin: auto;
-	padding: 40px;
-} */
 
-/* .formulario {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 20px;
-} */
+
 
 .formulario__label {
 	display: block;
@@ -816,7 +799,7 @@ body {
 }
 
 
-/* ----- -----  Mediaqueries ----- ----- */
+/* ----- -----  Mediaqueries ----- -----
 @media screen and (max-width: 800px) {
 	.formulario {
 		grid-template-columns: 1fr;
@@ -831,4 +814,4 @@ body {
 	.formulario__btn {
 		width: 100%;
 	}
-}
+}  */

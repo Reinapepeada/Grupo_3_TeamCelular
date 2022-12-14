@@ -1,134 +1,91 @@
 <%- include('./partials/head.ejs') %>
+<link rel="stylesheet" href="/css/index.css" />
 <html>
     <body>
         <%- include('./partials/header.ejs') %>
         <main>
-            <div
-                class="imagenPrincipal   p-3 p-md-5 m-md-3 text-center  "
-                style="background-image: url(./img/smartwatch-l.jpg);"
-                >
-                
-                <div class="col-md-5 p-lg-5 mx-auto my-5" >
-                    <h1 class="display-4 fw-normal">Punny headline</h1>
-                    <p class="lead fw-normal">
-                        And an even wittier subheading to boot. Jumpstart your
-                        marketing efforts with this example based on Apple’s
-                        marketing pages.
-                    </p>
-                    <a class="btn btn-outline-secondary" href="#"
-                        >Coming soon</a
-                    >
+          <section id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="img-carousel" style="background-image:url(/img/smartwatch-l.jpg) ;"></div>
+                <div class="container">
+                <div id="carousel-text-1" class="carousel-caption text-start">
+                  <h1>Te preparamos una sorpresa.</h1>
+                  <p>
+                    Regístrate para poder tener contenido exclusivo, comprar nuestros productos<br>
+                    y difrutar de nuestros servicios
+                  </p>
+                  <a class="btn btn-lg btn-light" href="users/register">Regístrate</a>
                 </div>
-                <div class="product-device shadow-sm d-none d-md-block"></div>
-                <div
-                    class="product-device product-device-2 shadow-sm d-none d-md-block"
-                ></div>
-            </div>
-            <div class="d-md-flex flex-md-equal justify-content-center w-100 my-md-3 ps-md-3">
-                <div
-                    class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
-                >
-                    <div class="my-3 py-3">
-                        <h2 class="display-5">Another headline</h2>
-                        <p class="lead">And an even wittier subheading.</p>
-                    </div>
-                    <div
-                        class="bg-light shadow-sm mx-auto"
-                        style="
-                            width: 80%;
-                            height: 300px;
-                            border-radius: 21px 21px 0 0;
-                        "
-                    ></div>
                 </div>
-                <div
-                    class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
-                >
-                    <div class="my-3 p-3">
-                        <h2 class="display-5">Another headline</h2>
-                        <p class="lead">And an even wittier subheading.</p>
-                    </div>
-                    <div
-                        class="bg-dark shadow-sm mx-auto"
-                        style="
-                            width: 80%;
-                            height: 300px;
-                            border-radius: 21px 21px 0 0;
-                        "
-                    ></div>
+              </div>
+              <div class="carousel-item">
+                <div class="img-carousel" style="background-image:url(img/servicio_tecnico.jpg) ;"></div>
+                <div class="container">
+                <div class="carousel-caption">
+                  <h1>Estamos atentos a tus necesidades.</h1>
+                  <p>Pidenos presupuesto o algún accesorio que necesites</p>
+                  <a class="btn btn-lg btn-dark" href="https://api.whatsapp.com/send?phone=541151034595&text=%C2%A1Hola!%20Quiero%20pedir%20un%20presupuesto.">Presupuesto</a>
                 </div>
-            </div>
-            <section class="sections">
-                <div class="categorys-article p-4">
-                    <article class="category">
-                        <div class="background-img">
-                            <img
-                                src="../img/smartwatch.jpg"
-                                alt="imagen categoria smartwatch"
-                                class="article-img-0"
-                            />
-                            <h2>Smartwatch</h2>
-                        </div>
-                    </article>
-                    <article class="category">
-                        <div class="background-img">
-                            <img
-                                src="../img/celulares.jpg"
-                                alt="imagen categoria celulares"
-                                class="article-img-0"
-                            />
-                            <h2>Celulares</h2>
-                        </div>
-                    </article>
                 </div>
-
-                <div class="categorys-article1">
-                    <article class="categorys-row">
-                        <div class="categorys-row-div">
-                            <img
-                                src="../img/auriculares.jpg"
-                                alt="imagen categoria auriculares"
-                                class="article-img-1"
-                            />
-                            <h2>Auriculares</h2>
-                        </div>
-
-                        <div class="container">
-                            <div class="categorys-row-div">
-                                <img
-                                    src="../img/accesorios.jpg"
-                                    class="w-72 article-img-1"
-                                    alt="imagen categoria accesorios"
-                                />
-                                <h2>Accesorios</h2>
-                            </div>
-                        </div>
-                    </article>
+              </div>
+              <div class="carousel-item">
+                <div class="img-carousel" style="background-image:url(img/setup.jpg) ;"></div>			  
+                <div class="container">
+                <div class="carousel-caption text-end">
+                  <h1>Te armamos el setup.</h1>
+                  <p>Ensamblamos el pc de tus sueños, tu solo disfruta.</p>
+                  <a class="btn btn-lg btn-dark" href="/products">Catálogo</a>
                 </div>
-            </section>
-            <h2 class="nuestrosh2">Nuestros Productos</h2>
-            <section class="home home-desktop">
-                <% for(let product of products) { %>
-                <div class="box-products">
-                    <div class="text-center">
-                        <a href="/products/details/<%= product.id %>">
-                            <img
-                                src="../img/<%= product.img_id %>"
-                                alt="<%= product.name %>"
-                            />
-                        </a>
-                    </div>
-                    <h2 class=""><%= product.name %></h2>
-                    <p><%= product.price %></p>
-
-                    <a
-                        href="/products/details/<%= product.id %>"
-                        target="_parent"
-                        ><button class="details">Ver Detalles</button></a
-                    >
                 </div>
-                <% } %>
-            </section>
+              </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+              </button>
+          </section>	
+          <!-- empieza el jumb -->
+		<div id="jumbotron">
+      <div class="container">
+            
+      <div class="p-5 mb-4 bg-light rounded-3" id="categoria1" >
+        <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Servicio Técnico</h1>
+        <p class="col-md-8 fs-4">Contamos el mejor equipo capacitado profesionalmente para reparar tus dispositivos a cualquier nivel. (Celulares, Notebooks, PC)</p>
+        <a  href="https://api.whatsapp.com/send?phone=541151034595&text=%C2%A1Hola!%20Quiero%20pedir%20un%20presupuesto.">
+          <button class="btn btn-primary btn-lg" type="button"><svg class="bi" width="1.5rem" height="1.5rem" style="margin-right:1rem; margin-bottom:0.3rem;"><use xlink:href="#whatsapp"/></svg>Pide tu presupuesto</button>
+        </a>
+        </div>
+      </div>
+    
+      <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+          <h2>Productos</h2>
+          <p>Tenemos la mejor calidad y variedad de productos para garantizar tu satisfacción. </p>
+          <a href="/products"><button class="btn btn-outline-light" type="button">Catálogo</button></a>
+        </div>
+        </div>
+        <div class="col-md-6">
+        <div class="h-100 p-5 bg-light border rounded-3">
+          <h2>Servicios</h2>
+          <p>Brindamos los mejores servicios técnologicos. Tanto para público como a empresas.</p>
+          <a href="/services"><button class="btn btn-outline-secondary" type="button">Ver más</button></a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
         </main>
 
         <%- include('./partials/footer.ejs') %>

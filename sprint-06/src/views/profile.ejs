@@ -4,14 +4,14 @@
 <%- include('./partials/headerAdmin.ejs') %>
 
     <main>
-        <form class="formulario" action="/users/upload?_method=PUT" method="POST" enctype="multipart/form-data">
-            <div class="contenedor">
+        <div class="contenedor">
+            <form class="formulario" action="/users/upload?_method=PUT" method="POST" enctype="multipart/form-data">
             
                 <h1>Editar Usuario</h1>
             
                 <img class="d-flex w-50 p-3 mx-auto pb-5" src="./../../img/users/<%= user.profile_image %>" >
          
-           
+                
                 <h3><label for="img">Seleccione la imagen</label></h3>
                 <input type="file" name="image" value="<%= user.profile_image %>" class="input-contenedor userField m-3" >
             
@@ -40,8 +40,8 @@
                 </div>
                 
                 
-            </div>
-        </form>
+            </form>
+        </div>
     </main>
 
     <%- include('./partials/footer.ejs') %>

@@ -205,18 +205,18 @@ let productsController = {
                     id: req.params.id,
                 },
             }
-        );
-        Promise.all([product, allCategorys, allBrands, allColors])
-            .then(function ([product, allCategorys, allColors, allBrands]) {
-                
-                return res.render("products/productDetailAdmin", {
-                    product,
-                    allCategorys,
-                    allColors,
-                    allBrands,
-                });
-            })
-            .catch((error) => res.send(error));}
+            );
+            Promise.all([product, allCategorys, allBrands, allColors])
+                .then(function ([product, allCategorys, allColors, allBrands]) {
+                    
+                    return res.render("products/productDetailAdmin", {
+                        product,
+                        allCategorys,
+                        allColors,
+                        allBrands,
+                    });
+                })
+                .catch((error) => res.send(error));}
     },
 
     destroy: (req, res) => {
