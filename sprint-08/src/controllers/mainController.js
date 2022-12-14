@@ -61,7 +61,7 @@ let mainController = {
                         //last_name: userToLogin.last_name,
                         email: userToLogin.email,
                         profile_image: userToLogin.profile_image,
-                        //users_category: users_category
+                        users_category:  userToLogin.users_category
                     };
                     //Cookie
 
