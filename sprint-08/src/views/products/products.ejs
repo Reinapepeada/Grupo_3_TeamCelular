@@ -1,9 +1,16 @@
 <%- include('../partials/head.ejs') %>
 <body>
-
-<%- include('../partials/header.ejs') %>
-
+    <%- include('../partials/headerAdmin.ejs') %>
+    
     <main>
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">Productos disponibles</h1>
+                    <p class="lead text-muted">En esta seccion se podrá ver los productos tanto las caracteristicas de los productos que tenemos disponibles.</p>
+                </div>
+            </div>
+        </section>
         <section class="filter-search">
             <article class="select-featured-products">
                 <select>
@@ -14,7 +21,7 @@
                     <option>Precio mayor a menor</option>
                 </select>
             </article>
-
+        
             <article class="select-categorys">
                 <select>
                     <option>Filtrar por categoría</option>
@@ -25,7 +32,7 @@
                 </select>
             </article>
         </section>
-
+        
         <section class="main-products">
             <ul class="ul-list-categorys">
                 <h2>Categorías</h2>
@@ -34,25 +41,44 @@
                 <li>Auriculares</li>
                 <li>Accesorios</li>
             </ul>
-
-            <section class="page-products-products-detail">
+        </section>
+        
+          
+          
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 <% for(let product of products) { %>
-                    <div class="box-products">
-                        <div class="text-center">
-                            <a href="/products/details/<%= product.id %>">
-                                <img src="../img/<%= product.img_id %>" alt="<%= product.name %>">
-                            </a>
+                        <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="../img/<%= product.img_id %>" alt="<%= product.name %>">
+                
+                            <div class="card-body">
+                                <p class=""><strong>Id: </strong> <%= product.id %></p>
+                                <p class=""><strong>Nombre:</strong>  <%= product.name %></p>
+                                <p class=""><strong>Descripción </strong> <%= product.description %></p>
+                                <p class=""><strong>Precio</strong> <%= product.price %>.-</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group"> 
+                                        <a type="button" href="/products/details/<%= product.id %>" class="btn btn-sm btn-outline-secondary">view</a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
                         </div>
-                        <h2 class=""><%= product.name %></h2>
-                        <p><%= product.price %></p>
-                       
-                        <a href="/products/details/<%= product.id %>" target="_parent"><button class="details">Ver Detalles</button></a>
                     </div>
                 <% } %>
-            
-               
-        </section>
+                
+            </div>
+        </div>
+
+
+        
+           
+        
     </main>
 
     <%- include('../partials/footer.ejs') %>
+
+
 </body>

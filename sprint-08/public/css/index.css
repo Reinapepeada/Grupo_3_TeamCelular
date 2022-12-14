@@ -1,0 +1,62 @@
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+  /* ------Customizar el carousel-------------------------------------------------- */
+  /* -------------------------letras del carousel------------------------------ */
+
+  #carousel-text-1 a{
+    margin: 1rem;
+   }
+   /* -------------------------TERMINA (letras del carousel)------------------------------ */
+  
+    /* calse carousel */
+    .carousel {
+    margin-bottom: 0rem;
+    }
+    /* posicionando el caption segun la imagen */
+    .carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+    }
+    
+    /* ----------------------Elementos del carousel ------Posicionamiento-----Tamaño-------*/
+   .carousel-item{
+    height: 32rem;
+    background-color: black;
+   } 
+    .img-carousel {
+    height: 32rem;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.5;
+    }
+    #carouselVideo{
+    width: 100%;
+      height: 100%;
+    opacity: 0.5;
+    }
+    /* ajustando un poco al main */
+.main-container{
+	display: inline-flex;
+	width: 100%;
+	height: 100%;
+	background-color: var(--light-gray);
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+#jumbotron{
+	width: 100%;
+}
+

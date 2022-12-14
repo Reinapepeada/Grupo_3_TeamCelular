@@ -1,125 +1,167 @@
 <%- include('../partials/head.ejs') %>
-<body>
+<html>
+    <body>
+        <%- include('../partials/header.ejs') %>
 
-<%- include('../partials/header.ejs') %>
-   
-    <main>
-        <form action="/products/upload/<%=product.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
-
-        <form class="form-product" action="/products/upload?<%=product.id%>?_method=PUT" method="POST"
-        enctype="multipart/form-data">
-    
-            
-            <h1>Editar Producto</h1>
-            <input type="text" name="id" class="input-contenedor" value="<%= product.name %>">
-              
-            <h3><b>Nombre:</b></h3>
-                <div class="input-contenedor">
-                    <input type="text" name="name" class="input-contenedor" value="<%= product.name %>">
-                </div>
-                <% if (product.category_id) {  %> 
-                    <select name="category_id" id="">
-                        <% allCategorys.forEach(category => { %>
-                        <option value="<%= category.id %>"
-                            <%= product.category_id === category.id ?  'selected' :'' %>><%=category.name %>
-                        </option>
-                            <% }); %>
-                    </select>
-                <% } else { %>
-                    <select name="category_id" id="" required>
-                        <% allCategorys.forEach(category => { %>
-                        <option value="<%= category.id %>"><%= category.name %></option>
-                        <% }); %>
-                    </select>
-                    <% } %>
-                <div class="col-md-6 my-1">
-                    <div class="form-group-create-produc">
-                        <h3><b>Código de producto:</b></h3>
-                        <div class="input-contenedor">
-                            <input type="text" name="product_code"class="input-contenedor" value="<%= product.product_code %>">
-                        </div>
+        <main>
+            <div class="contenedor">
+                <form class="formulario" action="/products/upload/<%=product.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                
+                    <h1>Editar Producto</h1>
+                    <h3><b>Número de Identificación:</b></h3>
+                    <input
+                        type="text"
+                        name="id"
+                        class="input-contenedor"
+                        value="<%= product.id %>"
+                    />
+                    <h3><b>Nombre:</b></h3>
+                    <div class="input-contenedor">
+                        <input
+                            type="text"
+                            name="name"
+                            class="input-contenedor"
+                            value="<%= product.name %>"
+                        />
                     </div>
-                </div>
-
-                <h3><b>Precio:</b></h3>
-                 <div class="input-contenedor">
-                    <input type="text" name="price"class="input-contenedor" value="<%= product.price %>">
-                </div>
-                <h3><b>Descripción:</b></h3>
-                  <div class="form-control">      
-                    <textarea type="text" name="description" class="input-contenedor"><%= product.description %>
-                    </textarea>
-                </div>
-
-                <h3><b>Color:</b></h3>
-        <div class="col-md-6 my-1">
-            <div class="form-group-create-produc">
-                <% if (product.color_id) {  %>
-                    <select name="color_id" id="" required>
-                        <% allcolors.forEach(color => { %>
-                                <option value="<%= color.id %>"
-                                    <%= product.color_id === color.id ?  'selected' :'' %>><%=color.name %>
-                                </option>
-                        <% }); %>
-                    </select>
-                <% } else { %>
-                    <select name="color_id" id="" required>
-                        <% allcolors.forEach(color => { %>
-                        <option value="<%= color.id %>"><%= color.name %></option>
-                        <% }); %>
-                    </select>
-                    <% } %>
-            </div>
-        </div>
-        <h3><b>Status:</b></h3>
-                <div class="col-md-6 my-1">
-                    <div class="form-group-create-produc">
-                        <select name="status">
-                            <option value="1" <%= product.status === '1' ? 'selected' : '' %> >1</option>
-                            <option value="2" <%= product.status === '2' ? 'selected' :'' %> >2</option>
-                            <option value="3" <%= product.status === '3' ? 'selected' :'' %> >3</option>
+                    <h3><b>Categoria:</b></h3>
+                    <div class="col-md-6 my-1">
+                        <% if (product.category_id) { %>
+                        <select name="category_id" id="">
+                            <% allCategorys.forEach(category => { %>
+                            <option value="<%=category.id%>">
+                                <%= product.category_id === category.id ?
+                                '' :'' %><%=category.name%>
+                            </option>
+                            <% }); %>
                         </select>
-                        
-                     </div>
-                </div>
-            
-                <h3><b>Marca:</b></h3>
-                <div class="col-md-6 my-1">
-                    <div class="form-group-create-produc">
-                        <% if (product.brand_id) {  %> 
-                            <select name="brand_id" id="">
-                                <% allbrands.forEach(brand => { %>
-                                <option value="<%= brand.id %>"
-                                    <%= product.brand_id === brand.id ?  'selected' :'' %>><%=brand.name %>
-                                </option>
-                                    <% }); %>
-                            </select>
                         <% } else { %>
-                            <select name="brand_id" id="" required>
-                                <% allbrands.forEach(brand => { %>
-                                <option value="<%= brand.id %>"><%= brand.name %></option>
+                        <select name="category_id" id="" required>
+                            <% allCategorys.forEach(category => { %>
+                            <option value="<%=category.id%>">
+                                <%= category.name %>
+                            </option>
+                            <% }); %>
+                        </select>
+                        <% } %>
+                    </div>
+                    <h3><b>Código de producto:</b></h3>
+                    <div class="input-contenedor">
+                        <input
+                            type="text"
+                            name="product_code"
+                            class=""
+                            value="<%=product.product_code%>"
+                        />
+                    </div>
+
+                    <h3><b>Precio:</b></h3>
+                    <div class="input-contenedor">
+                        <input
+                            type="text"
+                            name="price"
+                            value="<%=product.price%>"
+                        />
+                    </div>
+                    <h3><b>Descripción:</b></h3>
+
+                    <textarea type="text" name="description">
+                    <%=product.description%>
+                    </textarea>
+
+                    <h3><b>Color:</b></h3>
+                    <div class="col-md-6 my-1">
+                        <div class="form-group-create-produc">
+                            <% if (product.color_id) { %>
+                            <select name="color_id" id="" required>
+                                <% allColors.forEach(color => { %>
+                                <option value="<%= color.id %>">
+                                    <%= product.color_id === color.id ?
+                                    '' :'' %><%=color.name %>
+                                </option>
+                                <% }); %>
+                            </select>
+                            <% } else { %>
+                            <select name="color_id" id="" required>
+                                <% allBolors.forEach(color => { %>
+                                <option value="<%= color.id %>">
+                                    <%= color.name %>
+                                </option>
                                 <% }); %>
                             </select>
                             <% } %>
-                     </div>
-                </div>
-                <div class="">
-                    <h3><b>Imagen del producto:</b></h3>
-                    <input 
-                        type="file" 
-                        name="img_id"
-                    >
-                </div>
-  
-                <div class="form-group-create-produc">
-                    <input type="submit" value="Guardar" class="buttonConfirm button">
-                    <input type="reset" value="Borrar Cambios" class="buttonConfirm button">
-                    <input type="reset" value="Volver" class="buttonConfirm button" onclick="location.href='/products/list_products/'">
-                </div>
-             </div>
-        </form>
-    </main>
+                        </div>
+                    </div>
+                    <h3><b>Status:</b></h3>
+                    <div class="col-md-6 my-1">
+                        <div class="form-group-create-produc">
+                            <select name="status">
+                                <option value="1" <%= product.status == '1' ? 'selected' :'' %> >En stock</option>
+                                <option value="2" <%= product.status == '2' ? 'selected' :'' %> >Agotado</option>
+                                <option value="3" <%= product.status == '3' ? 'selected' :'' %> >Baja</option>
+                            </select>
+                        </div>
+                    </div>
 
-    <%- include('../partials/footer.ejs') %>
-</body>
+                    <h3><b>Marca:</b></h3>
+                    <div class="col-md-6 my-1">
+                        <div class="form-group-create-produc">
+                            <% if (product.brand_id) { %>
+                            <select name="brand_id" id="">
+                                <% allBrands.forEach(brand => { %>
+                                <option value="<%= brand.id %>">
+                                    <%= product.brand_id === brand.id ?
+                                    '' :'' %> <%=brand.name %>
+                                </option>
+                                <% }); %>
+                            </select>
+                            <% } else { %>
+                            <select name="brand_id" id="" required>
+                                <% allBrands.forEach(brand => { %>
+                                <option value="<%= brand.id %>">
+                                    <%= brand.name %>
+                                </option>
+                                <% }); %>
+                            </select>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="">
+                        <h3><b>Imagen del producto:</b></h3>
+                        <input type="file" name="img_id" />
+                    </div>
+                    <% if (locals.errors){ %>
+                    <div class="formulario__mensaje">
+                        <h5 class="pt-2">Error en los campos</h5>
+                        <ul class="formMsg p-4">
+                            <% errors.forEach(error =>{ %>
+                            <li><%= error.msg; %></li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                    <% } %>
+                    <div class="form-group-create-produc">
+                        <input
+                            type="submit"
+                            value="Guardar"
+                            class="buttonConfirm button"
+                        />
+                        <input
+                            type="reset"
+                            value="Borrar Cambios"
+                            class="buttonConfirm button"
+                        />
+                        <input
+                            type="reset"
+                            value="Volver"
+                            class="buttonConfirm button"
+                            onclick="location.href='/products/list_products/'"
+                        />
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <%- include('../partials/footer.ejs') %>
+    </body>
 </html>

@@ -1,8 +1,16 @@
 <%- include('../partials/head.ejs') %>
 <body>
-<%- include('../partials/headerAdmin.ejs') %>
-
+    <%- include('../partials/headerAdmin.ejs') %>
+    
     <main>
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">Productos Listados</h1>
+                    <p class="lead text-muted">En esta seccion se podrá ver los productos listados en la base de datos, los cuales se podrán modificar y eliminar.</p>
+                </div>
+            </div>
+        </section>
         <section class="filter-search">
             <article class="select-featured-products">
                 <select>
@@ -13,7 +21,7 @@
                     <option>Precio mayor a menor</option>
                 </select>
             </article>
-
+        
             <article class="select-categorys">
                 <select>
                     <option>Filtrar por categoría</option>
@@ -24,7 +32,7 @@
                 </select>
             </article>
         </section>
-
+        
         <section class="main-products">
             <ul class="ul-list-categorys">
                 <h2>Categorías</h2>
@@ -33,32 +41,44 @@
                 <li>Auriculares</li>
                 <li>Accesorios</li>
             </ul>
-
-            <section class="page-products-products-detail">
-
-        <% for(let product of products) { %>
-            <div class="box-products">
-                <div class="img-products">
-                    <a href="/products/detail/<%= product.id %>">
-                    </a>
-                </div>
-                <img src="../img/<%= product.img_id %>" alt="<%= product.name %>">
-                <p class="">Id: <%= product.id %></p>
-                <p class="">Nombre <%= product.name %></p>
-                <p class="">Descripción <%= product.description %></p>
-                <p class="">Precio<%= product.price %>.-</p>   
-                                 
-               <div class="container-btn">
-                    <a class="btn-standard" href="/products/edit/<%= product.id %>">Editar</a>
-                    <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST">
-                        <button class="" type="submit">Borrar</button>
-                    </form>       
-                </div>
+        </section>
+        
+          
+          
+          <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <% for(let product of products) { %>
+                        <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="../img/<%= product.img_id %>" alt="<%= product.name %>">
+                
+                            <div class="card-body">
+                                <p class="">Id: <%= product.id %></p>
+                                <p class="">Nombre <%= product.name %></p>
+                                <p class="">Descripción <%= product.description %></p>
+                                <p class="">Precio<%= product.price %>.-</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST">
+                                            <button class="btn btn-sm btn-outline-secondary" type="submit">Borrar</button>
+                                        </form>  
+                                        <a type="button" href="/products/edit/<%= product.id %>" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+                
             </div>
-                    <% } %>
+          </div>
+
+
+        
            
             </div>
-        </section>
     </main>
 
     <%- include('../partials/footer.ejs') %>

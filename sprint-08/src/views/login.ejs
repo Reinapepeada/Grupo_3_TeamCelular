@@ -3,46 +3,54 @@
 
         <%- include('./partials/header.ejs') %>
 
-        <h1>Logueate</h1>
-        <div class="contenedor">
-            <form action="/login" method="post"  class="formulario">
+        <main>
+            <div class="contenedor">
+                <form action="/login" method="post"  class="formulario">
+                    <h1>Logueate</h1>
 
-                    <div class="input-contenedor userField">
-                        <input 
-                            type="email"
-                            name="email" 
-                            placeholder="Correo Electrónico"
-                            class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>"
-                            value="<%= locals.oldData ? oldData.email : null %>"
-                        >
-                    </div>
-                    <% if(locals.errors && errors.email){ %>
-                        <div class="text-danger"><%= errors.email.msg %></div>
-                    <% } %>
+                        <div class="formulario__grupo mb-3">
+                            <input 
+                                type="email"
+                                name="email" 
+                                placeholder="Correo Electrónico"
+                                class="formulario__input <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+                                value="<%= locals.oldData ? oldData.email : null %>"
+                            >
+                        </div>
 
-                    <div class="input-contenedor userField">
-                        <input 
-                        type="password"
-                        name="password" 
-                        placeholder="Constraseña"
-                        class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>"
-                        value="<%= locals.oldData ? oldData.password : null %>"
-                        >
-                    </div>  
-                    <% if(locals.errors && errors.password){ %>
-                        <div class="text-danger"><%= errors.password.msg %></div>
-                    <% } %>
-                
-                    <input type="submit" value="Ingresar" class="button">
-                
-                <div class="form-group form-check">
-                    <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" name="remember_user"><p>Recordar mi usuario</p>
-                    </label>
-                </div>  
-            </form>
-        </div>
-   
-        <%- include('./partials/footer.ejs') %>
-    </body>
+                        <div class="formulario__grupo mb-3">
+                            <input 
+                            type="password"
+                            name="password" 
+                            placeholder="Constraseña"
+                            class="formulario__input <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+                            value="<%= locals.oldData ? oldData.password : null %>"
+                            >
+                        </div>  
+                        
+                        <div class="form-group form-check">
+                            <label class="form-check-label d-flex allign-items-center">
+                                <input type="checkbox" class="form-check-input m-0" name="remember_user"><p class="m-0">Recordar mi usuario</p>
+                            </label>
+                        </div>  
+                            
+                        <% if (locals.errors){ %> 
+                            <div class="formulario__mensaje ">
+                                <h5 class="pt-2">Error en los campos</h5>
+                                <ul class="formMsg  p-4">
+                                    <% errors.forEach(error =>{ %> 
+                                    <li><%= error.msg; %></li>   
+                                    <% }) %>
+                                </ul>
+                            </div>
+                        <% } %> 
+
+                        <input type="submit" value="Ingresar" class="button">
+                    
+                </form>
+            </div>
+    
+            <%- include('./partials/footer.ejs') %>
+        </body>
+    </main>
 </html>

@@ -5,128 +5,149 @@
    
     <main>
         <div class="contenedor">
-            <form class="formulario" action="/products/create" method="POST" enctype="multipart/form-data">
-                <h2>Crear Producto</h2>
-                
-                <h3><b>Nombre:</b></h3>
-                <div class="input-contenedor userField">
-                    <input 
-                    type="text" 
-                    name="name" 
-                    class=" <%= locals.errors && errors.name ? 'is-invalid' : null %>"
-                    value="<%= locals.oldData ? oldData.name : null %>"
-                    >
-                </div>
-                <% if (locals.errors && errors.name) { %>
-                    <div class="text-danger">
-                        <%= errors.name.msg %>
-                    </div>
-                <% } %>
+            <form class="formulario" id="form" action="/products/create" method="POST" enctype="multipart/form-data">
 
+                <h2>Crear Producto</h2>
+               
+                
+                <!-- Grupo: Nombre -->
+                <div class="formulario__grupo mb-3" id="grupo__nombre">
+                    <label for="nombre" class="formulario__label">Nombre</label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="nombre de producto">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+			    </div>
+                
+                <!-- categoria -->
+                <div class="formulario__grupo mb-3">
+                    <label for="category" class="formulario__label">Categoria</label>
+                    <select name="category_id" id="category"  class="formulario__input">
+                        <option value="" disabled selected>seleccione categoría</option>
+                        <% categorysAll.forEach(category => { %>
+                            <option value="<%= category.id %>"><%= category.name %></option>
+                        <% }); %>
+                    </select>
+                </div>
+                    
+            
+                
+                <!-- Precio: -->
+                <div class="formulario__grupo mb-3" id="grupo__precio">
+                    <label for="precio" class="formulario__label">Precio</label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input" name="precio" id="precio" placeholder="precio en pesos">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">Precio Invalido - Solo numérico.</p>
+			    </div>
                 
                     
-                <select name="category_id" id=""  class="selectIn">
-                    <option value="" disabled selected>- seleccione categoría - </option>
-                    <% categorysAll.forEach(category => { %>
-                    <option value="<%= category.id %>"><%= category.name %></option>
-                    <% }); %>
-                </select>
-  
-                <h3><b>Precio:</b></h3>
-                <div class="input-contenedor userField">
-                    <input 
-                        type="text" 
-                        name="price" 
-                        class=" <%= locals.errors && errors.price ? 'is-invalid' : null %>"
-                        value="<%= locals.oldData ? oldData.price : null %>"
-                    >
-                </div>
-                <% if (locals.errors && errors.price) { %>
-                    <div class="text-danger">
-                        <%= errors.price.msg %>
+                        
+                <!-- Stock: -->
+                <div class="formulario__grupo mb-3" id="grupo__stock">
+                    <label for="stock" class="formulario__label">Stock</label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input" name="stock" id="stock" placeholder="Cantidad de producto">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
-                <% } %>
-
-                <h3><b>Stock:</b></h3>
-                <div class="input-contenedoruserField">
-                    <input 
-                        type="text" 
-                        name="stock" 
-                        class=" <%= locals.errors && errors.stock ? 'is-invalid' : null %>"
-                        value="<%= locals.oldData ? oldData.stock : null %>"
-                    >
-                </div>
-                <% if (locals.errors && errors.stock) { %>
-                    <div class="text-danger">
-                        <%= errors.stock.msg %>
+                    <p class="formulario__input-error">El stock debe ser un numero entero.</p>
+			    </div>
+                    
+                    
+                    
+                <!-- <h3><b>Código de producto:</b></h3> -->
+                <div class="formulario__grupo mb-3" id="grupo__codigoProducto">
+                    <label for="codigoProducto" class="formulario__label">Código de producto</label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input" name="codigoProducto" id="codigoProducto" placeholder="Numero de serie, barra">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
-                <% } %>
-              
-        
-                <h3><b>Código de producto:</b></h3>
-                <div class="input-contenedor userField">
-                    <input 
-                        type="text" 
-                        name="product_code" 
-                        class=" <%= locals.errors && errors.product_code ? 'is-invalid' : null %>"
-                        value="<%= locals.oldData ? oldData.product_code : null %>"
-                    >
-                </div>
-
-    
-            
-                <h3><b>Descripcion:</b></h3>
-                <div class="input-contenedor userField">
-                    <input 
-                        type="text" 
-                        name="description" 
-                        class=" <%= locals.errors && errors.description ? 'is-invalid' : null %>"
-                    >
-                </div>
-                <% if (locals.errors && errors.description) { %>
-                    <div class="text-danger">
-                        <%= errors.description.msg %>
-                    </div>
-                <% } %>
-                  
-                <select name="color_id"  class="selectIn">
-                    <option value="" disabled selected>- seleccione color - </option>
-                    <% colorsAll.forEach(color => { %>
-                    <option value="<%= color.id %>"><%= color.name %></option>
-                    <% }); %>
-                </select>
- 
-
-                <select name="status" id=""  class="selectIn">
-                    <option value="" disabled selected>- seleccione status - </option>
-                    <option value="<%= 1 %>">Habilitado</option>
-                    <option value="<%= 2 %>">Desactivado</option>
+                    <p class="formulario__input-error">El stock debe ser un numero entero.</p>
+			    </div>
+                    
+                    
+                    
                 
-                </select>
-
-
-                <select name="brand_id" id=""  class="selectIn">
-                    <option value="" disabled selected>- seleccione marca - </option>
-                    <% brandsAll.forEach(brand => { %>
-                    <option value="<%= brand.id %>"><%= brand.name %></option>
-                    <% }); %>
-                </select>
-
-                <div>
-                    <h3><b>Imagen del producto:</b></h3>
-                    <input 
-                        type="file" 
-                        name="img_id"
-                    >
+                <!-- Descripción: -->
+                <div class="formulario__grupo mb-3" id="grupo__descripcion">
+                    <label for="descripcion" class="formulario__label">Descripción</label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input" name="descripcion" id="descripcion" placeholder="Describe brevemente el producto">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">Este campo debe estar completado</p>
+			    </div>
+                        
+                        
+                
+                <!-- Color: -->
+                <div class="formulario__grupo mb-3">
+                    <label for="color" class="formulario__label">Color</label>
+                    <select name="color_id" id="color"  class="formulario__input">
+                        <option value="" disabled selected>- seleccione color - </option>
+                        <% colorsAll.forEach(color => { %>
+                            <option value="<%= color.id %>"><%= color.name %></option>
+                            <% }); %>
+                    </select>
                 </div>
-
+                
+                    
+                            
+                            
+                            
+                <!-- Status: -->
+                <div class="formulario__grupo mb-3">
+                    <label for="status" class="formulario__label">Status</label>
+                    <select name="status" id="status"  class="formulario__input">
+                        <option value="" disabled selected>- seleccione status - </option>
+                        <option value="<%= 1 %>">Habilitado</option>
+                        <option value="<%= 2 %>">Desactivado</option> 
+                    </select>
+                </div>            
+                            
+                            
+                <!-- Marca: -->
+                <div class="formulario__grupo mb-3"> 
+                    <label for="marca" class="formulario__label">Marca</label>
+                    <select name="brand_id" id="brand"  class="formulario__input">
+                        <option value="" disabled selected>- seleccione marca - </option>
+                        <% brandsAll.forEach(brand => { %>
+                            <option value="<%= brand.id %>"><%= brand.name %></option>
+                        <% }); %>
+                    </select>
+                </div>                
+                                
+                                
+                <label  class="formulario__label">Imagen del Producto</label>
+                <input 
+                    type="file" 
+                    name="img_id"
+                    class="formulario_input"
+                    
+                >
+                 
+                <% if (locals.errors){ %> 
+                    <div class="formulario__mensaje ">
+                        <h5 class="pt-2">Error en los campos</h5>
+                        <ul class="formMsg  p-4">
+                            <% errors.forEach(error =>{ %> 
+                            <li><%= error.msg; %></li>   
+                            <% }) %>
+                        </ul>
+                    </div>
+                <% } %> 
+                            
                 <button type="submit" class="buttonConfirm button">Confirmar</button>
-            
-            </div>
-        </form>
+                
+            </form>
+        </div>
     </main>
-   
-
+    
+                                
+    <script src="/js/valProductForm.js"></script>
     <%- include('../partials/footer.ejs') %>
 </body>
 </html>
+                            
